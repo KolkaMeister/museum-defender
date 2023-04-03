@@ -10,6 +10,6 @@ public class WeaponsInventory
     
     public void TakeWeapon( Weapon w)
     {
-
+        
     }
 }
