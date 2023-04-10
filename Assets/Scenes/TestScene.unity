@@ -540,11 +540,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1461319841}
   updateRate: 2
-  speed: 300
-  fMode: 0
   pathIsEnded: 0
-  nextWaypointDistance: 1
-  stopDistance: 3
+  nextWaypointDistance: 0.1
+  stopDistance: 1
 --- !u!70 &647071264
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
