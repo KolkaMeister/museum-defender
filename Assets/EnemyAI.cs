@@ -66,10 +66,13 @@ public class EnemyAI : MonoBehaviour
         float distStop = Vector3.Distance(transform.position, target.position);
         if (currentWaypoint + stopDistance >= path.vectorPath.Count) {
             Char.MoveDirection = new Vector2(0, 0);
-            if (pathIsEnded) {
+            if (pathIsEnded)
+            {
                 return;
             }
-            Debug.Log("End of path reached.");
+            else {
+                Debug.Log("End of path reached.");
+            }
             pathIsEnded = true;
             return;
         }
