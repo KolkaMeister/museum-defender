@@ -23,6 +23,7 @@ public class EnemyAI : MonoBehaviour
     public float stopDistance = 1;
 
     private int currentWaypoint = 0;
+    private Vector3 dir;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,21 +65,19 @@ public class EnemyAI : MonoBehaviour
             return;
         }
         float distStop = Vector3.Distance(transform.position, target.position);
-        if (currentWaypoint + stopDistance >= path.vectorPath.Count) {
+        if (currentWaypoint + stopDistance >= path.vectorPath.Count)
+        {
             Char.MoveDirection = new Vector2(0, 0);
             if (pathIsEnded)
             {
                 return;
-            }
-            else {
-                Debug.Log("End of path reached.");
             }
             pathIsEnded = true;
             return;
         }
         pathIsEnded = false;
 
-        Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
+        dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
         Char.MoveDirection = new Vector2(dir.x,dir.y);
         Char.AimPos = new Vector2(target.position.x, target.position.y);
 
