@@ -10,20 +10,17 @@ public class EnemyAI : MonoBehaviour
 {
     public Transform target;
 
-    public float updateRate = 2f;
+    public float updateRate = 1f;
     private Seeker seeker;
     private Rigidbody2D rb;
     private Character Char;
 
     public Path path;
 
-    public float speed = 300f;
-    public ForceMode2D fMode;
-
     public bool pathIsEnded = false;
 
-    public float nextWaypointDistance = 3;
-    public float stopDistance = 3;
+    public float nextWaypointDistance = 1;
+    public float stopDistance = 1;
 
     private int currentWaypoint = 0;
     // Start is called before the first frame update
@@ -57,10 +54,6 @@ public class EnemyAI : MonoBehaviour
             currentWaypoint = 0;
         }
     }
-    void directionSend()
-    {
-
-    }
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -71,7 +64,7 @@ public class EnemyAI : MonoBehaviour
             return;
         }
         float distStop = Vector3.Distance(transform.position, target.position);
-        if (currentWaypoint+ stopDistance >= path.vectorPath.Count) {
+        if (currentWaypoint + stopDistance >= path.vectorPath.Count) {
             Char.MoveDirection = new Vector2(0, 0);
             if (pathIsEnded) {
                 return;
