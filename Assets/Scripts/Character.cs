@@ -35,6 +35,7 @@ public class Character : MonoBehaviour
     }
     public void Start()
     {
+        _rb = gameObject.GetComponent<Rigidbody2D>();
         _interactionTarget.OnChanged += OnInteractionTargetChanged;
     }
     public void OnDestroy()
@@ -58,6 +59,7 @@ public class Character : MonoBehaviour
     }
     private void CalculateScale(Vector2 val)
     {
+        //Debug.Log(this);
         var dir = (val.x - transform.position.x);
         if ((val.x-transform.position.x) < 0) { transform.localScale = new Vector2(-1, 1); }
         if ((val.x - transform.position.x) > 0) { transform.localScale = new Vector2(1, 1); }
