@@ -1,11 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.U2D.Common;
 using UnityEngine;
 
+[Serializable]
 public class AmmoInventoryData
 {
-    public List<AmmoItemData> AmmoBags= new List<AmmoItemData>();
+    [SerializeField] public List<AmmoItemData> AmmoBags= new List<AmmoItemData>();
 
     public int CheckAmmo(Ammo _a)
     {
@@ -44,6 +46,7 @@ public class AmmoInventoryData
         }
     }
 }
+[Serializable]
 public class AmmoItemData
 {
     public Ammo Type;

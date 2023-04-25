@@ -11,11 +11,11 @@ public class PlayerInputController : MonoBehaviour
     {
         _character.MoveDirection = context.ReadValue<Vector2>();
     }
-    public void SetAimDirection(InputAction.CallbackContext context)
-    {
-        if (Camera.main != null)
-        _character.AimPos = Camera.main.ScreenToWorldPoint(context.ReadValue<Vector2>());
-    }
+   // public void SetAimDirection(InputAction.CallbackContext context)
+   // {
+      //  if (Camera.main != null)
+      //  _character.AimPos = Camera.main.ScreenToWorldPoint(context.ReadValue<Vector2>());
+    //}
     public void Interact(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -38,6 +38,10 @@ public class PlayerInputController : MonoBehaviour
             return;
         _character.ReloadWeapon();
 
+    }
+    private void Update()
+    {
+        _character.AimPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
     public void Attack(InputAction.CallbackContext context)
     {

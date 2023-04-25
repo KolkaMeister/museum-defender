@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Arrow : MonoBehaviour
+public class Arrow : Projectile
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void OnTriggerEnter2D(Collider2D collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (damageLayer == collision.gameObject.layer && collision.gameObject.GetComponent<ITakeDamage>() != null)
+        {
+            ModifyHealth(collision.gameObject.GetComponent<ITakeDamage>());
+            _rb.velocity = Vector2.zero;
+            transform.SetParent(collision.gameObject.transform);
+        }
     }
 }

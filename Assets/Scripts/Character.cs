@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
@@ -6,11 +7,11 @@ using static ITakeDamage;
 public class Character : MonoBehaviour, ITakeDamage
 {
     //**********************Interaction****************************//
-    private PersistantProperty<IInteractable> _interactionTarget=new PersistantProperty<IInteractable>(null);
+    private ClassPersistantProperty<IInteractable> _interactionTarget = new ClassPersistantProperty<IInteractable>(null);
     //***********************Weapons*******************************//
     [SerializeField] private GameObject _weaponsHolder;
-    private WeaponsInventory _weaponInventory=new WeaponsInventory();
-    private AmmoInventoryData _ammoInventory = new AmmoInventoryData();
+    private WeaponsInventory _weaponInventory = new WeaponsInventory();
+    [SerializeField] private AmmoInventoryData _ammoInventory = new AmmoInventoryData();
     [SerializeField] private Transform holdPoint;
     [SerializeField] private Transform backHoldPoint;
     //********************Physics***************************//
@@ -18,8 +19,6 @@ public class Character : MonoBehaviour, ITakeDamage
     [SerializeField] private float _VelMulti;
     private Vector2 _moveDirection = new Vector2(0,0);
     private Vector2 _aimPos = new Vector2(1,1);
-
-    public event healthChange OnChange;
 
     public Vector2 MoveDirection {
         get { return _moveDirection; }
@@ -38,20 +37,26 @@ public class Character : MonoBehaviour, ITakeDamage
         }
     }
 
-    [SerializeField] private float _health;
-    public float Health { get => _health; set =>_health=value ; }
+    private Coroutine _reloadRoutine;
+
+    [SerializeField] public PersistantProperty<float> _health = new PersistantProperty<float>(20);
+    public PersistantProperty<float> Health { get => _health; set => _health=value; }
 
     public void Start()
     {
         _interactionTarget.OnChanged += OnInteractionTargetChanged;
         _weaponInventory.OnListChanged += OnInventoryChange;
         _weaponInventory.OnUseChanged += OnInventoryIndexChange;
+        _weaponInventory.OnUseChanged+=ReloadCheck;
+        _health.OnChanged += OnHealthChanged;
     }
     public void OnDestroy()
     {
         _interactionTarget.OnChanged -= OnInteractionTargetChanged;
         _weaponInventory.OnListChanged -= OnInventoryChange;
         _weaponInventory.OnUseChanged -= OnInventoryIndexChange;
+        _weaponInventory.OnUseChanged -= ReloadCheck;
+        _health.OnChanged -= OnHealthChanged;
     }
     public void Update()
     {
@@ -95,6 +100,7 @@ public class Character : MonoBehaviour, ITakeDamage
     public void TakeWeapon(Weapon _wep)
     {
         _weaponInventory.TakeWeapon(_wep);
+        _wep.SetAttackLayer();
     }
     public void OnInventoryChange(Weapon _old, Weapon _new)
     {
@@ -131,7 +137,7 @@ public class Character : MonoBehaviour, ITakeDamage
     private void HangOnBackWeapon(Weapon _wep)
     {
         _wep.gameObject.transform.parent = backHoldPoint;
-        _wep.transform.localPosition = new Vector3(0, 0, 0);
+        _wep.transform.localPosition = -_wep.PivotLocalUnactivePosHold;
         _wep.transform.localRotation = Quaternion.Euler(0, 0, _wep.DegreesUnactivRotation);
         _wep.SpriteRenderer.sortingOrder = 1;
     }
@@ -144,21 +150,74 @@ public class Character : MonoBehaviour, ITakeDamage
         _wep.SpriteRenderer.sortingOrder = 3;
         _wep.GetComponent<Collider2D>().enabled = false;
     }
-    public void ReloadWeapon()
-    {
-    }
     public void Attack()
     {
+        if (_weaponInventory.CurrentWeapon == null)
+            return;
+        if (_weaponInventory.CurrentWeapon.IsEmpty&& _reloadRoutine==null)
+        {
+            Reload();
+            return;
+        }
         _weaponInventory.CurrentWeapon.Attack();
+    }
+    public void ReloadCheck(Weapon current, Weapon last)
+    {
+        if (current != last&& _reloadRoutine!=null)
+        {
+        StopCoroutine(_reloadRoutine);
+        _reloadRoutine = null;
+        }
+    }
+    public void ReloadWeapon()
+    {
+        if ( _reloadRoutine == null)
+        Reload();
+    }
+    private void Reload()
+    {
+        if (_weaponInventory.CurrentWeapon == null)
+            return;
+        if (_weaponInventory.CurrentWeapon.IsFull)
+            return;
+        if (_weaponInventory.CurrentWeapon.ReloadTime == 0)
+            return;
+        if (_ammoInventory.CheckAmmo(_weaponInventory.CurrentWeapon.AmmoType) < 1)
+            return;
+        _reloadRoutine = StartCoroutine(ReloadRoutine(_weaponInventory.CurrentWeapon.ReloadTime));
+    }
+
+    private IEnumerator ReloadRoutine(float _time)
+    {
+        var value = 0f;
+
+        while (value<_time)
+        {
+            value += Time.deltaTime;
+            yield return null;
+        }
+        var Totalcount = _ammoInventory.CheckAmmo(_weaponInventory.CurrentWeapon.AmmoType);
+        var relCount = Mathf.Min(Totalcount, _weaponInventory.CurrentWeapon.MaxAmmo);
+        _weaponInventory.CurrentWeapon.Reload(relCount);
+        _ammoInventory.GetAmmo(_weaponInventory.CurrentWeapon.AmmoType, relCount);
+        _reloadRoutine = null;
     }
     public void TakeDamage(float value)
     {
-        
+        _health.Value -= value;
     }
+
 
     public void HealHealth(float value)
     {
-        throw new System.NotImplementedException();
+        _health.Value += value;
+    }
+    public void OnHealthChanged(float newValue, float old)
+    {
+        if (newValue <= 0)
+            Debug.Log("IsDead");
+        else
+            Debug.Log(newValue);
     }
 #if UNITY_EDITOR
     private void OnDrawGizmos()
