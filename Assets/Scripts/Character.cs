@@ -67,7 +67,6 @@ public class Character : MonoBehaviour, ITakeDamage
     {
         if (val == null)
             return;
-        Debug.Log(val.Description);
     }
     private void Velocty()
     {

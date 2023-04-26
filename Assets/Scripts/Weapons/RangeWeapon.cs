@@ -5,7 +5,7 @@ using UnityEngine;
 public class RangeWeapon : Weapon
 {
     [SerializeField] private Transform _projSpawnPos;
-    [SerializeField] private float _force;
+    [SerializeField] protected float _force;
     public override void Attack()
     {
         if (!_fireCooldown.IsReady)

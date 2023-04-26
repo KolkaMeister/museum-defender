@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1062437676
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1062437677}
+  m_Layer: 6
+  m_Name: ArrowHoldPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1062437677
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062437676}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.3, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5204334154838471876}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5204334154838471872
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +42,7 @@ GameObject:
   - component: {fileID: 5204334154838471876}
   - component: {fileID: 5204334154838471879}
   - component: {fileID: 5204334154838471873}
-  - component: {fileID: 5204334154838471877}
+  - component: {fileID: 1473727977}
   m_Layer: 6
   m_Name: Crossbow
   m_TagString: Untagged
@@ -26,7 +57,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5204334154838471872}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.59, y: -2.89, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -34,6 +65,7 @@ Transform:
   - {fileID: 5204334156180962366}
   - {fileID: 5204334155201600049}
   - {fileID: 5204334155870956361}
+  - {fileID: 1062437677}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -105,7 +137,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.59375
---- !u!114 &5204334154838471877
+--- !u!114 &1473727977
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,21 +146,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 5204334154838471872}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02ad225a491c7c345b7e1198c02b5862, type: 3}
+  m_Script: {fileID: 11500000, guid: 176e502f56ec4e24e91ad43f7cbceb95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _ammoType: 1
   _desc: IT'S TIME FOR CROSSBOW!!
   _name: Crossbow
-  _fireRate: 0.1
-  _degreesUnactivRotation: 90
+  _degreesUnactivRotation: 120
   _unactiveHoldPoint: {fileID: 5204334155201600049}
   _holdPoint: {fileID: 5204334156180962366}
   _maxAmmo: 1
-  _currentAmmo: 0
-  _reloadTime: 3
+  _currentAmmo: 1
   proj: {fileID: 0}
-  _projSpawnPos: {fileID: 5204334155870956361}
+  _spriteRenderer: {fileID: 5204334154838471879}
+  _fireCooldown:
+    _resetValue: 0
+  _reloadTime: 1
+  _attackLayer: 0
+  _projSpawnPos: {fileID: 0}
+  _force: 40
+  _arrowHoldPoint: {fileID: 1062437677}
+  _strungArrow: {fileID: 0}
 --- !u!1 &5204334155201600048
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,7 +191,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5204334155201600048}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -184,7 +222,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5204334155870956360}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.374, y: 0.03, z: 0}
+  m_LocalPosition: {x: 0.374, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -215,7 +253,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5204334156180962361}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.28, y: 0, z: 1}
+  m_LocalPosition: {x: -0.28, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
