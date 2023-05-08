@@ -2,24 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PersistantProperty<TType> where TType: class
+public class PersistantProperty<TType>
 {
+    public delegate void OnValueChanged(TType newValue, TType oldValue);
+
+    public event OnValueChanged OnChanged;
     private TType _value;
-    public delegate void OnValueChanged(TType _value);
-    public OnValueChanged OnChanged;
     public TType Value
     {
-        get { return _value; }
-        set 
+        get
         {
-            if (_value == value)
-                return;
+            return _value;
+        }
+        set
+        {
+            if (_value.Equals(value)) return;
+            var oldValue = _value;
             _value = value;
-            OnChanged?.Invoke(_value);
+            OnChanged?.Invoke(_value, oldValue);
         }
     }
-    public PersistantProperty(TType value)
+    public PersistantProperty(TType _default)
     {
-        _value = value;
+        _value= _default;
     }
 }

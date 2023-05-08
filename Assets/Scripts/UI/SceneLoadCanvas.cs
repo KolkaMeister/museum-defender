@@ -1,0 +1,62 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor.SearchService;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+public class SceneLoadCanvas : MonoBehaviour
+{
+    static public SceneLoadCanvas instance;
+    const float sceneLoadTime=1f;
+    [SerializeField] private Image _background;
+
+    Coroutine coroutine;
+    private void Start()
+    {
+        Init();
+    }
+    private void Init()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else
+            Destroy(this);
+    }
+    [ContextMenu("loadScene")]
+    public void LoadScene(int number)
+    {
+        if (coroutine!=null)
+        {
+            StopCoroutine(coroutine);
+            coroutine = null;
+        }
+        coroutine=StartCoroutine(LoadRoutine(number));
+    }
+    
+    private IEnumerator LoadRoutine( int number )
+    {
+        Debug.Log("lul");
+        var loader = SceneManager.LoadSceneAsync(number);
+        loader.allowSceneActivation = false;
+        var startTime = Time.time;
+        Debug.Log(loader.isDone);
+        while ((Time.time < (startTime+sceneLoadTime))&&!loader.isDone)
+        {
+            var progress = (Time.time - startTime) / sceneLoadTime;
+            Debug.Log(progress);
+            _background.color =new Color(0,0,0, progress);
+            yield return null;
+        }
+        loader.allowSceneActivation = true;
+        startTime = Time.time;
+        while (Time.time < startTime + sceneLoadTime)
+        {
+            _background.color = new Color(0,0,0, (sceneLoadTime -(Time.time - startTime)) / sceneLoadTime);
+         yield return null;
+        }
+    }
+}
