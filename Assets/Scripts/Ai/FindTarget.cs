@@ -6,11 +6,17 @@ public class FindTarget : MonoBehaviour
 {
     public string targetTag = "";
     // Start is called before the first frame update
-    void FindTargets() {
+    public void FindTargets() {
         
         GameObject[] myItems = GameObject.FindGameObjectsWithTag(targetTag);
         //Debug.Log("Found " + myItems.Length + " instances with this script attached");
-        GetComponent<EnemyAI>().target = myItems[Random.Range(0, myItems.Length)].transform;
+        try {
+            GetComponent<EnemyAI>().target = myItems[Random.Range(0, myItems.Length)].transform;
+        }
+        catch {
+            Debug.Log("Нет целей");
+        }
+        
     }
     void Start()
     {

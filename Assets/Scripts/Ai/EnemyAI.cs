@@ -18,39 +18,62 @@ public class EnemyAI : MonoBehaviour
     public Path path;
 
     public bool pathIsEnded = false;
+    public bool isWeaponed = false;
 
     public float nextWaypointDistance = 1;
     public float stopDistance = 1;
+    public float distStop;
     public float pogr = 0.5f;
 
     private int currentWaypoint = 0;
     private Vector3 dir;
     // Start is called before the first frame update
-    IEnumerator Starter() {
-        seeker = GetComponent<Seeker>();
-        rb = GetComponent<Rigidbody2D>();
-        Char = GetComponent<Character>();
-
+    IEnumerator Founder() {
         if (target == null)
         {
             Debug.Log("No Target found");
             yield return new WaitForSeconds(1f / updateRate);
-            StartCoroutine(Starter());
+            StartCoroutine(Founder());
         }
-        seeker.StartPath(transform.position, target.position, OnPathComplete);
-        //Debug.Log(this);
+        try
+        {
+            seeker.StartPath(transform.position, target.position, OnPathComplete);
+        }
+        catch {
+            Debug.Log("Цель пропала");
+        }
+            
         StartCoroutine(UpdatePath());
+    }
+    void Starter() {
+        seeker = GetComponent<Seeker>();
+        rb = GetComponent<Rigidbody2D>();
+        Char = GetComponent<Character>();
     }
     void Start()
     {
-        StartCoroutine(Starter());
+        Starter();
+        StartCoroutine(Founder());
+        if (isWeaponed == false)
+        {
+            Char.Interact();
+        }
     }
     IEnumerator UpdatePath()
     {
         if (target == null) {
+            Char.MoveDirection = new Vector2(0, 0);
+            Char.GetComponent<FindTarget>().FindTargets();
             yield return false;
         }
-        seeker.StartPath(transform.position, target.position, OnPathComplete);
+        try
+        {
+            seeker.StartPath(transform.position, target.position, OnPathComplete);
+        }
+        catch {
+            Char.GetComponent<FindTarget>().FindTargets();
+            Char.MoveDirection = new Vector2(0, 0);
+        }
         yield return new WaitForSeconds(1f / updateRate);
         StartCoroutine(UpdatePath());
     }
@@ -61,16 +84,16 @@ public class EnemyAI : MonoBehaviour
             currentWaypoint = 0;
         }
     }
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        if (target == null) {
+    public void MoveControl() {
+        if (target == null)
+        {
             return;
         }
-        if (path == null) {
+        if (path == null)
+        {
             return;
         }
-        float distStop = Vector3.Distance(transform.position, target.position);
+        distStop = Vector3.Distance(transform.position, target.position);
         if (currentWaypoint >= path.vectorPath.Count)
         {
             Char.MoveDirection = new Vector2(0, 0);
@@ -83,29 +106,42 @@ public class EnemyAI : MonoBehaviour
         }
         pathIsEnded = false;
 
-        if (distStop >= stopDistance+pogr )
+        if (distStop >= stopDistance + pogr)
         {
             dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
             Char.MoveDirection = new Vector2(dir.x, dir.y);
         }
-        else if (distStop <= stopDistance-pogr)
+        else if (distStop <= stopDistance - pogr)
         {
             dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
             Char.MoveDirection = new Vector2(-dir.x, -dir.y);
         }
-        else {
+        else
+        {
             Char.MoveDirection = new Vector2(0, 0);
         }
         Char.AimPos = new Vector2(target.position.x, target.position.y);
 
         float dist = Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]);
-        
+
         if (dist < nextWaypointDistance)
         {
             currentWaypoint++;
             return;
         }
 
+    }
+    public void FireControl() {
+        if (distStop <= stopDistance + 1 && target != null) {
+            //Debug.Log("atk");
+            Char.Attack();
+        }
+    }
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        MoveControl();
+        FireControl();
     }
 
 }

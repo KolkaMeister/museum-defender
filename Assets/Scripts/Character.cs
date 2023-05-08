@@ -39,10 +39,10 @@ public class Character : MonoBehaviour, ITakeDamage
 
     private Coroutine _reloadRoutine;
 
-    [SerializeField] public PersistantProperty<float> _health = new PersistantProperty<float>(20);
+    [SerializeField] public PersistantProperty<float> _health = new PersistantProperty<float>(100);
     public PersistantProperty<float> Health { get => _health; set => _health=value; }
 
-    public void Start()
+    public void Awake()
     {
         _rb = gameObject.GetComponent<Rigidbody2D>();
         _interactionTarget.OnChanged += OnInteractionTargetChanged;
@@ -62,7 +62,6 @@ public class Character : MonoBehaviour, ITakeDamage
     public void Update()
     {
         Velocty();
-        CheckInteraction();
     }
     public void OnInteractionTargetChanged(IInteractable val)
     {
@@ -75,7 +74,8 @@ public class Character : MonoBehaviour, ITakeDamage
     }
     public void Interact()
     {
-        if (_interactionTarget.Value!=null)
+        CheckInteraction();
+        if (_interactionTarget.Value != null)
             _interactionTarget.Value.Interact(gameObject);
     }
     private void CalculateScale(Vector2 val)
@@ -216,7 +216,10 @@ public class Character : MonoBehaviour, ITakeDamage
     public void OnHealthChanged(float newValue, float old)
     {
         if (newValue <= 0)
+        {
             Debug.Log("IsDead");
+            Destroy(gameObject);
+        }  
         else
             Debug.Log(newValue);
     }
