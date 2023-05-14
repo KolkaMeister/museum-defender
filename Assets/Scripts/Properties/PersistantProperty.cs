@@ -1,13 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
+[Serializable]
 public class PersistantProperty<TType>
 {
     public delegate void OnValueChanged(TType newValue, TType oldValue);
 
     public event OnValueChanged OnChanged;
-    private TType _value;
+    [SerializeField] private TType _value;
     public TType Value
     {
         get

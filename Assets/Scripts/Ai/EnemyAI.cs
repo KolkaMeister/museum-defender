@@ -29,6 +29,7 @@ public class EnemyAI : MonoBehaviour
     private Vector3 dir;
     // Start is called before the first frame update
     IEnumerator Founder() {
+    
         if (target == null)
         {
             Debug.Log("No Target found");

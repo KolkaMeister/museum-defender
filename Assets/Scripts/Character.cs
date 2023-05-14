@@ -20,6 +20,9 @@ public class Character : MonoBehaviour, ITakeDamage
     private Vector2 _moveDirection = new Vector2(0,0);
     private Vector2 _aimPos = new Vector2(1,1);
 
+    private Animator _animator;
+    static readonly int IsMovingKey = Animator.StringToHash("IsMoving");
+    static readonly int DeathKey = Animator.StringToHash("Death");
     public Vector2 MoveDirection {
         get { return _moveDirection; }
         set 
@@ -45,6 +48,7 @@ public class Character : MonoBehaviour, ITakeDamage
     public void Awake()
     {
         _rb = gameObject.GetComponent<Rigidbody2D>();
+        _animator = gameObject.GetComponent<Animator>();
         _interactionTarget.OnChanged += OnInteractionTargetChanged;
         _weaponInventory.OnListChanged += OnInventoryChange;
         _weaponInventory.OnUseChanged += OnInventoryIndexChange;
@@ -71,6 +75,10 @@ public class Character : MonoBehaviour, ITakeDamage
     private void Velocty()
     {
         _rb.velocity = _moveDirection * _VelMulti;
+        if (_rb.velocity != Vector2.zero)
+            _animator.SetBool(IsMovingKey, true);
+        else
+            _animator.SetBool(IsMovingKey, false);
     }
     public void Interact()
     {
@@ -105,15 +113,19 @@ public class Character : MonoBehaviour, ITakeDamage
     }
     public void OnInventoryChange(Weapon _old, Weapon _new)
     {
-        DropWeapon(_old);
+        DropWeaponAtPoint(_old,transform.position);
+        if (_new == null)
+            return;
         _new.GetComponent<Collider2D>().enabled = false;
         TakeUpWeapon(_new);
     }
-    private void DropWeapon(Weapon _wep)
+
+    private void DropWeaponAtPoint(Weapon _wep,Vector3 _dropPos)
     {
         if (_wep == null)
             return;
         _wep.transform.parent = null;
+        _wep.transform.position = _dropPos;
         _wep.GetComponent<Collider2D>().enabled = true;
         _wep.SpriteRenderer.sortingOrder = 1;
     }
@@ -144,6 +156,8 @@ public class Character : MonoBehaviour, ITakeDamage
     }
     private void TakeUpWeapon(Weapon _wep)
     {
+        if (_wep == null)
+            return;
         _wep.gameObject.transform.parent = holdPoint.transform;
         _wep.transform.localPosition =-_wep.PivotLocalPosHold;
         _wep.transform.localRotation = Quaternion.Euler(0,0,0);
@@ -197,6 +211,8 @@ public class Character : MonoBehaviour, ITakeDamage
             value += Time.deltaTime;
             yield return null;
         }
+        if (_weaponInventory.CurrentWeapon == null)
+            yield break;
         var Totalcount = _ammoInventory.CheckAmmo(_weaponInventory.CurrentWeapon.AmmoType);
         var relCount = Mathf.Min(Totalcount, _weaponInventory.CurrentWeapon.MaxAmmo);
         _weaponInventory.CurrentWeapon.Reload(relCount);
@@ -218,10 +234,20 @@ public class Character : MonoBehaviour, ITakeDamage
         if (newValue <= 0)
         {
             Debug.Log("IsDead");
-            Destroy(gameObject);
+            _animator.SetTrigger(DeathKey);
+            DropWeapons();
+            _moveDirection= Vector3.zero;
+            var ai = GetComponent<EnemyAI>();
+            if (ai != null)
+                ai.enabled = false;
         }  
         else
             Debug.Log(newValue);
+    }
+    private void DropWeapons()
+    {
+        _weaponInventory.DropWeapon(0);
+        _weaponInventory.DropWeapon(1);
     }
 #if UNITY_EDITOR
     private void OnDrawGizmos()
@@ -229,6 +255,6 @@ public class Character : MonoBehaviour, ITakeDamage
         Handles.color = new Color(1,1,0,0.1f);
         Handles.DrawSolidDisc(transform.position, Vector3.forward, 1);
     }
-
+    
 #endif
 }

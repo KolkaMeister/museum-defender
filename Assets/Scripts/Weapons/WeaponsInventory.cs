@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponsInventory
 {
@@ -9,6 +11,7 @@ public class WeaponsInventory
     public delegate void WeaponsUsageChanged(Weapon _current, Weapon _last);
     public WeaponsUsageChanged OnUseChanged;
     [SerializeField] private Weapon[] weapons = new Weapon[2];
+    public Weapon[] Weapons => weapons;
 
     private int _index=0;
     public Weapon CurrentWeapon => weapons[_index];
@@ -36,6 +39,11 @@ public class WeaponsInventory
                 counter++;
             }
         }
+    }
+    public void DropWeapon(int index)
+    {
+        OnListChanged(weapons[index],null);
+        weapons[index] = null;
     }
     public void ChangeIndex(int _ind)
     {
