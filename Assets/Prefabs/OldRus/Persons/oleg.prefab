@@ -110,6 +110,8 @@ MonoBehaviour:
   backHoldPoint: {fileID: 8843799143178317634}
   _rb: {fileID: 8843799142844812972}
   _VelMulti: 3
+  _health:
+    _value: 100
 --- !u!50 &8843799142844812972
 Rigidbody2D:
   serializedVersion: 4
@@ -118,19 +120,19 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8843799142844812946}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!95 &5572466142805624968
 Animator:
   serializedVersion: 4

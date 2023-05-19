@@ -79,6 +79,7 @@ MonoBehaviour:
     _resetValue: 0.15
   _reloadTime: 1
   _attackLayer: 0
+  _spread: 5
   _projSpawnPos: {fileID: 1600408921366970869}
   _force: 60
 --- !u!1 &1600408920962527372
@@ -247,7 +248,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -119352743, guid: d8aa33e32b7cfff4bb1d90b8e799ab61, type: 3}
+  m_Sprite: {fileID: -644249955, guid: 8b38e24de46987b4598aba62a74a011c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

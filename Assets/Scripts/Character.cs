@@ -9,6 +9,7 @@ public class Character : MonoBehaviour, ITakeDamage
     //**********************Interaction****************************//
     private ClassPersistantProperty<IInteractable> _interactionTarget = new ClassPersistantProperty<IInteractable>(null);
     //***********************Weapons*******************************//
+    //[SerializeField] private GameObject _colhozSmert;
     [SerializeField] private GameObject _weaponsHolder;
     private WeaponsInventory _weaponInventory = new WeaponsInventory();
     [SerializeField] private AmmoInventoryData _ammoInventory = new AmmoInventoryData();
@@ -17,22 +18,22 @@ public class Character : MonoBehaviour, ITakeDamage
     //********************Physics***************************//
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private float _VelMulti;
-    private Vector2 _moveDirection = new Vector2(0,0);
-    private Vector2 _aimPos = new Vector2(1,1);
+    private Vector2 _moveDirection = new Vector2(0, 0);
+    private Vector2 _aimPos = new Vector2(1, 1);
 
     private Animator _animator;
     static readonly int IsMovingKey = Animator.StringToHash("IsMoving");
     static readonly int DeathKey = Animator.StringToHash("Death");
     public Vector2 MoveDirection {
         get { return _moveDirection; }
-        set 
+        set
         {
             _moveDirection = value;
-        } 
+        }
     }
     public Vector2 AimPos {
         get { return _aimPos; }
-        set 
+        set
         {
             _aimPos = value;
             CalculateScale(value);
@@ -43,7 +44,10 @@ public class Character : MonoBehaviour, ITakeDamage
     private Coroutine _reloadRoutine;
 
     [SerializeField] public PersistantProperty<float> _health = new PersistantProperty<float>(100);
-    public PersistantProperty<float> Health { get => _health; set => _health=value; }
+    private bool _isDead = false;
+    public PersistantProperty<float> Health { get => _health; set => _health = value; }
+
+    public bool IsDead  { get => _isDead; set => _isDead = value; }
 
     public void Awake()
     {
@@ -233,13 +237,21 @@ public class Character : MonoBehaviour, ITakeDamage
     {
         if (newValue <= 0)
         {
-            Debug.Log("IsDead");
+            if (IsDead)
+                return;
+            IsDead = true;
+            var coll = GetComponent<Collider2D>();
+            if (coll != null)
+                coll.enabled = false;
             _animator.SetTrigger(DeathKey);
             DropWeapons();
             _moveDirection= Vector3.zero;
             var ai = GetComponent<EnemyAI>();
             if (ai != null)
                 ai.enabled = false;
+           // Instantiate(_colhozSmert,transform.position, Quaternion.identity);
+            //Destroy(gameObject);
+
         }  
         else
             Debug.Log(newValue);
