@@ -10,9 +10,6 @@ public class Character : MonoBehaviour, ITakeDamage
     //**********************Interaction****************************//
     private ClassPersistantProperty<IInteractable> _interactionTarget = new ClassPersistantProperty<IInteractable>(null);
     //***********************Weapons*******************************//
-    //Удалить
-    [SerializeField] private GameObject _colhozSmert;
-    //Удалить
     [SerializeField] private GameObject _weaponsHolder;
     private WeaponsInventory _weaponInventory = new WeaponsInventory();
     [SerializeField] private AmmoInventoryData _ammoInventory = new AmmoInventoryData();
@@ -252,12 +249,8 @@ public class Character : MonoBehaviour, ITakeDamage
             var ai = GetComponent<EnemyAI>();
             if (ai != null)
                 ai.enabled = false;
-            //Удалить
-            Instantiate(_colhozSmert,transform.position, Quaternion.identity);
-            Destroy(gameObject);
-            //Удалить
             if (gameObject.name == "Player")
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                SceneLoadCanvas.Instance.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         else
             Debug.Log(newValue);

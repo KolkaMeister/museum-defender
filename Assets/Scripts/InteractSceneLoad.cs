@@ -10,6 +10,6 @@ public class InteractSceneLoad : MonoBehaviour, IInteractable
 
     public void Interact(GameObject obj)
     {
-        SceneLoadCanvas.instance.LoadScene(_loadSceneNumber);
+        SceneLoadCanvas.Instance.LoadScene(_loadSceneNumber);
     }
 }
