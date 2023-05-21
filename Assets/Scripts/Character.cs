@@ -253,8 +253,14 @@ public class Character : MonoBehaviour, ITakeDamage
             if (ai != null)
                 ai.enabled = false;
             //Удалить
-            Instantiate(_colhozSmert,transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            try { 
+                Instantiate(_colhozSmert, transform.position, Quaternion.identity);
+                Destroy(gameObject);
+            }
+            catch {
+                Debug.Log("Что-то не так");
+            }
+            
             //Удалить
             if (gameObject.name == "Player")
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

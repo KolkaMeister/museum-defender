@@ -641,6 +641,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   updateRate: 1
+  rangeAIM: 0.5
   pathIsEnded: 0
   isWeaponed: 0
   nextWaypointDistance: 1
@@ -1053,6 +1054,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   updateRate: 1
+  rangeAIM: 0.5
   pathIsEnded: 0
   isWeaponed: 0
   nextWaypointDistance: 1
@@ -1548,6 +1550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   updateRate: 1
+  rangeAIM: 0.5
   pathIsEnded: 0
   isWeaponed: 0
   nextWaypointDistance: 1
@@ -1780,6 +1783,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoldSovietWW2
       objectReference: {fileID: 0}
+    - target: {fileID: 6603019862872130877, guid: 3181ba03638c7174bb5eff0c9245b408, type: 3}
+      propertyPath: _colhozSmert
+      value: 
+      objectReference: {fileID: 6517416458725690611, guid: b36ee3e68bf29d041a072acd38e62aae, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3181ba03638c7174bb5eff0c9245b408, type: 3}
 --- !u!1 &2044600929
@@ -2301,6 +2308,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoldGerWW2
       objectReference: {fileID: 0}
+    - target: {fileID: 8568531227713245077, guid: e4257366cdc541a4cb4584c650356d72, type: 3}
+      propertyPath: _colhozSmert
+      value: 
+      objectReference: {fileID: 6517416458725690611, guid: b36ee3e68bf29d041a072acd38e62aae, type: 3}
     - target: {fileID: 8568531227713245096, guid: e4257366cdc541a4cb4584c650356d72, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1

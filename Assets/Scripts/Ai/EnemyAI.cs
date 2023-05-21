@@ -11,6 +11,7 @@ public class EnemyAI : MonoBehaviour
     public Transform target;
 
     public float updateRate = 1f;
+    public float rangeAIM = 100f;
     private Seeker seeker;
     private Rigidbody2D rb;
     private Character Char;
@@ -32,7 +33,7 @@ public class EnemyAI : MonoBehaviour
     
         if (target == null)
         {
-            Debug.Log("No Target found");
+            //Debug.Log("No Target found");
             yield return new WaitForSeconds(1f / updateRate);
             StartCoroutine(Founder());
         }
@@ -42,6 +43,7 @@ public class EnemyAI : MonoBehaviour
         }
         catch {
             Debug.Log("Цель пропала");
+            target = null;
         }
             
         StartCoroutine(UpdatePath());
@@ -135,6 +137,7 @@ public class EnemyAI : MonoBehaviour
     public void FireControl() {
         if (distStop <= stopDistance + 1 && target != null) {
             //Debug.Log("atk");
+            //Char.AimPos = new Vector2(target.position.x + Random.Range(-rangeAIM, rangeAIM), target.position.y + Random.Range(-rangeAIM, rangeAIM));
             Char.Attack();
         }
     }

@@ -163,10 +163,12 @@ MonoBehaviour:
     _resetValue: 0
   _reloadTime: 1
   _attackLayer: 0
+  _spread: 0
   _projSpawnPos: {fileID: 0}
   _force: 40
   _arrowHoldPoint: {fileID: 1062437677}
   _strungArrow: {fileID: 0}
+  ShotRange: 0.1
 --- !u!1 &5204334155201600048
 GameObject:
   m_ObjectHideFlags: 0

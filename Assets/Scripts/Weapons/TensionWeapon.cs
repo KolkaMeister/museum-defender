@@ -6,6 +6,7 @@ public class TensionWeapon : RangeWeapon
 {
     [SerializeField] protected Transform _arrowHoldPoint;
     [SerializeField] protected Projectile _strungArrow;
+    [SerializeField] float ShotRange = 1f;
 
     private void Start()
     {
@@ -19,7 +20,7 @@ public class TensionWeapon : RangeWeapon
             return;
         _strungArrow.transform.parent = null;
         _strungArrow.transform.localScale = Vector2.one;
-        _strungArrow.AddForce((_arrowHoldPoint.position - _holdPoint.position).normalized, _force);
+        _strungArrow.AddForce((_arrowHoldPoint.position - _holdPoint.position).normalized + new Vector3(Random.Range(-ShotRange, ShotRange), Random.Range(-ShotRange, ShotRange)), _force);
         _strungArrow.GetComponent<Collider2D>().enabled = true;
         _strungArrow.GetComponent<Collider2D>().isTrigger = true;
         _strungArrow.damageLayer = _attackLayer;
