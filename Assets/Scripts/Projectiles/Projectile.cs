@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    [SerializeField] bool _destroyOnHit;
     [SerializeField] protected float _modifyValue;
     [SerializeField] public int damageLayer;
     [SerializeField] protected Rigidbody2D _rb;
@@ -19,6 +20,8 @@ public class Projectile : MonoBehaviour
         if (damageLayer == collision.gameObject.layer && collision.gameObject.GetComponent<ITakeDamage>()!=null)
         {
             ModifyHealth(collision.gameObject.GetComponent<ITakeDamage>());
+            if (_destroyOnHit)
+                DestroyOnHit();
         }
     }
     protected virtual void ModifyHealth(ITakeDamage obj)
@@ -34,5 +37,9 @@ public class Projectile : MonoBehaviour
         //Debug.Log(_dir);
         //_rb.velocity= new Vector2(Mathf.Cos(transform.rotation.z), Mathf.Sin(transform.rotation.z)) * _multi;
         _rb.velocity = transform.right * _multi;
+    }
+    private void DestroyOnHit()
+    {
+        Destroy(gameObject);
     }
 }

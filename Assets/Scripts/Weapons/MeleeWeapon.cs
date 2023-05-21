@@ -23,7 +23,6 @@ public class MeleeWeapon : Weapon
     { yield return null; }    
     protected virtual void DealDamage()
     {
-        Debug.Log("inf");
         var lay = _attackLayer == 8 ? 256 : 8;
         var arr = Physics2D.OverlapCircleAll(_damagePoint.position, _damageRadius,lay);
         Debug.Log(lay);

@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static ITakeDamage;
 
 public class Character : MonoBehaviour, ITakeDamage
@@ -9,6 +10,9 @@ public class Character : MonoBehaviour, ITakeDamage
     //**********************Interaction****************************//
     private ClassPersistantProperty<IInteractable> _interactionTarget = new ClassPersistantProperty<IInteractable>(null);
     //***********************Weapons*******************************//
+    //Удалить
+    [SerializeField] private GameObject _colhozSmert;
+    //Удалить
     [SerializeField] private GameObject _weaponsHolder;
     private WeaponsInventory _weaponInventory = new WeaponsInventory();
     [SerializeField] private AmmoInventoryData _ammoInventory = new AmmoInventoryData();
@@ -17,19 +21,22 @@ public class Character : MonoBehaviour, ITakeDamage
     //********************Physics***************************//
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private float _VelMulti;
-    private Vector2 _moveDirection = new Vector2(0,0);
-    private Vector2 _aimPos = new Vector2(1,1);
+    private Vector2 _moveDirection = new Vector2(0, 0);
+    private Vector2 _aimPos = new Vector2(1, 1);
 
+    private Animator _animator;
+    static readonly int IsMovingKey = Animator.StringToHash("IsMoving");
+    static readonly int DeathKey = Animator.StringToHash("Death");
     public Vector2 MoveDirection {
         get { return _moveDirection; }
-        set 
+        set
         {
             _moveDirection = value;
-        } 
+        }
     }
     public Vector2 AimPos {
         get { return _aimPos; }
-        set 
+        set
         {
             _aimPos = value;
             CalculateScale(value);
@@ -40,11 +47,15 @@ public class Character : MonoBehaviour, ITakeDamage
     private Coroutine _reloadRoutine;
 
     [SerializeField] public PersistantProperty<float> _health = new PersistantProperty<float>(100);
-    public PersistantProperty<float> Health { get => _health; set => _health=value; }
+    private bool _isDead = false;
+    public PersistantProperty<float> Health { get => _health; set => _health = value; }
+
+    public bool IsDead  { get => _isDead; set => _isDead = value; }
 
     public void Awake()
     {
         _rb = gameObject.GetComponent<Rigidbody2D>();
+        _animator = gameObject.GetComponent<Animator>();
         _interactionTarget.OnChanged += OnInteractionTargetChanged;
         _weaponInventory.OnListChanged += OnInventoryChange;
         _weaponInventory.OnUseChanged += OnInventoryIndexChange;
@@ -71,6 +82,10 @@ public class Character : MonoBehaviour, ITakeDamage
     private void Velocty()
     {
         _rb.velocity = _moveDirection * _VelMulti;
+        if (_rb.velocity != Vector2.zero)
+            _animator.SetBool(IsMovingKey, true);
+        else
+            _animator.SetBool(IsMovingKey, false);
     }
     public void Interact()
     {
@@ -105,15 +120,19 @@ public class Character : MonoBehaviour, ITakeDamage
     }
     public void OnInventoryChange(Weapon _old, Weapon _new)
     {
-        DropWeapon(_old);
+        DropWeaponAtPoint(_old,transform.position);
+        if (_new == null)
+            return;
         _new.GetComponent<Collider2D>().enabled = false;
         TakeUpWeapon(_new);
     }
-    private void DropWeapon(Weapon _wep)
+
+    private void DropWeaponAtPoint(Weapon _wep,Vector3 _dropPos)
     {
         if (_wep == null)
             return;
         _wep.transform.parent = null;
+        _wep.transform.position = _dropPos;
         _wep.GetComponent<Collider2D>().enabled = true;
         _wep.SpriteRenderer.sortingOrder = 1;
     }
@@ -144,6 +163,8 @@ public class Character : MonoBehaviour, ITakeDamage
     }
     private void TakeUpWeapon(Weapon _wep)
     {
+        if (_wep == null)
+            return;
         _wep.gameObject.transform.parent = holdPoint.transform;
         _wep.transform.localPosition =-_wep.PivotLocalPosHold;
         _wep.transform.localRotation = Quaternion.Euler(0,0,0);
@@ -197,6 +218,8 @@ public class Character : MonoBehaviour, ITakeDamage
             value += Time.deltaTime;
             yield return null;
         }
+        if (_weaponInventory.CurrentWeapon == null)
+            yield break;
         var Totalcount = _ammoInventory.CheckAmmo(_weaponInventory.CurrentWeapon.AmmoType);
         var relCount = Mathf.Min(Totalcount, _weaponInventory.CurrentWeapon.MaxAmmo);
         _weaponInventory.CurrentWeapon.Reload(relCount);
@@ -217,11 +240,32 @@ public class Character : MonoBehaviour, ITakeDamage
     {
         if (newValue <= 0)
         {
-            Debug.Log("IsDead");
+            if (IsDead)
+                return;
+            IsDead = true;
+            var coll = GetComponent<Collider2D>();
+            if (coll != null)
+                coll.enabled = false;
+            _animator.SetTrigger(DeathKey);
+            DropWeapons();
+            _moveDirection= Vector3.zero;
+            var ai = GetComponent<EnemyAI>();
+            if (ai != null)
+                ai.enabled = false;
+            //Удалить
+            Instantiate(_colhozSmert,transform.position, Quaternion.identity);
             Destroy(gameObject);
-        }  
+            //Удалить
+            if (gameObject.name == "Player")
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
         else
             Debug.Log(newValue);
+    }
+    private void DropWeapons()
+    {
+        _weaponInventory.DropWeapon(0);
+        _weaponInventory.DropWeapon(1);
     }
 #if UNITY_EDITOR
     private void OnDrawGizmos()
@@ -229,6 +273,6 @@ public class Character : MonoBehaviour, ITakeDamage
         Handles.color = new Color(1,1,0,0.1f);
         Handles.DrawSolidDisc(transform.position, Vector3.forward, 1);
     }
-
+    
 #endif
 }
