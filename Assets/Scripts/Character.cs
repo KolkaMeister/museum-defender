@@ -9,6 +9,7 @@ public class Character : MonoBehaviour, ITakeDamage
 {
     //**********************Interaction****************************//
     private ClassPersistantProperty<IInteractable> _interactionTarget = new ClassPersistantProperty<IInteractable>(null);
+    [SerializeField] private GameObject _deadCond;
     //***********************Weapons*******************************//
     [SerializeField] private GameObject _weaponsHolder;
     private WeaponsInventory _weaponInventory = new WeaponsInventory();
@@ -249,8 +250,11 @@ public class Character : MonoBehaviour, ITakeDamage
             var ai = GetComponent<EnemyAI>();
             if (ai != null)
                 ai.enabled = false;
+            
             if (gameObject.name == "Player")
                 SceneLoadCanvas.Instance.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Instantiate(_deadCond,transform.position,Quaternion.identity);
+            Destroy(gameObject);
         }
         else
             Debug.Log(newValue);

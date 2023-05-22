@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14928126b502f0b48bdc49498b58bcd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _colhozSmert: {fileID: 6517416458725690611, guid: 429a5370836ae3e42b51126143be8579, type: 3}
+  _deadCond: {fileID: 6517416458725690611, guid: 429a5370836ae3e42b51126143be8579, type: 3}
   _weaponsHolder: {fileID: 4030189607290513938}
   _ammoInventory:
     AmmoBags:
