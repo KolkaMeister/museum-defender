@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,7 +8,17 @@ using UnityEngine.UI;
 
 public class SceneLoadCanvas : MonoBehaviour
 {
-    static public SceneLoadCanvas instance;
+    static private SceneLoadCanvas instance;
+    static public SceneLoadCanvas Instance {
+        get
+        {
+            if (instance != null)
+                return instance;
+            else
+               return instance = Instantiate<SceneLoadCanvas>(Resources.Load("UI/SceneLoader").GetComponent<SceneLoadCanvas>());
+        }
+    private set { }
+    }
     const float sceneLoadTime=1f;
     [SerializeField] private Image _background;
 
@@ -26,7 +37,6 @@ public class SceneLoadCanvas : MonoBehaviour
         else
             Destroy(this);
     }
-    [ContextMenu("loadScene")]
     public void LoadScene(int number)
     {
         if (coroutine!=null)

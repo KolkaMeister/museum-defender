@@ -9,10 +9,8 @@ public class Character : MonoBehaviour, ITakeDamage
 {
     //**********************Interaction****************************//
     private ClassPersistantProperty<IInteractable> _interactionTarget = new ClassPersistantProperty<IInteractable>(null);
+    [SerializeField] private GameObject _deadCond;
     //***********************Weapons*******************************//
-    //Удалить
-    [SerializeField] private GameObject _colhozSmert;
-    //Удалить
     [SerializeField] private GameObject _weaponsHolder;
     private WeaponsInventory _weaponInventory = new WeaponsInventory();
     [SerializeField] private AmmoInventoryData _ammoInventory = new AmmoInventoryData();
@@ -252,6 +250,7 @@ public class Character : MonoBehaviour, ITakeDamage
             var ai = GetComponent<EnemyAI>();
             if (ai != null)
                 ai.enabled = false;
+<<<<<<< HEAD
             //Удалить
             try { 
                 Instantiate(_colhozSmert, transform.position, Quaternion.identity);
@@ -262,8 +261,13 @@ public class Character : MonoBehaviour, ITakeDamage
             }
             
             //Удалить
+=======
+            
+>>>>>>> main
             if (gameObject.name == "Player")
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                SceneLoadCanvas.Instance.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Instantiate(_deadCond,transform.position,Quaternion.identity);
+            Destroy(gameObject);
         }
         else
             Debug.Log(newValue);
