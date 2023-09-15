@@ -263,6 +263,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e8940a4a-929d-4796-a571-99e144b1f93f
     m_ActionName: Player/Aim[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 04514126-542d-44ea-944d-649a906cfbc3
+    m_ActionName: Player/Interact[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2fc1f313-7185-45d0-92da-a703b4e3d18f
+    m_ActionName: Player/SwitchWeapon[/Keyboard/1,/Keyboard/2]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 631481ef-accb-4cd3-98d4-94a001550bfb
+    m_ActionName: Player/Attack[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e8d8f5fe-ca67-4cf7-9b73-c99549b27ec3
+    m_ActionName: Player/Reload[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 860678308161367468}
+        m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
+        m_MethodName: Pause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 501aa94b-916d-418f-9d4a-77e0c8c1e9e1
+    m_ActionName: Player/Pause[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -281,6 +313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _character: {fileID: 860678308161367471}
+  _isAttackPressed: 0
 --- !u!114 &860678308161367471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,9 +326,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14928126b502f0b48bdc49498b58bcd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _deadCond: {fileID: 0}
   _weaponsHolder: {fileID: 860678308020898894}
+  _ammoInventory:
+    AmmoBags: []
+  holdPoint: {fileID: 0}
+  backHoldPoint: {fileID: 0}
   _rb: {fileID: 860678308161367440}
   _VelMulti: 3
+  _health:
+    _value: 100
 --- !u!50 &860678308161367440
 Rigidbody2D:
   serializedVersion: 4

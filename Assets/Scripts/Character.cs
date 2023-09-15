@@ -1,9 +1,8 @@
 using System.Collections;
-using TMPro;
+using UI;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static ITakeDamage;
 
 public class Character : MonoBehaviour, ITakeDamage
 {
@@ -252,7 +251,7 @@ public class Character : MonoBehaviour, ITakeDamage
                 ai.enabled = false;
             
             if (gameObject.name == "Player")
-                SceneLoadCanvas.Instance.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                SceneLoader.LoadScene(SceneManager.GetActiveScene().buildIndex, false);
             Instantiate(_deadCond,transform.position,Quaternion.identity);
             Destroy(gameObject);
         }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UI;
 using UnityEngine;
 
 public class InteractSceneLoad : MonoBehaviour, IInteractable
@@ -10,6 +11,6 @@ public class InteractSceneLoad : MonoBehaviour, IInteractable
 
     public void Interact(GameObject obj)
     {
-        SceneLoadCanvas.Instance.LoadScene(_loadSceneNumber);
+        SceneLoader.LoadScene(_loadSceneNumber, false);
     }
 }
