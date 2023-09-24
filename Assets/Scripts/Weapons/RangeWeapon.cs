@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RangeWeapon : Weapon
@@ -23,9 +21,5 @@ public class RangeWeapon : Weapon
         obj.AddForce(finalForceVec, _force);
         _currentAmmo--;
         _fireCooldown.Reset();
-    }
-    public override void Reload(int count)
-    {
-        base.Reload(count);
     }
 }

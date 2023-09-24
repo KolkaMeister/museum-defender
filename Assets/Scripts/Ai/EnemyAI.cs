@@ -32,7 +32,7 @@ public class EnemyAI : MonoBehaviour
     
         if (target == null)
         {
-            Debug.Log("No Target found");
+            // Debug.Log("No Target found");
             yield return new WaitForSeconds(1f / updateRate);
             StartCoroutine(Founder());
         }
@@ -41,7 +41,7 @@ public class EnemyAI : MonoBehaviour
             seeker.StartPath(transform.position, target.position, OnPathComplete);
         }
         catch {
-            Debug.Log("Цель пропала");
+            // Debug.Log("Р¦РµР»СЊ РїСЂРѕРїР°Р»Р°");
         }
             
         StartCoroutine(UpdatePath());

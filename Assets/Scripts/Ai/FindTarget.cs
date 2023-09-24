@@ -14,7 +14,7 @@ public class FindTarget : MonoBehaviour
             GetComponent<EnemyAI>().target = myItems[Random.Range(0, myItems.Length)].transform;
         }
         catch {
-            Debug.Log("Нет целей");
+            // Debug.Log("пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ");
         }
         
     }
