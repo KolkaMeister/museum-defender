@@ -3,6 +3,7 @@ using UI;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Utility;
 
 public class Character : MonoBehaviour, ITakeDamage
 {
@@ -88,7 +89,7 @@ public class Character : MonoBehaviour, ITakeDamage
     {
         CheckInteraction();
         if (_interactionTarget.Value != null)
-            _interactionTarget.Value.Interact(gameObject);
+            _interactionTarget.Value.Interact(this);
     }
     private void CalculateScale(Vector2 val)
     {
@@ -113,7 +114,7 @@ public class Character : MonoBehaviour, ITakeDamage
     public void TakeWeapon(Weapon _wep)
     {
         _weaponInventory.TakeWeapon(_wep);
-        _wep.SetAttackLayer();
+        _wep.SetAttackLayer(gameObject.layer == Idents.PlayerLayer ? Idents.EnemyLayer : Idents.PlayerLayer);
     }
     public void OnInventoryChange(Weapon _old, Weapon _new)
     {
@@ -154,8 +155,8 @@ public class Character : MonoBehaviour, ITakeDamage
     private void HangOnBackWeapon(Weapon _wep)
     {
         _wep.gameObject.transform.parent = backHoldPoint;
-        _wep.transform.localPosition = -_wep.PivotLocalUnactivePosHold;
-        _wep.transform.localRotation = Quaternion.Euler(0, 0, _wep.DegreesUnactivRotation);
+        _wep.transform.localPosition = -_wep.PivotLocalInactivePosHold;
+        _wep.transform.localRotation = Quaternion.Euler(0, 0, _wep.degreesInactiveRotation);
         _wep.SpriteRenderer.sortingOrder = 1;
     }
     private void TakeUpWeapon(Weapon _wep)

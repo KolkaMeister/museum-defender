@@ -9,7 +9,7 @@ public class InteractSceneLoad : MonoBehaviour, IInteractable
     [SerializeField] int _loadSceneNumber;
     public string Description { get => _desc; set => _desc=value; }
 
-    public void Interact(GameObject obj)
+    public void Interact(Character obj)
     {
         SceneLoader.LoadScene(_loadSceneNumber, false);
     }

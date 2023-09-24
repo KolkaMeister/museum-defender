@@ -16,7 +16,7 @@ public class StartDialog : MonoBehaviour, IInteractable
         _dialogBox = FindObjectOfType<DialogBox>();
     }
 
-    public void Interact(GameObject obj)
+    public void Interact(Character obj)
     {
         _dialogData.OnDialogEnd = OnDialogEnd;
         _dialogBox.StartDialog(_dialogData);
