@@ -251,7 +251,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 860678308161367468}
         m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
-        m_MethodName: SetAimDirection
+        m_MethodName: SetMousePosition
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
