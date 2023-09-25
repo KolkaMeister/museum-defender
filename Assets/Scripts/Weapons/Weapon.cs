@@ -11,13 +11,14 @@ public class Weapon : MonoBehaviour, IInteractable
     [SerializeField] protected Transform _holdPoint;
     [SerializeField] protected int _maxAmmo;
     [SerializeField] protected int _currentAmmo;
-    [SerializeField] protected Projectile proj;
+    [FormerlySerializedAs("proj"),SerializeField] protected Projectile _proj;
     [SerializeField] protected SpriteRenderer _spriteRenderer;
     [SerializeField] protected Cooldown _fireCooldown;
     [SerializeField] protected float _reloadTime;
     [SerializeField] protected int _attackLayer;
+    [SerializeField] protected Collider2D _collider;
     public Ammo AmmoType => _ammoType;
-    public int degreesInactiveRotation => _degreesInactiveRotation;
+    public int DegreesInactiveRotation => _degreesInactiveRotation;
     public Vector3 PivotLocalInactivePosHold => _inactiveHoldPoint.localPosition;
     public Vector3 PivotLocalPosHold => _holdPoint.localPosition;
     public SpriteRenderer SpriteRenderer => _spriteRenderer;
@@ -32,6 +33,37 @@ public class Weapon : MonoBehaviour, IInteractable
     {
         get => _desc;
         set => _desc = value;
+    }
+
+    public void Drop(Vector3 at)
+    {
+        transform.SetParent(null);
+        transform.position = at;
+        _collider.enabled = true;
+        ChangeSpriteOrder(1);
+    }
+
+    public void HandOnBack(Transform parent)
+    {
+        transform.SetParent(parent);
+        transform.localPosition = -PivotLocalInactivePosHold;
+        transform.localRotation = Quaternion.Euler(0, 0, _degreesInactiveRotation);
+        ChangeSpriteOrder(1);
+    }
+
+    public void TakeUp(Transform parent, Vector3 localScale)
+    {
+        transform.SetParent(parent);
+        transform.localPosition = -PivotLocalPosHold;
+        transform.localRotation = Quaternion.identity;
+        transform.localScale = localScale;
+        ChangeSpriteOrder(3);
+        _collider.enabled = false;
+    }
+
+    public virtual void ChangeSpriteOrder(int order)
+    {
+        SpriteRenderer.sortingOrder = order;
     }
 
     public void Interact(Character obj) => obj.TakeWeapon(this);

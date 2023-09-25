@@ -9,26 +9,34 @@ using Utility;
 public class Character : MonoBehaviour, ITakeDamage
 {
     //**********************Interaction****************************//
-    private ClassPersistantProperty<IInteractable> _interactionTarget = new ClassPersistantProperty<IInteractable>(null);
+    private readonly ClassPersistantProperty<IInteractable>
+        _interactionTarget = new ClassPersistantProperty<IInteractable>(null);
     [SerializeField] private GameObject _deadCond;
 
     //***********************Weapons*******************************//
     private readonly WeaponsInventory _weaponInventory = new WeaponsInventory();
     [SerializeField] private GameObject _weaponsHolder;
     [SerializeField] private AmmoInventoryData _ammoInventory = new AmmoInventoryData();
-    [FormerlySerializedAs("holdPoint"),SerializeField] private Transform _holdPoint;
-    [FormerlySerializedAs("backHoldPoint"),SerializeField] private Transform _backHoldPoint;
+
+    [FormerlySerializedAs("holdPoint"), SerializeField]
+    private Transform _holdPoint;
+
+    [FormerlySerializedAs("backHoldPoint"), SerializeField]
+    private Transform _backHoldPoint;
 
     //********************Physics***************************//
     [SerializeField] private Rigidbody2D _rb;
-    [FormerlySerializedAs("_VelMulti"),SerializeField] private float _velMulti;
+
+    [FormerlySerializedAs("_VelMulti"), SerializeField]
+    private float _velMulti;
+
     [SerializeField] private Collider2D _collider;
     private Vector2 _moveDirection = new Vector2(0, 0);
     private Vector2 _aimPos = new Vector2(1, 1);
 
     [SerializeField] private PersistantProperty<float> _health = new PersistantProperty<float>(100);
     [SerializeField] private EnemyAI _ai;
-    
+
     private Animator _animator;
     private static readonly int _isMovingKey = Animator.StringToHash("IsMoving");
     private static readonly int _deathKey = Animator.StringToHash("Death");
@@ -98,10 +106,8 @@ public class Character : MonoBehaviour, ITakeDamage
         Velocity();
     }
 
-    public void OnInteractionTargetChanged(IInteractable val)
+    private void OnInteractionTargetChanged(IInteractable val)
     {
-        if (val == null)
-            return;
     }
 
     private void Velocity()
@@ -137,28 +143,21 @@ public class Character : MonoBehaviour, ITakeDamage
     }
 
     //////////Weapons Methods//////////
-    public void TakeWeapon(Weapon _wep)
+    public void TakeWeapon(Weapon wep)
     {
-        _weaponInventory.TakeWeapon(_wep);
-        _wep.SetAttackLayer(gameObject.layer == Idents.PlayerLayer ? Idents.EnemyLayer : Idents.PlayerLayer);
+        _weaponInventory.TakeWeapon(wep);
+        wep.SetAttackLayer(gameObject.layer == Idents.PlayerLayer ? Idents.EnemyLayer : Idents.PlayerLayer);
     }
 
-    public void OnInventoryChanged(Weapon _old, Weapon _new)
+    private void OnInventoryChanged(Weapon oldValue, Weapon newValue)
     {
-        DropWeaponAtPoint(_old, transform.position);
-        if (!_new) return;
-        
-        TakeUpWeapon(_new);
+        if (oldValue) DropWeaponAtPoint(oldValue, transform.position);
+        if (newValue) TakeUpWeapon(newValue);
     }
 
-    private void DropWeaponAtPoint(Weapon _wep, Vector3 _dropPos)
+    private void DropWeaponAtPoint(Weapon wep, Vector3 position)
     {
-        if (!_wep) return;
-        
-        _wep.transform.parent = null;
-        _wep.transform.position = _dropPos;
-        _wep.GetComponent<Collider2D>().enabled = true;
-        _wep.SpriteRenderer.sortingOrder = 1;
+        wep.Drop(position);
     }
 
     public void SetCurrentWeaponIndex(int weaponIndex)
@@ -167,39 +166,29 @@ public class Character : MonoBehaviour, ITakeDamage
         _weaponInventory.ChangeIndex(weaponIndex);
     }
 
-    public void OnInventoryIndexChanged(Weapon _current, Weapon _last)
+    private void OnInventoryIndexChanged(Weapon current, Weapon last)
     {
-        if (_last)
+        if (last)
         {
-            HangOnBackWeapon(_last);
+            HangOnBackWeapon(last);
             // Debug.Log(_last);
         }
 
-        if (_current)
+        if (current)
         {
-            TakeUpWeapon(_current);
+            TakeUpWeapon(current);
             // Debug.Log(_current);
         }
     }
 
-    private void HangOnBackWeapon(Weapon _wep)
+    private void HangOnBackWeapon(Weapon wep)
     {
-        _wep.gameObject.transform.parent = _backHoldPoint;
-        _wep.transform.localPosition = -_wep.PivotLocalInactivePosHold;
-        _wep.transform.localRotation = Quaternion.Euler(0, 0, _wep.degreesInactiveRotation);
-        _wep.SpriteRenderer.sortingOrder = 1;
+        wep.HandOnBack(_backHoldPoint);
     }
 
-    private void TakeUpWeapon(Weapon _wep)
+    private void TakeUpWeapon(Weapon wep)
     {
-        if (!_wep) return;
-        
-        _wep.gameObject.transform.parent = _holdPoint.transform;
-        _wep.transform.localPosition = -_wep.PivotLocalPosHold;
-        _wep.transform.localRotation = Quaternion.Euler(0, 0, 0);
-        _wep.transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
-        _wep.SpriteRenderer.sortingOrder = 3;
-        _wep.GetComponent<Collider2D>().enabled = false;
+        wep.TakeUp(_holdPoint.transform, new Vector3(1, transform.localScale.y, transform.localScale.z));
     }
 
     public void Attack()
@@ -212,7 +201,7 @@ public class Character : MonoBehaviour, ITakeDamage
             _weaponInventory.CurrentWeapon.Attack();
     }
 
-    public void ReloadCheck(Weapon current, Weapon last)
+    private void ReloadCheck(Weapon current, Weapon last)
     {
         if (current != last && _isReloading)
         {
@@ -229,7 +218,7 @@ public class Character : MonoBehaviour, ITakeDamage
     private void Reload()
     {
         if (_isReloading) return;
-        
+
         Weapon current = _weaponInventory.CurrentWeapon;
         if (!current || current.IsFull || current.ReloadTime == 0)
             return;
@@ -245,7 +234,7 @@ public class Character : MonoBehaviour, ITakeDamage
 
         Weapon current = _weaponInventory.CurrentWeapon;
         if (!current) yield break;
-        
+
         int totalCount = _ammoInventory.GetAmmo(current.AmmoType);
         int relCount = Mathf.Min(totalCount, current.MaxAmmo);
         current.Reload(relCount);
@@ -253,30 +242,23 @@ public class Character : MonoBehaviour, ITakeDamage
         _isReloading = false;
     }
 
-    public void TakeDamage(float value)
-    {
-        _health.Value -= value;
-    }
-
-    public void HealHealth(float value)
+    public void ChangeHealth(float value)
     {
         _health.Value += value;
     }
 
-    public void OnHealthChanged(float newValue, float old)
+    private void OnHealthChanged(float newValue, float old)
     {
         if (newValue <= 0)
         {
             if (IsDead) return;
-            
+
             IsDead = true;
-            if (_collider)
-                _collider.enabled = false;
+            if (_collider) _collider.enabled = false;
             _animator.SetTrigger(_deathKey);
             DropWeapons();
             _moveDirection = Vector2.zero;
-            if (!_ai)
-                _ai.enabled = false;
+            if (_ai) _ai.enabled = false;
 
             if (gameObject.name == "Player")
                 SceneLoader.LoadScene(SceneManager.GetActiveScene().buildIndex, false);
@@ -292,7 +274,7 @@ public class Character : MonoBehaviour, ITakeDamage
         _weaponInventory.DropWeapon(0);
         _weaponInventory.DropWeapon(1);
     }
-    
+
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
