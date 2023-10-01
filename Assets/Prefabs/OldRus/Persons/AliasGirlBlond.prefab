@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 6603019862872130817}
   - component: {fileID: 6603019862872130816}
   - component: {fileID: 6603019862872130877}
+  - component: {fileID: 3011344087458770545}
   - component: {fileID: 8525534020568538854}
   - component: {fileID: 6603019862872130818}
   - component: {fileID: 3263748896599771810}
@@ -180,6 +181,25 @@ MonoBehaviour:
   _velMulti: 3
   _health:
     _value: 100
+--- !u!114 &3011344087458770545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6603019862872130876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cf4c7c80a76424fb9c07a8ceb24f4d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponsHolder: {fileID: 6603019862480020701}
+  _ammoInventory:
+    AmmoBags:
+    - Type: 1
+      Count: 50
+  _holdPoint: {fileID: 6603019862480020701}
+  _backHoldPoint: {fileID: 6603019862538249452}
 --- !u!114 &8525534020568538854
 MonoBehaviour:
   m_ObjectHideFlags: 0

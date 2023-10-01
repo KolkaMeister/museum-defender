@@ -2,9 +2,9 @@
 
 namespace Utility
 {
-    public static class UnityExtensions
+    public static class UnityUtils
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int ToLayerMask(this int obj) => 1 << obj;
+        public static int ToLayerMask(int obj) => 1 << obj;
     }
 }

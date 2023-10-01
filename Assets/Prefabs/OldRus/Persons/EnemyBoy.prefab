@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8568531227713245096}
   - component: {fileID: 8568531227713245077}
   - component: {fileID: 6985610843513616648}
+  - component: {fileID: 8049913962147843969}
   - component: {fileID: 8568531227713245098}
   - component: {fileID: 1194398111}
   - component: {fileID: 1194398103}
@@ -134,6 +135,25 @@ MonoBehaviour:
   UpdateTime: 0
   InteractionDistance: 1
   DebugTarget: {fileID: 0}
+--- !u!114 &8049913962147843969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8568531227713245076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cf4c7c80a76424fb9c07a8ceb24f4d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponsHolder: {fileID: 8568531227837951605}
+  _ammoInventory:
+    AmmoBags:
+    - Type: 1
+      Count: 50
+  _holdPoint: {fileID: 8568531227837951605}
+  _backHoldPoint: {fileID: 8568531227912957508}
 --- !u!50 &8568531227713245098
 Rigidbody2D:
   serializedVersion: 4

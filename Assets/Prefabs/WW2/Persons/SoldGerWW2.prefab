@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 8568531227713245097}
   - component: {fileID: 8568531227713245096}
   - component: {fileID: 8568531227713245077}
+  - component: {fileID: 5178337995593763007}
+  - component: {fileID: 5901999060743541226}
   - component: {fileID: 8568531227713245098}
   - component: {fileID: 1194398111}
   - component: {fileID: 1194398103}
-  - component: {fileID: 5178337995593763007}
   - component: {fileID: 1194398104}
   - component: {fileID: 1194398105}
   - component: {fileID: 4120394965986449260}
@@ -106,7 +107,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14928126b502f0b48bdc49498b58bcd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interaction: {fileID: 0}
   _deadCond: {fileID: 6517416458725690611, guid: 58de0fbf29fb2ce45a0516c9b88e25b0, type: 3}
   _weaponsHolder: {fileID: 8568531227837951604}
   _ammoInventory:
@@ -119,6 +119,41 @@ MonoBehaviour:
   _velMulti: 3
   _health:
     _value: 100
+--- !u!114 &5178337995593763007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8568531227713245076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad056776b074c3283c1f927500d549e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsUpdate: 0
+  UpdateTime: 0
+  InteractionDistance: 1
+  DebugTarget: {fileID: 0}
+--- !u!114 &5901999060743541226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8568531227713245076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cf4c7c80a76424fb9c07a8ceb24f4d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponsHolder: {fileID: 8568531227837951605}
+  _ammoInventory:
+    AmmoBags:
+    - Type: 1
+      Count: 50
+  _holdPoint: {fileID: 8568531227837951605}
+  _backHoldPoint: {fileID: 8568531227912957508}
 --- !u!50 &8568531227713245098
 Rigidbody2D:
   serializedVersion: 4
@@ -184,22 +219,6 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
---- !u!114 &5178337995593763007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8568531227713245076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fad056776b074c3283c1f927500d549e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsUpdate: 0
-  UpdateTime: 0
-  InteractionDistance: 1
-  DebugTarget: {fileID: 0}
 --- !u!114 &1194398104
 MonoBehaviour:
   m_ObjectHideFlags: 0

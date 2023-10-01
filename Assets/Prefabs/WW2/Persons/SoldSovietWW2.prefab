@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 6603019862872130816}
   - component: {fileID: 6603019862872130877}
   - component: {fileID: 2051086654146914167}
+  - component: {fileID: 7721114970671301703}
   - component: {fileID: 6603019862872130818}
   - component: {fileID: 3263748896599771810}
   - component: {fileID: 3263748896599771811}
@@ -168,7 +169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14928126b502f0b48bdc49498b58bcd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interaction: {fileID: 0}
   _deadCond: {fileID: 0}
   _weaponsHolder: {fileID: 6603019862480020700}
   _ammoInventory:
@@ -197,6 +197,25 @@ MonoBehaviour:
   UpdateTime: 0
   InteractionDistance: 1
   DebugTarget: {fileID: 0}
+--- !u!114 &7721114970671301703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6603019862872130876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cf4c7c80a76424fb9c07a8ceb24f4d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponsHolder: {fileID: 6603019862480020701}
+  _ammoInventory:
+    AmmoBags:
+    - Type: 1
+      Count: 50
+  _holdPoint: {fileID: 6603019862480020701}
+  _backHoldPoint: {fileID: 6603019862538249452}
 --- !u!50 &6603019862872130818
 Rigidbody2D:
   serializedVersion: 4

@@ -12,6 +12,7 @@ public class Spear : MeleeWeapon
     public override void Attack()
     {
         if (!_fireCooldown.IsReady) return;
+        
         AttackAnimation();
         DealDamage();
         _fireCooldown.Reset();
@@ -27,7 +28,7 @@ public class Spear : MeleeWeapon
         while (Time.time < end)
         {
             if (Time.time < secondStageStartTime)
-                _sprite.localPosition = Vector3.Lerp(_spriteBasePos, _spriteAttackPos,
+                _sprite.localPosition = Vector3.Lerp(_spriteAttackPos, _spriteBasePos,
                     (Time.time - startTime) / (animationTime * 2 / 5));
             else
                 _sprite.localPosition = Vector3.Lerp(_spriteAttackPos, _spriteBasePos,

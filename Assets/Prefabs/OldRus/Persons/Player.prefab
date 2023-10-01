@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4030189607167085552}
   - component: {fileID: 4030189607167085555}
   - component: {fileID: 2233834608653732482}
+  - component: {fileID: 5472443254997322437}
   - component: {fileID: 4030189607167085516}
   - component: {fileID: 1246957032}
   - component: {fileID: 2886519015962199136}
@@ -200,10 +201,10 @@ MonoBehaviour:
     m_ActionName: Player/Attack[/Mouse/leftButton]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4030189607167085555}
-        m_TargetAssemblyTypeName: Character, Assembly-CSharp
+      - m_Target: {fileID: 4030189607167085552}
+        m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
         m_MethodName: ReloadWeapon
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -289,6 +290,25 @@ MonoBehaviour:
   UpdateTime: 0.1
   InteractionDistance: 1
   DebugTarget: {fileID: 0}
+--- !u!114 &5472443254997322437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4030189607167085554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cf4c7c80a76424fb9c07a8ceb24f4d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponsHolder: {fileID: 4030189607290513939}
+  _ammoInventory:
+    AmmoBags:
+    - Type: 1
+      Count: 50
+  _holdPoint: {fileID: 4030189607290513939}
+  _backHoldPoint: {fileID: 4030189607366502946}
 --- !u!50 &4030189607167085516
 Rigidbody2D:
   serializedVersion: 4
