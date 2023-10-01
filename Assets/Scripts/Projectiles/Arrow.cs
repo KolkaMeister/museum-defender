@@ -12,11 +12,11 @@ public class Arrow : Projectile
         }
     }
 
-    public override void Shot(Vector3 dir, float speed, int layer)
+    public override void Shot(Vector2 dir, float speed, int layer)
     {
         transform.SetParent(null);
         transform.localScale = Vector3.one;
-        _rb.velocity = dir.normalized * speed;
+        _rb.velocity = dir * speed;
         _collider.isTrigger = true;
         _collider.enabled = true;
         _damageLayer = layer;

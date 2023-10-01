@@ -15,7 +15,8 @@ public class Projectile : MonoBehaviour
     public Collider2D Collider => _collider;
     public SpriteRenderer Renderer => _renderer;
     public Rigidbody2D Rb => _rb;
-    
+
+
     public void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -36,12 +37,11 @@ public class Projectile : MonoBehaviour
         obj.ChangeHealth(_modifyValue);
     }
 
-    public virtual void Shot(Vector3 dir, float speed, int layer)
+    public virtual void Shot(Vector2 dir, float speed, int layer)
     {
     }
 
-    private void DestroyOnHit()
+    protected virtual void DestroyOnHit()
     {
-        Destroy(gameObject);
     }
 }

@@ -4,7 +4,7 @@ public class TensionWeapon : RangeWeapon
 {
     [SerializeField] protected Transform _arrowHoldPoint;
     [SerializeField] protected Projectile _strungArrow;
-
+    
     private void Start()
     {
         if (_currentAmmo > 0)
@@ -36,7 +36,7 @@ public class TensionWeapon : RangeWeapon
 
     private void SetArrow()
     {
-        _strungArrow = Instantiate(_proj, transform);
+        _strungArrow = _pool.Pop(transform);
         _strungArrow.transform.localPosition = _arrowHoldPoint.localPosition;
         _strungArrow.Collider.enabled = false;
         _strungArrow.Renderer.sortingOrder = SpriteRenderer.sortingOrder;
