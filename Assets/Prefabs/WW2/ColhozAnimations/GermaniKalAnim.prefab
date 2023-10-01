@@ -110,7 +110,7 @@ MonoBehaviour:
     - {fileID: -1346174843, guid: 6241e143512e1844582d41f039bcb74a, type: 3}
     - {fileID: 1021349046, guid: 6241e143512e1844582d41f039bcb74a, type: 3}
     - {fileID: -288502495, guid: 6241e143512e1844582d41f039bcb74a, type: 3}
-    loop: 1
+    loop: 0
     allowNextClip: 0
     onComplete:
       m_PersistentCalls:

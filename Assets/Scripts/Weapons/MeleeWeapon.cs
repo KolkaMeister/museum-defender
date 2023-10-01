@@ -35,8 +35,8 @@ public class MeleeWeapon : Weapon
         var colliders = Physics2D.OverlapCircleAll(_damagePoint.position, _damageRadius, lay);
         foreach (Collider2D item in colliders)
         {
-            var health = item.GetComponent<ITakeDamage>();
-            health?.ChangeHealth(_damage);
+            if(item.TryGetComponent(out ITakeDamage health))
+                health.ChangeHealth(_damage);
         }
     }
 

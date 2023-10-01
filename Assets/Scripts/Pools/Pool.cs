@@ -1,37 +1,40 @@
 ﻿using System.Collections.Generic;
-using Di;
 using UnityEngine;
+using Zenject;
 
 namespace Pools
 {
-    public class Pool<T> : IPool<T>
+    public class Pool<T> : IPool<T>, IInitializable
     where T : MonoBehaviour
     {
         private Transform _parent;
         private Queue<T> _queue;
         private T _prefab;
-        private DiMonoInstaller _installer;
+        private DiContainer _container;
         private int _capacity;
 
-        public Pool(T prefab, int capacity, Transform parent, DiMonoInstaller installer)
+        [Inject]
+        public Pool(T prefab, int capacity, Transform parent, DiContainer container)
         {
             _capacity = capacity;
             _prefab = prefab;
             _parent = parent;
-            _installer = installer;
+            _container = container;
             _queue = new Queue<T>(_capacity);
         }
 
-        public void Instantiate()
+        public void Initialize()
         {
             for (var i = 0; i < _capacity; i++)
             {
-                T obj = _installer.InstantiatePrefab(_prefab, _parent);
-                obj.gameObject.SetActive(false);
-                _queue.Enqueue(obj);
+                var comp = _container
+                    .InstantiatePrefab(_prefab, _parent)
+                    .GetComponent<T>();
+                comp.gameObject.SetActive(false);
+                _queue.Enqueue(comp);
             }
         }
-        
+
         public void Push(T obj)
         {
             obj.gameObject.SetActive(false);

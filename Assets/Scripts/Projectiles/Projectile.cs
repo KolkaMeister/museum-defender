@@ -28,7 +28,7 @@ public class Projectile : MonoBehaviour
         {
             ModifyHealth(damage);
             if (_destroyOnHit)
-                DestroyOnHit();
+                BackToPool();
         }
     }
 
@@ -41,7 +41,7 @@ public class Projectile : MonoBehaviour
     {
     }
 
-    protected virtual void DestroyOnHit()
+    protected virtual void BackToPool()
     {
     }
 }

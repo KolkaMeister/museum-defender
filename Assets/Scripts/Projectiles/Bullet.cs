@@ -1,21 +1,20 @@
-using System;
-using Di;
 using Pools;
 using UnityEngine;
+using Zenject;
 
 public class Bullet : Projectile
 {
     private Pool<Bullet> _pool;
 
     [Inject]
-    public void Construct(PoolLocator locator)
+    public void Construct(Pool<Bullet> pool)
     {
-        _pool = locator.GetPool<Bullet>();
+        _pool = pool;
     }
     
     private void OnEnable()
     {
-        Invoke(nameof(DestroyOnHit), 0.5f);
+        Invoke(nameof(BackToPool), 0.5f);
     }
 
     public override void Shot(Vector2 dir, float speed, int layer)
@@ -24,12 +23,7 @@ public class Bullet : Projectile
         _damageLayer = layer;
     }
 
-    private void OnDisable()
-    {
-        _rb.velocity = Vector2.zero;
-    }
-
-    protected override void DestroyOnHit()
+    protected override void BackToPool()
     {
         _pool.Push(this);
     }

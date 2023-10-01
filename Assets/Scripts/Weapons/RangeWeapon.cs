@@ -1,7 +1,6 @@
-using Di;
 using Pools;
-using UnityEditor;
 using UnityEngine;
+using Zenject;
 
 public class RangeWeapon : Weapon
 {
@@ -12,9 +11,9 @@ public class RangeWeapon : Weapon
     protected Pool<Bullet> _pool;
 
     [Inject]
-    public void Construct(PoolLocator poolLocator)
+    public void Construct(Pool<Bullet> pool)
     {
-        _pool = poolLocator.GetPool<Bullet>();
+        _pool = pool;
     }
     
     public override void Attack()
