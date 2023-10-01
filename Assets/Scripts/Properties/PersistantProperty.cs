@@ -13,14 +13,11 @@ public class PersistantProperty<TType>
     [SerializeField] private TType _value;
     public TType Value
     {
-        get
-        {
-            return _value;
-        }
+        get => _value;
         set
         {
             if (_value.Equals(value)) return;
-            var oldValue = _value;
+            TType oldValue = _value;
             _value = value;
             OnChanged?.Invoke(_value, oldValue);
         }

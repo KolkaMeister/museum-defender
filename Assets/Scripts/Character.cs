@@ -30,12 +30,12 @@ public class Character : MonoBehaviour, ITakeDamage
     [FormerlySerializedAs("_VelMulti"), SerializeField]
     private float _velMulti;
 
-    [SerializeField] private Collider2D _collider;
+    private Collider2D _collider;
     private Vector2 _moveDirection = new Vector2(0, 0);
     private Vector2 _aimPos = new Vector2(1, 1);
 
     [SerializeField] private PersistantProperty<float> _health = new PersistantProperty<float>(100);
-    [SerializeField] private EnemyAI _ai;
+    private EnemyAI _ai;
 
     private Animator _animator;
     private static readonly int _isMovingKey = Animator.StringToHash("IsMoving");

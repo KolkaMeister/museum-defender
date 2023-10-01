@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -15,6 +14,7 @@ public class Projectile : MonoBehaviour
 
     public Collider2D Collider => _collider;
     public SpriteRenderer Renderer => _renderer;
+    public Rigidbody2D Rb => _rb;
     
     public void Awake()
     {
@@ -34,14 +34,6 @@ public class Projectile : MonoBehaviour
     protected virtual void ModifyHealth(ITakeDamage obj)
     {
         obj.ChangeHealth(_modifyValue);
-    }
-
-    public virtual void AddForce(Vector3 dir, float speed)
-    {
-        transform.rotation = Quaternion.Euler(0, 0, MathF.Atan2(dir.y, dir.x) * Mathf.Rad2Deg);
-        //Debug.Log(_dir);
-        //_rb.velocity= new Vector2(Mathf.Cos(transform.rotation.z), Mathf.Sin(transform.rotation.z)) * _multi;
-        _rb.velocity = transform.right * speed;
     }
 
     public virtual void Shot(Vector3 dir, float speed, int layer)

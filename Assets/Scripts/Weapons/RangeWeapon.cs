@@ -10,20 +10,24 @@ public class RangeWeapon : Weapon
     {
         if (!_fireCooldown.IsReady || _currentAmmo < 1) return;
 
-        Projectile obj = Instantiate(_proj, _projSpawnPos.transform.position, Quaternion.identity);
-        Vector3 dir = GetFinalDir();
-        obj.AddForce(dir, _force);
+        float angle = GetSpreadAngle();
+        Projectile obj = Instantiate(_proj, _projSpawnPos.transform.position,
+            Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg));
+        
+        Vector3 dir = GetFinalDir(angle);
+        obj.Rb.velocity = transform.right * _force;
+        
         obj.Shot(dir, _force, _attackLayer);
         _currentAmmo--;
         _fireCooldown.Reset();
     }
 
-    private Vector3 GetFinalDir()
+    private Vector3 GetFinalDir(float angle) =>
+        new Vector3(Mathf.Sin(angle), Mathf.Cos(angle), _projSpawnPos.position.z);
+
+    private float GetSpreadAngle()
     {
-        // TODO: Correct!!!
-        var aimVector = (_projSpawnPos.position - _holdPoint.position).normalized;
-        var finalRad = Mathf.Atan2(aimVector.x, aimVector.y) + Random.Range(-_spread, _spread) * Mathf.Deg2Rad;
-        var finalForceVec = new Vector3(Mathf.Sin(finalRad), Mathf.Cos(finalRad), _projSpawnPos.position.z);
-        return finalForceVec;
+        Vector3 aimVector = (_projSpawnPos.position - _holdPoint.position).normalized;
+        return Mathf.Atan2(aimVector.x, aimVector.y) + Random.Range(-_spread, _spread) * Mathf.Deg2Rad;
     }
 }

@@ -105,15 +105,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14928126b502f0b48bdc49498b58bcd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _deadCond: {fileID: 6517416458725690611, guid: 58de0fbf29fb2ce45a0516c9b88e25b0, type: 3}
   _weaponsHolder: {fileID: 8568531227837951604}
   _ammoInventory:
     AmmoBags:
     - Type: 1
       Count: 50
-  holdPoint: {fileID: 8568531227837951605}
-  backHoldPoint: {fileID: 8568531227912957508}
+  _holdPoint: {fileID: 8568531227837951605}
+  _backHoldPoint: {fileID: 8568531227912957508}
   _rb: {fileID: 8568531227713245098}
-  _VelMulti: 3
+  _velMulti: 3
   _health:
     _value: 100
 --- !u!50 &8568531227713245098

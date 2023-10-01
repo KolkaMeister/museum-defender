@@ -148,5 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _destroyOnHit: 1
   _modifyValue: -10
-  damageLayer: 0
+  _damageLayer: 0
   _rb: {fileID: 0}
+  _collider: {fileID: 4924226676793480950}
+  _renderer: {fileID: 4924226676793480936}

@@ -167,17 +167,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14928126b502f0b48bdc49498b58bcd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _deadCond: {fileID: 0}
   _weaponsHolder: {fileID: 6603019862480020700}
   _ammoInventory:
     AmmoBags:
     - Type: 1
       Count: 50
-  holdPoint: {fileID: 6603019862480020701}
-  backHoldPoint: {fileID: 6603019862538249452}
+  _holdPoint: {fileID: 6603019862480020701}
+  _backHoldPoint: {fileID: 6603019862538249452}
   _rb: {fileID: 6603019862872130818}
-  _VelMulti: 3
+  _velMulti: 3
+  _collider: {fileID: 3263748896599771810}
   _health:
     _value: 100
+  _ai: {fileID: 3263748896599771819}
 --- !u!50 &6603019862872130818
 Rigidbody2D:
   serializedVersion: 4

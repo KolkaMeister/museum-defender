@@ -213,6 +213,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e8d8f5fe-ca67-4cf7-9b73-c99549b27ec3
     m_ActionName: Player/Reload[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 501aa94b-916d-418f-9d4a-77e0c8c1e9e1
+    m_ActionName: Player/Pause[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -244,17 +248,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14928126b502f0b48bdc49498b58bcd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _deadCond: {fileID: 0}
   _weaponsHolder: {fileID: 4030189607290513938}
   _ammoInventory:
     AmmoBags:
     - Type: 1
       Count: 50
-  holdPoint: {fileID: 4030189607290513939}
-  backHoldPoint: {fileID: 4030189607366502946}
+  _holdPoint: {fileID: 4030189607290513939}
+  _backHoldPoint: {fileID: 4030189607366502946}
   _rb: {fileID: 4030189607167085516}
-  _VelMulti: 3
+  _velMulti: 3
+  _collider: {fileID: 1235214392002676372}
   _health:
     _value: 100
+  _ai: {fileID: 0}
 --- !u!50 &4030189607167085516
 Rigidbody2D:
   serializedVersion: 4

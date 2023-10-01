@@ -1,37 +1,42 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using Utility;
 
 public class MeleeWeapon : Weapon
 {
-   [SerializeField] protected float animationTime;
-   [SerializeField] protected Transform _damagePoint;
-   [SerializeField] protected float _damageRadius;
-   [SerializeField] protected float _damage;
-    protected Coroutine _animRoutine;
+    [SerializeField] protected float animationTime;
+    [SerializeField] protected Transform _damagePoint;
+    [SerializeField] protected float _damageRadius;
+    [SerializeField] protected float _damage;
+    protected bool _isAnimRoutine;
+
     protected virtual void AttackAnimation()
     {
-        if (_animRoutine != null)
+        if (_isAnimRoutine)
         {
-            StopCoroutine(_animRoutine);
-            _animRoutine = null;
+            StopAllCoroutines();
+            _isAnimRoutine = false;
         }
-        _animRoutine = StartCoroutine(AnimationCoroutine());
+
+        StartCoroutine(AnimationCoroutine());
     }
+
     protected virtual IEnumerator AnimationCoroutine()
-    { yield return null; }    
+    {
+        yield return null;
+    }
+
     protected virtual void DealDamage()
     {
-        var lay = _attackLayer == 8 ? 256 : 8;
-        var arr = Physics2D.OverlapCircleAll(_damagePoint.position, _damageRadius,lay);
-        Debug.Log(lay);
-        foreach (var item in arr) 
+        int lay = _attackLayer == Idents.EnemyLayer
+            ? Idents.EnemyLayer.ToLayerMask()
+            : Idents.PlayerLayer.ToLayerMask();
+        var colliders = Physics2D.OverlapCircleAll(_damagePoint.position, _damageRadius, lay);
+        foreach (Collider2D item in colliders)
         {
-            Debug.Log(item);
-            var health= item.GetComponent<ITakeDamage>();
-            if (health != null)
-                health.ChangeHealth(_damage);
+            var health = item.GetComponent<ITakeDamage>();
+            health?.ChangeHealth(_damage);
         }
     }
 
