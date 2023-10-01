@@ -5,12 +5,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using Utility;
+using static Utility.Idents;
 
 public class Character : MonoBehaviour, ITakeDamage
 {
     //**********************Interaction****************************//
-    private readonly ClassPersistantProperty<IInteractable>
-        _interactionTarget = new ClassPersistantProperty<IInteractable>(null);
     [SerializeField] private GameObject _deadCond;
 
     //***********************Weapons*******************************//
@@ -30,6 +29,7 @@ public class Character : MonoBehaviour, ITakeDamage
     [FormerlySerializedAs("_VelMulti"), SerializeField]
     private float _velMulti;
 
+    private Interaction _interaction;
     private Collider2D _collider;
     private Vector2 _moveDirection = new Vector2(0, 0);
     private Vector2 _aimPos = new Vector2(1, 1);
@@ -79,13 +79,13 @@ public class Character : MonoBehaviour, ITakeDamage
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        _interaction = GetComponent<Interaction>();
         TryGetComponent(out _collider);
         TryGetComponent(out _ai);
     }
 
     private void OnEnable()
     {
-        _interactionTarget.OnChanged += OnInteractionTargetChanged;
         _weaponInventory.OnListChanged += OnInventoryChanged;
         _weaponInventory.OnUseChanged += OnInventoryIndexChanged;
         _weaponInventory.OnUseChanged += ReloadCheck;
@@ -94,7 +94,6 @@ public class Character : MonoBehaviour, ITakeDamage
 
     private void OnDisable()
     {
-        _interactionTarget.OnChanged -= OnInteractionTargetChanged;
         _weaponInventory.OnListChanged -= OnInventoryChanged;
         _weaponInventory.OnUseChanged -= OnInventoryIndexChanged;
         _weaponInventory.OnUseChanged -= ReloadCheck;
@@ -106,21 +105,13 @@ public class Character : MonoBehaviour, ITakeDamage
         Velocity();
     }
 
-    private void OnInteractionTargetChanged(IInteractable val)
-    {
-    }
-
     private void Velocity()
     {
         _rb.velocity = _moveDirection * _velMulti;
         _animator.SetBool(_isMovingKey, _rb.velocity != Vector2.zero);
     }
 
-    public void Interact()
-    {
-        CheckInteraction();
-        _interactionTarget.Value?.Interact(this);
-    }
+    public void Interact() => _interaction.Interact();
 
     private void CalculateScale(Vector2 view)
     {
@@ -135,18 +126,11 @@ public class Character : MonoBehaviour, ITakeDamage
         _weaponsHolder.transform.rotation = Quaternion.Euler(0, 0, rad * 180 / Mathf.PI);
     }
 
-    private void CheckInteraction()
-    {
-        Collider2D coll = Physics2D.OverlapCircle(transform.position, 1, LayerMask.GetMask("Interactable"));
-        _interactionTarget.Value = coll != null ? coll.GetComponent<IInteractable>() : null;
-        // Debug.Log(coll?.name);
-    }
-
     //////////Weapons Methods//////////
     public void TakeWeapon(Weapon wep)
     {
         _weaponInventory.TakeWeapon(wep);
-        wep.SetAttackLayer(gameObject.layer == Idents.PlayerLayer ? Idents.EnemyLayer : Idents.PlayerLayer);
+        wep.SetAttackLayer(gameObject.layer == Layers.Player ? Idents.Layers.Enemy : Layers.Player);
     }
 
     private void OnInventoryChanged(Weapon oldValue, Weapon newValue)

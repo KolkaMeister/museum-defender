@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEditor;
 using UnityEngine;
 using Utility;
+using static Utility.Idents;
 
 public class MeleeWeapon : Weapon
 {
@@ -29,9 +30,9 @@ public class MeleeWeapon : Weapon
 
     protected virtual void DealDamage()
     {
-        int lay = _attackLayer == Idents.EnemyLayer
-            ? Idents.EnemyLayer.ToLayerMask()
-            : Idents.PlayerLayer.ToLayerMask();
+        int lay = _attackLayer == Layers.Enemy
+            ? Layers.Enemy.ToLayerMask()
+            : Layers.Player.ToLayerMask();
         var colliders = Physics2D.OverlapCircleAll(_damagePoint.position, _damageRadius, lay);
         foreach (Collider2D item in colliders)
         {

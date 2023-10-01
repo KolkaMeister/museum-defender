@@ -8,6 +8,7 @@ namespace Infrastructure
     {
         public Transform ProjectileContainer; 
         public Bullet Bullet;
+        public int BulletPoolCapacity;
 
         public override void InstallBindings()
         {
@@ -20,7 +21,7 @@ namespace Infrastructure
                 .BindInterfacesAndSelfTo<Pool<Bullet>>()
                 .FromNew()
                 .AsSingle()
-                .WithArguments(Bullet, 20, ProjectileContainer);
+                .WithArguments(Bullet, BulletPoolCapacity, ProjectileContainer);
         }
     }
 }

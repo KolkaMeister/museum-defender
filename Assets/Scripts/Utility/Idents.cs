@@ -4,7 +4,10 @@ namespace Utility
 {
     public static class Idents
     {
-        public static readonly int PlayerLayer = LayerMask.NameToLayer("Player");
-        public static readonly int EnemyLayer = LayerMask.NameToLayer("Enemies");
+        public static class Layers
+        {
+            public static readonly int Player = LayerMask.NameToLayer("Player");
+            public static readonly int Enemy = LayerMask.NameToLayer("Enemies");
+        }
     }
 }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4030189607167085553}
   - component: {fileID: 4030189607167085552}
   - component: {fileID: 4030189607167085555}
+  - component: {fileID: 8138258695882420443}
   - component: {fileID: 4030189607167085516}
   - component: {fileID: 1246957032}
   - component: {fileID: 1235214392002676372}
@@ -248,6 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14928126b502f0b48bdc49498b58bcd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interaction: {fileID: 0}
   _deadCond: {fileID: 0}
   _weaponsHolder: {fileID: 4030189607290513938}
   _ammoInventory:
@@ -258,10 +260,24 @@ MonoBehaviour:
   _backHoldPoint: {fileID: 4030189607366502946}
   _rb: {fileID: 4030189607167085516}
   _velMulti: 3
-  _collider: {fileID: 1235214392002676372}
   _health:
     _value: 100
-  _ai: {fileID: 0}
+--- !u!114 &8138258695882420443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4030189607167085554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad056776b074c3283c1f927500d549e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsUpdate: 1
+  UpdateTime: 0.1
+  InteractionDistance: 1
+  DebugTarget: {fileID: 0}
 --- !u!50 &4030189607167085516
 Rigidbody2D:
   serializedVersion: 4
