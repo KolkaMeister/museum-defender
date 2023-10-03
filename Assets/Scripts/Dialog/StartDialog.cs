@@ -1,22 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class StartDialog : MonoBehaviour, IInteractable
 {
-    [SerializeField] private string _desk;
-    [SerializeField] private DialogData _dialogData;
-    [SerializeField] public UnityEvent onDialogEnd;
+    public UnityEvent OnDialogEnd;
     public string Description { get => _desk; set => _desk=value; }
-
+    
+    [SerializeField] private DialogData _dialogData;
+    [SerializeField] private string _desk;
     private DialogBox _dialogBox;
-    public void Interact(GameObject obj)
+
+    private void Start()
     {
-        if (_dialogBox == null)
-            _dialogBox=FindObjectOfType<DialogBox>();
-        _dialogData.onDialogEnd = onDialogEnd;
+        _dialogBox = FindObjectOfType<DialogBox>();
+    }
+
+    public void Interact(Character obj)
+    {
+        _dialogData.OnDialogEnd = OnDialogEnd;
         _dialogBox.StartDialog(_dialogData);
     }
 }

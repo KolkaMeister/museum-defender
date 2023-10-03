@@ -31,7 +31,7 @@ public class MeleeWeapon : Weapon
             Debug.Log(item);
             var health= item.GetComponent<ITakeDamage>();
             if (health != null)
-                health.TakeDamage(_damage);
+                health.ChangeHealth(_damage);
         }
     }
 

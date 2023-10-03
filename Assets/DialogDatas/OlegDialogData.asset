@@ -12,23 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78b41ce3bd5bed645ac77d5be89a1333, type: 3}
   m_Name: OlegDialogData
   m_EditorClassIdentifier: 
-  data:
+  Dialogs:
   - Name: Oleg
     Text: Privet dohodiaga, kak tvoi dela
   - Name: SASHA
     Text: NORM
-  onDialogEnd:
+  OnDialogEnd:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []

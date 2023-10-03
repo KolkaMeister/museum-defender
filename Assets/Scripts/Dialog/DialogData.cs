@@ -7,10 +7,11 @@ using UnityEngine.Events;
 [Serializable] [CreateAssetMenu(fileName = "DialogData", menuName = "Defs/DialogData")]
 public class DialogData : ScriptableObject
 {
-    [SerializeField] public DialogDataItem[] data;
-    [SerializeField] public UnityEvent onDialogEnd;
+    [SerializeField] public DialogDataItem[] Dialogs;
+    [SerializeField] public UnityEvent OnDialogEnd;
 
 }
+
 [Serializable]
 public class DialogDataItem
 {

@@ -1,43 +1,53 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent( typeof(Rigidbody2D))]
-
+[RequireComponent(typeof(Rigidbody2D))]
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] bool _destroyOnHit;
+    [SerializeField] protected bool _destroyOnHit;
     [SerializeField] protected float _modifyValue;
-    [SerializeField] public int damageLayer;
+
+    [SerializeField] protected int _damageLayer;
+
     [SerializeField] protected Rigidbody2D _rb;
+    [SerializeField] protected Collider2D _collider;
+    [SerializeField] protected SpriteRenderer _renderer;
+
+    public Collider2D Collider => _collider;
+    public SpriteRenderer Renderer => _renderer;
+    
     public void Awake()
     {
-        _rb=GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
     }
+
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        if (damageLayer == collision.gameObject.layer && collision.gameObject.GetComponent<ITakeDamage>()!=null)
+        if (_damageLayer == collision.gameObject.layer && collision.TryGetComponent(out ITakeDamage damage))
         {
-            ModifyHealth(collision.gameObject.GetComponent<ITakeDamage>());
+            ModifyHealth(damage);
             if (_destroyOnHit)
                 DestroyOnHit();
         }
     }
+
     protected virtual void ModifyHealth(ITakeDamage obj)
     {
-        if (_modifyValue<=0)
-            obj.TakeDamage(Mathf.Abs(_modifyValue));
-        else
-            obj.HealHealth(_modifyValue);
+        obj.ChangeHealth(_modifyValue);
     }
-    public virtual void AddForce(Vector3 _dir,float _multi)
+
+    public virtual void AddForce(Vector3 dir, float speed)
     {
-        transform.rotation = Quaternion.Euler(0,0,MathF.Atan2(_dir.y,_dir.x)*360/(2*MathF.PI));
+        transform.rotation = Quaternion.Euler(0, 0, MathF.Atan2(dir.y, dir.x) * Mathf.Rad2Deg);
         //Debug.Log(_dir);
         //_rb.velocity= new Vector2(Mathf.Cos(transform.rotation.z), Mathf.Sin(transform.rotation.z)) * _multi;
-        _rb.velocity = transform.right * _multi;
+        _rb.velocity = transform.right * speed;
     }
+
+    public virtual void Shot(Vector3 dir, float speed, int layer)
+    {
+    }
+
     private void DestroyOnHit()
     {
         Destroy(gameObject);

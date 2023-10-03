@@ -1,16 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Arrow : Projectile
 {
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
-        if (damageLayer == collision.gameObject.layer && collision.gameObject.GetComponent<ITakeDamage>() != null)
+        if (_damageLayer == collision.gameObject.layer && collision.TryGetComponent(out ITakeDamage damage))
         {
-            ModifyHealth(collision.gameObject.GetComponent<ITakeDamage>());
+            ModifyHealth(damage);
             _rb.velocity = Vector2.zero;
-            transform.SetParent(collision.gameObject.transform);
+            transform.SetParent(collision.transform);
         }
+    }
+
+    public override void Shot(Vector3 dir, float speed, int layer)
+    {
+        transform.SetParent(null);
+        transform.localScale = Vector3.one;
+        _rb.velocity = dir.normalized * speed;
+        _collider.isTrigger = true;
+        _collider.enabled = true;
+        _damageLayer = layer;
     }
 }

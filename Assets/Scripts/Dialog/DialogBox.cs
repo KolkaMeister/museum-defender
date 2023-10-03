@@ -9,112 +9,104 @@ public class DialogBox : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _text;
     [SerializeField] private TextMeshProUGUI _name;
     [SerializeField] private Button _button;
-    [SerializeField] private float _typeInterval=0.3f;
+    [SerializeField] private float _typeInterval = 0.3f;
     [SerializeField] private Animator _animator;
-    static readonly int OpenKey = Animator.StringToHash("Open");
-    static readonly int CloseKey = Animator.StringToHash("Close");
+    private static readonly int _openKey = Animator.StringToHash("Open");
+    private static readonly int _closeKey = Animator.StringToHash("Close");
     private DialogData _data;
 
-    private int itemIndex = 0;
-    private Coroutine typeTextRoutine;
-    private Coroutine typeNameRoutine;
+    private int _itemIndex;
+    private bool _typeText;
+    private bool _typeName;
+
     public void StartDialog(DialogData data)
     {
         StopTypingRoutines();
         Clear();
         _data = data;
-        itemIndex= 0;
-        _animator.SetTrigger(OpenKey);
+        _itemIndex = 0;
+        _animator.SetTrigger(_openKey);
     }
-    private void Clear()
-    {
-        _text.text = null;
-        _name.text = null;
-    }
+
     public void OnOpenAnimationEnd()
     {
         TypeFragment();
         _button.enabled = true;
     }
-    private void TypeFragment()
-    {
-       typeTextRoutine= StartCoroutine(TypeTextRoutine(_data.data[itemIndex].Text));
-       typeNameRoutine= StartCoroutine(TypeNameRoutine(_data.data[itemIndex].Name));
-    }
+
     public void Click()
     {
-        Debug.Log("CLICL");
-        if (typeNameRoutine != null || typeTextRoutine != null)
-        {
+        Debug.Log("CLICK");
+        if (_typeName || _typeText)
             SkipAnimation();
-        }
-        else if(itemIndex >= _data.data.Length - 1)
-        {
+        else if (_itemIndex >= _data.Dialogs.Length - 1)
             Close();
-        }else
-        {
+        else
             NextItem();
-        }
     }
+
+    private void Clear()
+    {
+        _text.text = null;
+        _name.text = null;
+    }
+
+    private void TypeFragment()
+    {
+        StartCoroutine(TypeTextRoutine(_data.Dialogs[_itemIndex].Text));
+        StartCoroutine(TypeNameRoutine(_data.Dialogs[_itemIndex].Name));
+    }
+
     private void SkipAnimation()
     {
         StopTypingRoutines();
-        _text.text = _data.data[itemIndex].Text;
-        _name.text = _data.data[itemIndex].Name;
+        _text.text = _data.Dialogs[_itemIndex].Text;
+        _name.text = _data.Dialogs[_itemIndex].Name;
     }
+
     private void StopTypingRoutines()
     {
-        StopTypeNameRoutine();
-        StopTypeTextRoutine();
-    }    
-
+        StopAllCoroutines();
+        _typeName = false;
+        _typeText = false;
+    }
 
     private void NextItem()
     {
-        itemIndex++;
-        StopTypingRoutines();
+        _itemIndex++;
         Clear();
         TypeFragment();
     }
-    public void Close()
+
+    private void Close()
     {
-        StopTypingRoutines();
         Clear();
         _button.enabled = false;
-        _animator.SetTrigger(CloseKey);
-        _data.onDialogEnd?.Invoke();
+        _animator.SetTrigger(_closeKey);
+        _data.OnDialogEnd?.Invoke();
     }
-    private void StopTypeTextRoutine()
-    {
-        if (typeTextRoutine != null)
-            StopCoroutine(typeTextRoutine);
-        typeTextRoutine = null;
-    }
-    private void StopTypeNameRoutine()
-    {
-        if (typeNameRoutine != null)
-            StopCoroutine(typeNameRoutine);
-        typeNameRoutine = null;
-    }
+
     private IEnumerator TypeTextRoutine(string text)
     {
-
-        for (int i = 0; i < text.Length; i++)
+        _typeText = true;
+        foreach (char t in text)
         {
-            _text.text += text[i];
+            _text.text += t;
             yield return new WaitForSeconds(_typeInterval);
         }
-        StopTypeTextRoutine();
 
+        _typeText = false;
     }
+
     private IEnumerator TypeNameRoutine(string text)
     {
-
-        for (int i = 0; i < text.Length; i++)
+        _typeName = true;
+        foreach (char t in text)
         {
-            _name.text += text[i];
+            _name.text += t;
             yield return new WaitForSeconds(_typeInterval);
         }
-        StopTypeNameRoutine();
+
+        _typeName = false;
     }
 }
