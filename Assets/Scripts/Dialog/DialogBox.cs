@@ -39,7 +39,7 @@ public class DialogBox : MonoBehaviour
     private void TypeFragment()
     {
        typeTextRoutine= StartCoroutine(TypeTextRoutine(_data.data[itemIndex].Text));
-       typeTextRoutine= StartCoroutine(TypeNameRoutine(_data.data[itemIndex].Name));
+       typeNameRoutine= StartCoroutine(TypeNameRoutine(_data.data[itemIndex].Name));
     }
     public void Click()
     {
