@@ -1,3 +1,10 @@
+<<<<<<< Updated upstream
+=======
+using System.Collections;
+using System.Collections.Generic;
+//using Unity.PlasticSCM.Editor.WebApi;
+using Unity.VisualScripting;
+>>>>>>> Stashed changes
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -16,7 +23,11 @@ public class Weapon : MonoBehaviour, IInteractable
     [SerializeField] protected Cooldown _fireCooldown;
     [SerializeField] protected float _reloadTime;
     [SerializeField] protected int _attackLayer;
+<<<<<<< Updated upstream
     [SerializeField] protected Collider2D _collider;
+=======
+    [SerializeField] public int _shootRange;
+>>>>>>> Stashed changes
     public Ammo AmmoType => _ammoType;
     public int DegreesInactiveRotation => _degreesInactiveRotation;
     public Vector3 PivotLocalInactivePosHold => _inactiveHoldPoint.localPosition;
@@ -72,6 +83,26 @@ public class Weapon : MonoBehaviour, IInteractable
     {
     }
 
+<<<<<<< Updated upstream
     public virtual void Reload(int count) => _currentAmmo = count;
     public void SetAttackLayer(int layer) => _attackLayer = layer;
 }
+=======
+    }
+    public virtual void Reload(int count)
+    {
+        _currentAmmo = count;
+    }
+    public void SetAttackLayer()
+    {
+        /*Debug.Log(LayerMask.LayerToName(transform.parent.gameObject.layer));
+        Debug.Log(LayerMask.LayerToName(8));*/
+        var lay = transform.parent.gameObject.layer;
+        if (lay == 3)
+            _attackLayer =  8;
+        else
+            _attackLayer = 3;
+
+    }
+}
+>>>>>>> Stashed changes

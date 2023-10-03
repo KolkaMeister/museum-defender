@@ -225,7 +225,11 @@ MonoBehaviour:
     _resetValue: 0
   _reloadTime: 0.8
   _attackLayer: 0
+<<<<<<< Updated upstream
   _collider: {fileID: 8960585249476724009}
+=======
+  _shootRange: 5
+>>>>>>> Stashed changes
   _spread: 0
   _projSpawnPos: {fileID: 0}
   _force: 45

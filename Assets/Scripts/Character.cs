@@ -170,14 +170,24 @@ public class Character : MonoBehaviour, ITakeDamage
     {
         if (last)
         {
+<<<<<<< Updated upstream
             HangOnBackWeapon(last);
             // Debug.Log(_last);
+=======
+            HangOnBackWeapon(_last);
+            //Debug.Log(_last);
+>>>>>>> Stashed changes
         }
 
         if (current)
         {
+<<<<<<< Updated upstream
             TakeUpWeapon(current);
             // Debug.Log(_current);
+=======
+            TakeUpWeapon(_current);
+            //Debug.Log(_current);
+>>>>>>> Stashed changes
         }
     }
 
@@ -265,8 +275,8 @@ public class Character : MonoBehaviour, ITakeDamage
             Instantiate(_deadCond, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
-        else
-            Debug.Log(newValue);
+        /*else
+            Debug.Log(newValue);*/
     }
 
     private void DropWeapons()

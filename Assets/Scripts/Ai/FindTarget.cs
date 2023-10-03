@@ -4,22 +4,61 @@ using UnityEngine;
 
 public class FindTarget : MonoBehaviour
 {
-    public string targetTag = "";
+    public string targetTag = "Enemies";
+    public string targetTagPVE = "Landmark";
+    public string weaponTag = "Weapon";
+    private GameObject[] myItems;
+    EnemyAI enemy;
     // Start is called before the first frame update
     public void FindTargets() {
+        if (enemy.PVE)
+        {
+            myItems = GameObject.FindGameObjectsWithTag(targetTagPVE);
+        }
+        else {
+            if (transform.Find("HoldPoint").transform.childCount == 0)
+            {
+                enemy.stopDistance = 0;
+                myItems = GameObject.FindGameObjectsWithTag(weaponTag);
+            }
+            else {
+                myItems = GameObject.FindGameObjectsWithTag(targetTag);
+            }
+            
+        }
         
-        GameObject[] myItems = GameObject.FindGameObjectsWithTag(targetTag);
+        
         //Debug.Log("Found " + myItems.Length + " instances with this script attached");
         try {
-            GetComponent<EnemyAI>().target = myItems[Random.Range(0, myItems.Length)].transform;
+            enemy.target = myItems[Random.Range(0, myItems.Length)].transform;
         }
         catch {
+<<<<<<< Updated upstream
             // Debug.Log("пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ");
+=======
+            Debug.Log("Нет целей");
+            enemy.PVE = true;
+            enemy.stopDistance = 0;
+>>>>>>> Stashed changes
         }
         
     }
+    public bool CheckTag() {
+        try
+        {
+            if (enemy.target.tag == targetTag ||
+            enemy.target.tag == targetTagPVE ||
+            enemy.target.tag == weaponTag)
+            {
+                return true;
+            }
+        }
+        catch { }
+        return false;
+    }
     void Start()
     {
+        enemy = GetComponent<EnemyAI>();
         FindTargets();
     }
 

@@ -79,6 +79,7 @@ MonoBehaviour:
     _resetValue: 0.15
   _reloadTime: 1
   _attackLayer: 0
+  _shootRange: 8
   _spread: 5
   _projSpawnPos: {fileID: 1600408921366970869}
   _force: 60
