@@ -1,9 +1,19 @@
+using Pools;
 using UnityEngine;
+using Zenject;
 
 public class TensionWeapon : RangeWeapon
 {
     [SerializeField] protected Transform _arrowHoldPoint;
     [SerializeField] protected Projectile _strungArrow;
+
+    private IPool<Arrow> _arrowPool;
+
+    [Inject]
+    public override void Construct(PoolLocator locator)
+    {
+        _arrowPool = locator.Get<Arrow>();
+    }
     
     private void Start()
     {
@@ -36,7 +46,7 @@ public class TensionWeapon : RangeWeapon
 
     private void SetArrow()
     {
-        _strungArrow = _pool.Pop(transform);
+        _strungArrow = _arrowPool.Pop(transform);
         _strungArrow.transform.localPosition = _arrowHoldPoint.localPosition;
         _strungArrow.Collider.enabled = false;
         _strungArrow.Renderer.sortingOrder = SpriteRenderer.sortingOrder;

@@ -4,17 +4,17 @@ using Zenject;
 
 namespace Pools
 {
-    public class Pool<T> : IPool<T>, IInitializable
+    public class SimplePool<T> : IPool<T>, IPool
     where T : MonoBehaviour
     {
-        private Transform _parent;
-        private Queue<T> _queue;
-        private T _prefab;
-        private DiContainer _container;
-        private int _capacity;
+        private readonly Transform _parent;
+        private readonly Queue<T> _queue;
+        private readonly T _prefab;
+        private readonly DiContainer _container;
+        private readonly int _capacity;
 
         [Inject]
-        public Pool(T prefab, int capacity, Transform parent, DiContainer container)
+        public SimplePool(T prefab, int capacity, Transform parent, DiContainer container)
         {
             _capacity = capacity;
             _prefab = prefab;

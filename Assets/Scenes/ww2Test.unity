@@ -4252,12 +4252,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1271752324}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5651328a6a504f0fb230a825f5f0dc96, type: 3}
+  m_Script: {fileID: 11500000, guid: 67e2eb1b807245ee81bb2e38b245e15c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ProjectileContainer: {fileID: 1824678374}
-  Bullet: {fileID: -2421038318076085573, guid: d1b25497ce17f4e4382564e3293108b2, type: 3}
-  BulletPoolCapacity: 100
+  _poolTypes: 4
+  _arrowPrefab: {fileID: 0}
+  _bulletPrefab: {fileID: -2421038318076085573, guid: d1b25497ce17f4e4382564e3293108b2, type: 3}
+  _commonCapacity: 100
+  _commonParent: {fileID: 1824678374}
 --- !u!1 &1319515740
 GameObject:
   m_ObjectHideFlags: 0

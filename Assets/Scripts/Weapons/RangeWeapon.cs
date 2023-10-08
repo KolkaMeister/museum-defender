@@ -9,12 +9,12 @@ public class RangeWeapon : Weapon
     [FormerlySerializedAs("_projSpawnPos"),SerializeField] private Transform _projSpawn;
     [SerializeField] protected float _force;
 
-    protected Pool<Bullet> _pool;
+    private IPool<Bullet> _bulletPool;
 
     [Inject]
-    public void Construct(Pool<Bullet> pool)
+    public virtual void Construct(PoolLocator locator)
     {
-        _pool = pool;
+        _bulletPool = locator.Get<Bullet>();
     }
     
     public override void Attack()
@@ -22,7 +22,7 @@ public class RangeWeapon : Weapon
         if (!_fireCooldown.IsReady || _currentAmmo < 1) return;
 
         float angle = GetSpreadAngle();
-        Projectile obj = _pool.Pop(_projSpawn.position,
+        Projectile obj = _bulletPool.Pop(_projSpawn.position,
             Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg));
         
         Vector2 dir = GetFinalDir(angle);

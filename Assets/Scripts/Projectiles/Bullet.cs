@@ -4,12 +4,12 @@ using Zenject;
 
 public class Bullet : Projectile
 {
-    private Pool<Bullet> _pool;
+    private IPool<Bullet> _pool;
 
     [Inject]
-    public void Construct(Pool<Bullet> pool)
+    public void Construct(PoolLocator locator)
     {
-        _pool = pool;
+        _pool = locator.Get<Bullet>();
     }
     
     private void OnEnable()
