@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UI;
 using UnityEngine;
 
 public class InteractSceneLoad : MonoBehaviour, IInteractable
@@ -8,8 +9,8 @@ public class InteractSceneLoad : MonoBehaviour, IInteractable
     [SerializeField] int _loadSceneNumber;
     public string Description { get => _desc; set => _desc=value; }
 
-    public void Interact(GameObject obj)
+    public void Interact(Character obj)
     {
-        SceneLoadCanvas.Instance.LoadScene(_loadSceneNumber);
+        SceneLoader.LoadScene(_loadSceneNumber, false);
     }
 }

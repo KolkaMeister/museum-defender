@@ -214,8 +214,8 @@ MonoBehaviour:
   _ammoType: 1
   _desc: bowbowbow
   _name: Bow
-  _degreesUnactivRotation: 210
-  _unactiveHoldPoint: {fileID: 8960585249064368366}
+  _degreesInactiveRotation: 0
+  _inactiveHoldPoint: {fileID: 8960585249064368366}
   _holdPoint: {fileID: 8960585249219903251}
   _maxAmmo: 1
   _currentAmmo: 1
@@ -225,6 +225,8 @@ MonoBehaviour:
     _resetValue: 0
   _reloadTime: 0.8
   _attackLayer: 0
+  _collider: {fileID: 8960585249476724009}
+  _spread: 0
   _projSpawnPos: {fileID: 0}
   _force: 45
   _arrowHoldPoint: {fileID: 8960585250193528406}

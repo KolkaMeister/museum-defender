@@ -1,50 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class WeaponsInventory
 {
     public delegate void WeaponsListChanged(Weapon _DropWep, Weapon _TakeWep);
     public WeaponsListChanged OnListChanged;
+
     public delegate void WeaponsUsageChanged(Weapon _current, Weapon _last);
     public WeaponsUsageChanged OnUseChanged;
+
     [SerializeField] private Weapon[] weapons = new Weapon[2];
     public Weapon[] Weapons => weapons;
 
-    private int _index=0;
+    private int _index;
     public Weapon CurrentWeapon => weapons[_index];
-    
-    public void TakeWeapon( Weapon w)
+
+    public void TakeWeapon(Weapon w)
     {
-        if (weapons[0]!=null && weapons[1]!=null)
+        if (weapons[0] && weapons[1])
         {
-            var oldWep = CurrentWeapon;
-            var newWep = w;
+            Weapon oldWep = CurrentWeapon;
             weapons[_index] = w;
-            OnListChanged(oldWep,newWep);
-        }else
+            OnListChanged?.Invoke(oldWep, w);
+        }
+        else
         {
-            int counter = 0;
-            foreach (var item in weapons)
-            {
-                if (item==null)
-                {
-                    weapons[counter] = w;
-                    ChangeIndex(counter);
-                    OnListChanged(null, w);
-                    return;
-                }
-                counter++;
-            }
+            int index = Array.FindIndex(weapons, x => !x);
+            weapons[index] = w;
+            ChangeIndex(index);
+            OnListChanged(null, w);
         }
     }
+
     public void DropWeapon(int index)
     {
-        OnListChanged(weapons[index],null);
+        OnListChanged?.Invoke(weapons[index], null);
         weapons[index] = null;
     }
+
     public void ChangeIndex(int _ind)
     {
         var lastInd = _index;

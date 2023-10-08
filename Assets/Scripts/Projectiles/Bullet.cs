@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : Projectile
@@ -10,9 +8,9 @@ public class Bullet : Projectile
         Destroy(gameObject, 0.5f);
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Shot(Vector3 dir, float speed, int layer)
     {
-        
+        _rb.velocity = dir * speed;
+        _damageLayer = layer;
     }
 }
