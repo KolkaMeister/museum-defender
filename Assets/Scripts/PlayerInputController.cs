@@ -64,6 +64,12 @@ public class PlayerInputController : MonoBehaviour
         _character.SetCurrentWeaponIndex((int)index);
     }
 
+    public void Dash(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            _character.Dash();
+    }
+
     private void Update()
     {
         _character.AimPos = _camera.ScreenToWorldPoint(_mousePosition);

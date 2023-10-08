@@ -1,3 +1,4 @@
+using System.Collections;
 using UI;
 using UnityEditor;
 using UnityEngine;
@@ -17,6 +18,12 @@ public class Character : MonoBehaviour, ITakeDamage
 
     [FormerlySerializedAs("_VelMulti"), SerializeField]
     private float _velMulti;
+    
+    //********************Dash********************//
+    [SerializeField] private float _dashTime;
+    [SerializeField] private float _dashDistance;
+    [SerializeField] private float _dashSpeed;
+    [SerializeField] private Cooldown _dashDelay;
 
     private Interaction _interaction;
     private Collider2D _collider;
@@ -29,11 +36,12 @@ public class Character : MonoBehaviour, ITakeDamage
     private Animator _animator;
     private static readonly int _isMovingKey = Animator.StringToHash("IsMoving");
     private static readonly int _deathKey = Animator.StringToHash("Death");
+    private static readonly int _isDashingKey = Animator.StringToHash("IsDashing");
 
 
     private bool _isReloading;
-
     private bool _isDead;
+    private bool _isDash;
 
     public Vector2 MoveDirection
     {
@@ -91,6 +99,7 @@ public class Character : MonoBehaviour, ITakeDamage
 
     private void Velocity()
     {
+        if (_isDash) return;
         _rb.velocity = _moveDirection * _velMulti;
         _animator.SetBool(_isMovingKey, _rb.velocity != Vector2.zero);
     }
@@ -103,6 +112,23 @@ public class Character : MonoBehaviour, ITakeDamage
         transform.localScale = new Vector2(dir > 0 ? 1 : -1, 1);
     }
 
+    public void Dash()
+    {
+        if (_isDash || !_dashDelay.IsReady) return;
+        StartCoroutine(DashRoutine());
+    }
+
+    private IEnumerator DashRoutine()
+    {
+        _isDash = true;
+        _rb.velocity = _moveDirection * _dashSpeed;
+        _animator.SetBool(_isDashingKey, true);
+        yield return new WaitForSeconds(_dashTime);
+        _animator.SetBool(_isDashingKey, false);
+        _isDash = false;
+        _dashDelay.Reset();
+    }
+
     //////////Weapons Methods//////////
     public void TakeWeapon(Weapon wep) => _inventory.TakeWeapon(wep);
     public void SetCurrentWeaponIndex(int weaponIndex) => _inventory.SetCurrentWeaponIndex(weaponIndex);
@@ -110,6 +136,8 @@ public class Character : MonoBehaviour, ITakeDamage
 
     public void Attack()
     {
+        if (_isDash) return;
+        
         Weapon weapon = _inventory.CurrentWeapon;
         if (!weapon) return;
         if (weapon.IsEmpty)
@@ -150,6 +178,11 @@ public class Character : MonoBehaviour, ITakeDamage
     {
         Handles.color = new Color(1, 1, 0, 0.1f);
         Handles.DrawSolidDisc(transform.position, Vector3.forward, 1);
+    }
+
+    private void OnValidate()
+    {
+        _dashSpeed = _dashTime == 0 ? 0 : _dashDistance / _dashTime;
     }
 #endif
 }

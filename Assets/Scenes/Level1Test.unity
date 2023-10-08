@@ -24278,18 +24278,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 5472443254997322437, guid: a3e3509359670b346a5e80ea45b18eec, type: 3}
-      propertyPath: _ammoInventory.AmmoBags.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5472443254997322437, guid: a3e3509359670b346a5e80ea45b18eec, type: 3}
-      propertyPath: _ammoInventory.AmmoBags.Array.data[1].Type
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5472443254997322437, guid: a3e3509359670b346a5e80ea45b18eec, type: 3}
-      propertyPath: _ammoInventory.AmmoBags.Array.data[1].Count
-      value: 200
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3e3509359670b346a5e80ea45b18eec, type: 3}
 --- !u!1001 &1817586461

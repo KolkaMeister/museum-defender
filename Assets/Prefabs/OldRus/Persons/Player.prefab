@@ -231,6 +231,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 501aa94b-916d-418f-9d4a-77e0c8c1e9e1
     m_ActionName: Player/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4030189607167085552}
+        m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
+        m_MethodName: Dash
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4453bbd7-1d39-4b50-ae12-6b310b00072f
+    m_ActionName: Player/Dash[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -263,15 +279,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deadCond: {fileID: 6517416458725690611, guid: 429a5370836ae3e42b51126143be8579, type: 3}
-  _weaponsHolder: {fileID: 4030189607290513938}
-  _ammoInventory:
-    AmmoBags:
-    - Type: 1
-      Count: 50
-  _holdPoint: {fileID: 4030189607290513939}
-  _backHoldPoint: {fileID: 4030189607366502946}
   _rb: {fileID: 4030189607167085516}
   _velMulti: 3
+  _dashTime: 0.3
+  _dashDistance: 2.1
+  _dashSpeed: 6.9999995
+  _dashDelay:
+    _resetValue: 3
   _health:
     _value: 100
 --- !u!114 &2233834608653732482
