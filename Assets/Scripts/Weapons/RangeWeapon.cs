@@ -12,7 +12,7 @@ public class RangeWeapon : Weapon
     private IPool<Bullet> _bulletPool;
 
     [Inject]
-    public virtual void Construct(PoolLocator locator)
+    public void Construct(PoolLocator locator)
     {
         _bulletPool = locator.Get<Bullet>();
     }

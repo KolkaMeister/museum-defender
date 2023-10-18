@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
@@ -37,6 +38,9 @@ namespace Pools
 
         public void Push(T obj)
         {
+            if (_queue.Count > _capacity) 
+                throw new OverflowException();
+            
             obj.gameObject.SetActive(false);
             obj.transform.SetParent(_parent);
             _queue.Enqueue(obj);

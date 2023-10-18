@@ -106,15 +106,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deadCond: {fileID: 0}
-  _weaponsHolder: {fileID: 8843799143253323634}
-  _ammoInventory:
-    AmmoBags:
-    - Type: 1
-      Count: 50
-  _holdPoint: {fileID: 8843799143253323635}
-  _backHoldPoint: {fileID: 8843799143178317634}
   _rb: {fileID: 8843799142844812972}
   _velMulti: 3
+  _dashTime: 0
+  _dashDistance: 0
+  _dashSpeed: 0
+  _dashDelay:
+    _resetValue: 0
   _health:
     _value: 100
 --- !u!114 &1855576108837344331
@@ -208,6 +206,7 @@ MonoBehaviour:
   OnDialogEnd:
     m_PersistentCalls:
       m_Calls: []
+  DialogName: Oleg
   _dialogData: {fileID: 11400000, guid: 2253e2a42cb433a4180d175872351b65, type: 2}
   _desk: SpeachWithOleg
 --- !u!70 &7757798872781540452

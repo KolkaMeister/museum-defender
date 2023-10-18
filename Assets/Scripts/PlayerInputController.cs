@@ -26,10 +26,11 @@ public class PlayerInputController : MonoBehaviour
     }
 
 
-     public void SetMousePosition(InputAction.CallbackContext context)
-     {
-         _mousePosition = context.ReadValue<Vector2>();
-     }
+    public void Dash(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            _character.Dash();
+    }
 
     public void Interact(InputAction.CallbackContext context)
     {
@@ -54,6 +55,11 @@ public class PlayerInputController : MonoBehaviour
             _character.ReloadWeapon();
     }
 
+    public void SetMousePosition(InputAction.CallbackContext context)
+    {
+        _mousePosition = context.ReadValue<Vector2>();
+    }
+
     public void SwitchWeapon(InputAction.CallbackContext context)
     {
         if (!context.performed)
@@ -62,12 +68,6 @@ public class PlayerInputController : MonoBehaviour
         WeaponNumber index = context.control == context.action.controls[0] 
             ? WeaponNumber.First : WeaponNumber.Second;
         _character.SetCurrentWeaponIndex((int)index);
-    }
-
-    public void Dash(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-            _character.Dash();
     }
 
     private void Update()

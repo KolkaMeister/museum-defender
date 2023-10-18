@@ -11,6 +11,7 @@ public class Interaction : MonoBehaviour, IInteraction
     private bool _isInitialized;
     private Character _character;
     private IInteractable _target;
+    
 #if UNITY_EDITOR
     [Header("Debug")]
     [SerializeField] private MonoBehaviour DebugTarget;
@@ -56,7 +57,7 @@ public class Interaction : MonoBehaviour, IInteraction
 
     private void InternalCheck()
     {
-        Collider2D coll = Physics2D.OverlapCircle(transform.position, 1, LayerMask.GetMask("Interactable"));
+        Collider2D coll = Physics2D.OverlapCircle(transform.position, InteractionDistance, LayerMask.GetMask("Interactable"));
         _target = coll != null ? coll.GetComponent<IInteractable>() : null;
     }
 }

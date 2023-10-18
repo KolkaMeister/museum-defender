@@ -1,0 +1,44 @@
+﻿using System.Linq;
+using Dialogs.Nodes;
+using Infrastructure.Timers;
+
+namespace Dialogs.States
+{
+    public class TypePhraseState : DialogState, IEnterState, IUpdateState, IExitState
+    {
+        private DialogNode _node;
+        private Timer _typeDelay;
+
+        public TypePhraseState(DialogMachine machine, DialogBox box) : base(machine, box)
+        {
+        }
+
+        public void Enter()
+        {
+            _node = _machine.GetPhrase();
+            _box.Speech.SetText(_node.Text, true);
+            _box.SpeakerName.SetText(_node.Name, true);
+
+            if (_node is BranchDialogNode branch)
+                _box.AnswerGroup.SetData(branch.Answers.Select(x => x.Text).ToArray());
+        }
+
+        public void Update()
+        {
+            if(!_box.Speech.IsTyping() && !_box.SpeakerName.IsTyping())
+                _machine.ChangeState<WaitDialogState>();
+        }
+
+        public void Exit()
+        {
+            ForceSetText(_box.Speech, _node.Text);
+            ForceSetText(_box.SpeakerName, _node.Name);
+        }
+
+        private void ForceSetText(DialogTextView view, string text)
+        {
+            if (view.IsTyping())
+                view.SetText(text);
+        }
+    }
+}

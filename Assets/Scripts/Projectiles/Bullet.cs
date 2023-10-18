@@ -12,15 +12,11 @@ public class Bullet : Projectile
         _pool = locator.Get<Bullet>();
     }
     
-    private void OnEnable()
-    {
-        Invoke(nameof(BackToPool), 0.5f);
-    }
-
     public override void Shot(Vector2 dir, float speed, int layer)
     {
         _rb.velocity = dir * speed;
         _damageLayer = layer;
+        Invoke(nameof(BackToPool), 0.5f);
     }
 
     protected override void BackToPool()
