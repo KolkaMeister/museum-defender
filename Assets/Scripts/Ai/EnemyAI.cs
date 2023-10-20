@@ -58,6 +58,7 @@ public class EnemyAI : MonoBehaviour
         Starter();
         StartCoroutine(Founder());
         PickWeapon();
+        if (PVE) StartCoroutine(PveTimer());
     }
     void PickWeapon() {
         if (isWeaponed == false)
@@ -158,14 +159,19 @@ public class EnemyAI : MonoBehaviour
             Char.Attack();
         }
     }
-    // Update is called once per frame
-    void FixedUpdate()
+    IEnumerator PveTimer()
+    {
+        yield return new WaitForSeconds(Random.Range(7, 13));
+        Ftarget.FindTargets();
+        StartCoroutine(PveTimer());
+    }
+        void FixedUpdate()
     {
         MoveControl();
         if (!PVE) FireControl();
         else
         {
-            //PVEControll
+            //PVE controll
         };
     }
 
