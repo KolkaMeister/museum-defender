@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _destroyOnHit: 0
-  _modifyValue: 10
+  _modifyValue: -10
   _damageLayer: 8
   _rb: {fileID: 4924226676793480951}
   _collider: {fileID: 4924226676793480950}

@@ -4,29 +4,5 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-<<<<<<< Updated upstream
-    path: Assets/Scenes/Menu.unity
-    guid: 41c89884cffa3aa49873ad964badaf99
-  - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
-=======
-    path: Assets/Scenes/TestAI/rubforestTestAI.unity
-    guid: 34a04042e505d84409ecbde61e4cfb26
-  - enabled: 0
->>>>>>> Stashed changes
-    path: Assets/Scenes/TestScene.unity
-    guid: fb439520c7cc5444dac1203eab6da57b
-  - enabled: 0
-    path: Assets/Scenes/lvl1.unity
-    guid: f9e111c1a14e2044db2ecf4031b9379c
-  - enabled: 0
-    path: Assets/Scenes/lvl2.unity
-    guid: f5615853b3af42e45b7692cc02133d4e
-  - enabled: 1
-    path: Assets/Scenes/Level1Test.unity
-    guid: 19fd6966e64c11748a35360ff2b7a0a8
+  m_Scenes: []
   m_configObjects: {}
