@@ -15,13 +15,13 @@ namespace Dialogs
             _box = box;
             _dialogSys = dialogSys;
             _machine = new DialogMachine(_box, this);
-            _box.Button.onClick.AddListener(OnClickedCallback);
-
-            
         }
 
         public void Initialize()
         {
+            // Be carefully. No unsubscribe from buttons
+            _box.Button.onClick.AddListener(OnClickedCallback);
+            
             var list = _box.AnswerGroup.GetItems();
             for (var i = 0; i < list.Count; i++)
             {

@@ -169,8 +169,8 @@ public class Character : MonoBehaviour, ITakeDamage
             Instantiate(_deadCond, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
-        else
-            Debug.Log(newValue);
+        // else
+            // Debug.Log(newValue);
     }
 
 #if UNITY_EDITOR

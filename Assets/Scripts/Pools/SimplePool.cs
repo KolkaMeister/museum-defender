@@ -38,8 +38,8 @@ namespace Pools
 
         public void Push(T obj)
         {
-            if (_queue.Count > _capacity) 
-                throw new OverflowException();
+            if (_queue.Count > _capacity + 10) 
+                throw new IndexOutOfRangeException();
             
             obj.gameObject.SetActive(false);
             obj.transform.SetParent(_parent);
@@ -55,7 +55,6 @@ namespace Pools
         public T Pop(Vector3 position, Quaternion rotation, Transform parent = null)
         {
             Transform realParent = parent ? parent : _parent;
-            
             T obj = _queue.Dequeue();
             obj.transform.SetParent(realParent);
             obj.transform.position = position;
