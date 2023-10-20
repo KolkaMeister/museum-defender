@@ -157,17 +157,14 @@ MonoBehaviour:
   _holdPoint: {fileID: 5204334156180962366}
   _maxAmmo: 1
   _currentAmmo: 1
-  proj: {fileID: 4924226676793480949, guid: 4d6a46085fd615a44a910337fa42ddae, type: 3}
+  _proj: {fileID: 4924226676793480949, guid: 4d6a46085fd615a44a910337fa42ddae, type: 3}
   _spriteRenderer: {fileID: 5204334154838471879}
   _fireCooldown:
     _resetValue: 0
   _reloadTime: 1
   _attackLayer: 0
-<<<<<<< Updated upstream
   _collider: {fileID: 5204334154838471873}
-=======
   _shootRange: 7
->>>>>>> Stashed changes
   _spread: 0
   _projSpawnPos: {fileID: 0}
   _force: 40

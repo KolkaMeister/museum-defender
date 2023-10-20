@@ -1,12 +1,9 @@
 using System;
 //using System.Collections;
 using System.Collections.Generic;
-<<<<<<< Updated upstream
 using System.Linq;
 using UnityEditor.U2D.Common;
-=======
-//using UnityEditor.U2D.Common;
->>>>>>> Stashed changes
+
 using UnityEngine;
 
 [Serializable]

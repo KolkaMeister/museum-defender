@@ -33,13 +33,9 @@ public class FindTarget : MonoBehaviour
             enemy.target = myItems[Random.Range(0, myItems.Length)].transform;
         }
         catch {
-<<<<<<< Updated upstream
-            // Debug.Log("пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ");
-=======
             Debug.Log("Нет целей");
             enemy.PVE = true;
             enemy.stopDistance = 0;
->>>>>>> Stashed changes
         }
         
     }

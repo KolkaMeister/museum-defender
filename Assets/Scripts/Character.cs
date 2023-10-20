@@ -170,24 +170,14 @@ public class Character : MonoBehaviour, ITakeDamage
     {
         if (last)
         {
-<<<<<<< Updated upstream
             HangOnBackWeapon(last);
-            // Debug.Log(_last);
-=======
-            HangOnBackWeapon(_last);
             //Debug.Log(_last);
->>>>>>> Stashed changes
         }
 
         if (current)
         {
-<<<<<<< Updated upstream
             TakeUpWeapon(current);
-            // Debug.Log(_current);
-=======
-            TakeUpWeapon(_current);
             //Debug.Log(_current);
->>>>>>> Stashed changes
         }
     }
 
