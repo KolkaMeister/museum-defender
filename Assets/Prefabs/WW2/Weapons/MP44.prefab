@@ -68,17 +68,18 @@ MonoBehaviour:
   _ammoType: 2
   _desc: NAZIDEDGUN
   _name: MP44
-  _degreesUnactivRotation: 90
-  _unactiveHoldPoint: {fileID: 1600408920962527373}
+  _degreesInactiveRotation: 0
+  _inactiveHoldPoint: {fileID: 1600408920962527373}
   _holdPoint: {fileID: 1600408921677633154}
   _maxAmmo: 30
   _currentAmmo: 30
-  proj: {fileID: -2421038318076085573, guid: d1b25497ce17f4e4382564e3293108b2, type: 3}
+  _proj: {fileID: -2421038318076085573, guid: d1b25497ce17f4e4382564e3293108b2, type: 3}
   _spriteRenderer: {fileID: 5712753883564600573}
   _fireCooldown:
     _resetValue: 0.15
   _reloadTime: 1
   _attackLayer: 0
+  _collider: {fileID: 1600408920335801981}
   _shootRange: 8
   _spread: 5
   _projSpawnPos: {fileID: 1600408921366970869}
