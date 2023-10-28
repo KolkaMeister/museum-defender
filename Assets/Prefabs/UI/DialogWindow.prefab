@@ -143,9 +143,9 @@ MonoBehaviour:
   Speech: {fileID: 1545784370531535847}
   SpeakerName: {fileID: 2273451541769748574}
   Button: {fileID: 5578124226052887835}
-  TypeInterval: 0.3
-  OpenTime: 2
-  CloseTime: 2
+  TypeInterval: 0.1
+  OpenTime: 1
+  CloseTime: 1
   Animator: {fileID: 5578124224588082097}
   _answerContainer: {fileID: 4950433574344251084}
 --- !u!1 &5578124225313549464

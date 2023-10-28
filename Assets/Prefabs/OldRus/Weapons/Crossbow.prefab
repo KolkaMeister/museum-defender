@@ -152,12 +152,12 @@ MonoBehaviour:
   _ammoType: 1
   _desc: IT'S TIME FOR CROSSBOW!!
   _name: Crossbow
-  _degreesInactiveRotation: 0
+  _degreesInactiveRotation: 120
   _inactiveHoldPoint: {fileID: 5204334155201600049}
   _holdPoint: {fileID: 5204334156180962366}
   _maxAmmo: 1
   _currentAmmo: 1
-  proj: {fileID: 4924226676793480949, guid: 4d6a46085fd615a44a910337fa42ddae, type: 3}
+  _proj: {fileID: 4924226676793480949, guid: 4d6a46085fd615a44a910337fa42ddae, type: 3}
   _spriteRenderer: {fileID: 5204334154838471879}
   _fireCooldown:
     _resetValue: 0
@@ -165,7 +165,7 @@ MonoBehaviour:
   _attackLayer: 0
   _collider: {fileID: 5204334154838471873}
   _spread: 0
-  _projSpawnPos: {fileID: 0}
+  _projSpawn: {fileID: 5204334155870956361}
   _force: 40
   _arrowHoldPoint: {fileID: 1062437677}
   _strungArrow: {fileID: 0}

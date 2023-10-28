@@ -6,7 +6,7 @@ using Zenject;
 public class RangeWeapon : Weapon
 {
     [SerializeField] private int _spread;
-    [FormerlySerializedAs("_projSpawnPos"),SerializeField] private Transform _projSpawn;
+    [SerializeField] private Transform _projSpawn;
     [SerializeField] protected float _force;
 
     private IPool<Bullet> _bulletPool;

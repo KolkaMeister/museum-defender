@@ -23,7 +23,6 @@ namespace Dialogs
             {
                 DialogTree tree = DialogBuilder.Build(AssetDatabase.GetAssetPath(file));
                 _dialogs.Add(tree);
-                Debug.Log($"{tree.Name} dialog is built");
             }
         }
 

@@ -1,4 +1,3 @@
-using Pools;
 using UnityEngine;
 
 public class TensionWeapon : RangeWeapon

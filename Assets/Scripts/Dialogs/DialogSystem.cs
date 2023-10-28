@@ -5,9 +5,9 @@ namespace Dialogs
 {
     public class DialogSystem : IDialogSystem
     {
-        public Action OnDialogStarted;
-        public Action OnDialogEnded;
-        public Action OnPhraseStarted;
+        public event Action OnDialogStarted;
+        public event Action OnDialogEnded;
+        public event Action OnPhraseStarted;
 
         private DialogController _controller;
         private DialogTree _currentDialog;

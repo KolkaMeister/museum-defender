@@ -214,12 +214,12 @@ MonoBehaviour:
   _ammoType: 1
   _desc: bowbowbow
   _name: Bow
-  _degreesInactiveRotation: 0
+  _degreesInactiveRotation: 210
   _inactiveHoldPoint: {fileID: 8960585249064368366}
   _holdPoint: {fileID: 8960585249219903251}
   _maxAmmo: 1
   _currentAmmo: 1
-  proj: {fileID: 4924226676793480949, guid: 4d6a46085fd615a44a910337fa42ddae, type: 3}
+  _proj: {fileID: 4924226676793480949, guid: 4d6a46085fd615a44a910337fa42ddae, type: 3}
   _spriteRenderer: {fileID: 8960585249310139113}
   _fireCooldown:
     _resetValue: 0
@@ -227,7 +227,7 @@ MonoBehaviour:
   _attackLayer: 0
   _collider: {fileID: 8960585249476724009}
   _spread: 0
-  _projSpawnPos: {fileID: 0}
+  _projSpawn: {fileID: 8960585250193528406}
   _force: 45
   _arrowHoldPoint: {fileID: 8960585250193528406}
   _strungArrow: {fileID: 0}

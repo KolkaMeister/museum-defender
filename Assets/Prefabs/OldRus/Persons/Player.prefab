@@ -285,7 +285,7 @@ MonoBehaviour:
   _dashDistance: 2.1
   _dashSpeed: 6.9999995
   _dashDelay:
-    _resetValue: 3
+    _resetValue: 2
   _health:
     _value: 100
 --- !u!114 &2233834608653732482

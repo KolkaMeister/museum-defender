@@ -1,12 +1,13 @@
 ﻿using Dialogs;
+using UnityEngine;
 using Zenject;
 
 namespace Infrastructure
 {
-    public class Level1Installer : MonoInstaller
+    public class DialogInstaller : MonoInstaller
     {
-        public DialogBox _dialogBox;
-        public DialogSo _dialogSo;
+        [SerializeField] private DialogBox _dialogBox;
+        [SerializeField] private DialogSo _dialogSo;
         
         public override void InstallBindings()
         {

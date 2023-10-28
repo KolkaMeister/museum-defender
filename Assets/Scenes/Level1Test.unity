@@ -898,18 +898,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5578124224588082096, guid: 5bf77d8bc075c08458f9583e47f499f6, type: 3}
-      propertyPath: OpenTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5578124224588082096, guid: 5bf77d8bc075c08458f9583e47f499f6, type: 3}
-      propertyPath: CloseTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5578124224588082096, guid: 5bf77d8bc075c08458f9583e47f499f6, type: 3}
-      propertyPath: TypeInterval
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 5578124224588082098, guid: 5bf77d8bc075c08458f9583e47f499f6, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -997,14 +985,6 @@ PrefabInstance:
     - target: {fileID: 5578124224588082099, guid: 5bf77d8bc075c08458f9583e47f499f6, type: 3}
       propertyPath: m_Name
       value: DialogWindow
-      objectReference: {fileID: 0}
-    - target: {fileID: 5578124226052887831, guid: 5bf77d8bc075c08458f9583e47f499f6, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5578124226052887835, guid: 5bf77d8bc075c08458f9583e47f499f6, type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bf77d8bc075c08458f9583e47f499f6, type: 3}
@@ -2346,9 +2326,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _poolTypes: 4
-  _arrowPrefab: {fileID: 0}
   _bulletPrefab: {fileID: -2421038318076085573, guid: d1b25497ce17f4e4382564e3293108b2, type: 3}
-  _commonCapacity: 50
+  _commonCapacity: 0
   _commonParent: {fileID: 0}
 --- !u!1001 &782893092
 PrefabInstance:
@@ -24393,10 +24372,6 @@ PrefabInstance:
     - target: {fileID: 4030189607167085554, guid: a3e3509359670b346a5e80ea45b18eec, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 4030189607167085555, guid: a3e3509359670b346a5e80ea45b18eec, type: 3}
-      propertyPath: _dashDelay._resetValue
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3e3509359670b346a5e80ea45b18eec, type: 3}
