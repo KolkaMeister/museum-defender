@@ -263,15 +263,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deadCond: {fileID: 0}
-  _weaponsHolder: {fileID: 4030189607290513938}
-  _ammoInventory:
-    AmmoBags:
-    - Type: 1
-      Count: 50
-  _holdPoint: {fileID: 4030189607290513939}
-  _backHoldPoint: {fileID: 4030189607366502946}
   _rb: {fileID: 4030189607167085516}
   _velMulti: 3
+  _dashTime: 0.3
+  _dashDistance: 2.1
+  _dashSpeed: 6.9999995
+  _dashDelay:
+    _resetValue: 2
   _health:
     _value: 100
 --- !u!114 &8138258695882420443

@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-using Utility;
 
 public class Interaction : MonoBehaviour, IInteraction
 {
@@ -14,11 +13,11 @@ public class Interaction : MonoBehaviour, IInteraction
     
 #if UNITY_EDITOR
     [Header("Debug")]
-    [SerializeField] private MonoBehaviour DebugTarget;
+    [SerializeField] private MonoBehaviour _debugTarget;
 
     private void Update()
     {
-        DebugTarget = _target as MonoBehaviour;
+        _debugTarget = _target as MonoBehaviour;
     }
 #endif
     
@@ -58,7 +57,7 @@ public class Interaction : MonoBehaviour, IInteraction
     private void InternalCheck()
     {
         Collider2D coll = Physics2D.OverlapCircle(transform.position, InteractionDistance, LayerMask.GetMask("Interactable"));
-        _target = coll != null ? coll.GetComponent<IInteractable>() : null;
+        _target = coll ? coll.GetComponent<IInteractable>() : null;
     }
 }
 

@@ -170,15 +170,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deadCond: {fileID: 0}
-  _weaponsHolder: {fileID: 6603019862480020700}
-  _ammoInventory:
-    AmmoBags:
-    - Type: 1
-      Count: 50
-  _holdPoint: {fileID: 6603019862480020701}
-  _backHoldPoint: {fileID: 6603019862538249452}
   _rb: {fileID: 6603019862872130818}
   _velMulti: 3
+  _dashTime: 0.3
+  _dashDistance: 2.1
+  _dashSpeed: 6.9999995
+  _dashDelay:
+    _resetValue: 2
   _health:
     _value: 100
 --- !u!114 &2051086654146914167
@@ -193,10 +191,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad056776b074c3283c1f927500d549e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsUpdate: 0
-  UpdateTime: 0
+  IsUpdate: 1
+  UpdateTime: 0.1
   InteractionDistance: 1
-  DebugTarget: {fileID: 0}
+  _debugTarget: {fileID: 0}
 --- !u!114 &7721114970671301703
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -108,11 +108,11 @@ MonoBehaviour:
   _deadCond: {fileID: 0}
   _rb: {fileID: 8843799142844812972}
   _velMulti: 3
-  _dashTime: 0
-  _dashDistance: 0
-  _dashSpeed: 0
+  _dashTime: 0.3
+  _dashDistance: 2.1
+  _dashSpeed: 6.9999995
   _dashDelay:
-    _resetValue: 0
+    _resetValue: 2
   _health:
     _value: 100
 --- !u!114 &1855576108837344331
@@ -128,9 +128,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsUpdate: 0
-  UpdateTime: 0
+  UpdateTime: 0.1
   InteractionDistance: 1
-  DebugTarget: {fileID: 0}
+  _debugTarget: {fileID: 0}
 --- !u!114 &8789831338513710167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,11 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1757dbc9d3d0b6b4cbfa6235c910b2a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnDialogEnd:
-    m_PersistentCalls:
-      m_Calls: []
   DialogName: Oleg
-  _dialogData: {fileID: 11400000, guid: 2253e2a42cb433a4180d175872351b65, type: 2}
   _desk: SpeachWithOleg
 --- !u!70 &7757798872781540452
 CapsuleCollider2D:
