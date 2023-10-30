@@ -5,19 +5,17 @@ using UnityEngine;
 public class Scaner : MonoBehaviour
 {
     [SerializeField] float Scanertime = 0.1f;
-    AstarPath _AstarPath;
     IEnumerator Scaners()
     {
-        _AstarPath.Scan();
+        gameObject.GetComponent<AstarPath>().Scan();
         yield return new WaitForSeconds(Scanertime);
         StartCoroutine(Scaners());
         // Start is called before the first frame update
     }
     void Start()
     {
-        _AstarPath = GetComponent<AstarPath>();
             StartCoroutine(Scaners());
-    }
+        }
 
     // Update is called once per frame
     void Update()

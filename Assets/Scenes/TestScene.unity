@@ -766,7 +766,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   updateRate: 1
-  rangeAIM: 0.5
   pathIsEnded: 0
   isWeaponed: 0
   nextWaypointDistance: 1
@@ -1280,7 +1279,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   updateRate: 1
-  rangeAIM: 0.5
   pathIsEnded: 0
   isWeaponed: 0
   nextWaypointDistance: 1
@@ -1700,7 +1698,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   updateRate: 1
-  rangeAIM: 0.5
   pathIsEnded: 0
   isWeaponed: 0
   nextWaypointDistance: 1
@@ -1933,10 +1930,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoldSovietWW2
       objectReference: {fileID: 0}
-    - target: {fileID: 6603019862872130877, guid: 3181ba03638c7174bb5eff0c9245b408, type: 3}
-      propertyPath: _colhozSmert
-      value: 
-      objectReference: {fileID: 6517416458725690611, guid: b36ee3e68bf29d041a072acd38e62aae, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3181ba03638c7174bb5eff0c9245b408, type: 3}
 --- !u!1 &2044600929
@@ -1984,7 +1977,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAYIexYz5kCVQIAAA8FAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1zmzAQ/SuMzk0H4zoOvbW24/Tg2BO3kwsXGS1GYyExkvBXxv+9KwGG0vYEeu/t7tvVwgfh0pSQWqWXmrOVYkC+BsS9k09BR77Ame6V3PIrtJp3zmzuRNRr3qjlCvGRCzOqAKt5+k3uhROHCFaSZ0oXC7aHmTLWIJxRYQAprayLlgh9BOSMj2jqQi5N6NU9gxu+pSAt6E73b1UlU0GLEpjz24knrXpSyyR20iic61QJwU1jg9hL6dvcljlocH0yTrErXz38HCOQA9/n1rntR6+zzIBtPGl6mXON46nTku+qnllBzaE2dqSicoXGceRN1UlXf/HR5NHzmVbFS1t4FLoiNufp4Y1eUmpsb6p9eN55H/kBnag40J2A9xzkq1pqVUmGpNWVC60MRPPueO9tlkN66PDa6wCsyv9fz8MouN18++eZ4MWuofC4FcrPO3Zn0HgzP9Cu3wrTqBB1Hn4Z+En3/fVpiGeujUWq6VE6cztVaSclCz8x10tlZ0pL8HBjuQRJhb1sMI0d3uCA65UdMM/UfShN8YZr938Q4uFOH4YDaqNO96syuTqtwOTrygou+8kc84qDmikp6w3rtdSGbSud0RQ6Yl9x9udmkexxSp9gN4lZmI0mMH6Iwhi+RPF0mo1H2dOOEb95XGKfVGxqo8148NZkl1zilrX/j2CpaemXnWl6WvJroXr+uMzUNtUAcl1nuHcFGovgV8kWjOOAtmAtl/6+yUdChEoPwJJ7osR3ujhbTZMuS0JKflTWIQmZ+X9GQhx83+SNhiOHkyveJruR229QSwMEFAAACAgAABgh7D/dM3VtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tFKamXmiRWqSqWWKQZqhaaqxrpGBZaqJkaW5eZqxYZpFUopSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAABgh7FjPmQJVAgAADwUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAABgh7D/dM3VtAAAAeAAAAAkAJAAAAAAAAAAAAAAAogIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABaAwAAAAA=
+    dataString: UEsDBBQAAAgIAAAYIeyVeECNVgIAAA8FAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1zmzAQ/SuMzk0H23Fs99bajtODY0+cTi5cZLSAxkJiJOGvjP97VwIMpe0J9N7b3berhU/CpSkgtkqvNGdrxYB8C4h7J1+ClnyBM02V3PErNJoPzmzmRNRr3qjlCvGBCzMqB6t5/F2mwolDBEvJE6XzJUthrow1CCdUGEBKK+uiJUKfATnjYzhxIZc69OqewQ3fYpAWdKv7t6qUsaB5Acz5bcXjRj2uZBI7qRXOdayE4Ka2Qeyl8G3uigw0uD4Zp9iVrx5+nSGQAU8z69x2ozdJYsDWnjS9LLjG8VRpyQ9VzSyn5lAZO1JRukKj6aM3VSVd/8UPx0+eT7TKX5rCg9AVsRmPD2/0ElNjO1PtwovW+8AP6ETFge4FfGQgX9VKq1IyJK0uXWhpYLhoj/fe5hnEhxavvPbAsvj/9TwMgtvNt3+eC57vawqPO6H8vGfuDBpv5ifa9VthahWizsMvA+807a5PTTxzbSxSdY/SmdurUjspWfqJuV5KO1dagodrywVIKuxli2ls/wZ7XKdsj3mm7kOpi9dcs/+9EA+3+jDsUVt1ul+VydRpDSbblFZw2U3mmFcc1FxJWW1Yp6UmbFfqhMbQEmnJ2Z+bRZKnCZ3CfjxjYTIYw+hhGM7gcTibTJLRIJnuGfGbxyX2ScW2MlqPB29Ntsklblnz/whWmhZ+2ZmmpxW/5qrjj8tE7WINIDdVhntXoLEIfpVsyTgOaAfWcunvm3xGRKj4ACy6J4p8p8uz1TRqs0Sk4EdlHRKRuf9nRMTB903eajhyOLniTbIbuf0GUEsDBBQAAAgIAAAYIew/3TN1bQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrRSmpl5okVqkqllikGaoWmqsa6RgWWqiZGluXmasWGaRVKKUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAYIeyVeECNVgIAAA8FAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAYIew/3TN1bQAAAHgAAAAJACQAAAAAAAAAAAAAAKMCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAWwMAAAAA
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -2343,10 +2336,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoldGerWW2
       objectReference: {fileID: 0}
-    - target: {fileID: 8568531227713245077, guid: e4257366cdc541a4cb4584c650356d72, type: 3}
-      propertyPath: _colhozSmert
-      value: 
-      objectReference: {fileID: 6517416458725690611, guid: b36ee3e68bf29d041a072acd38e62aae, type: 3}
     - target: {fileID: 8568531227713245096, guid: e4257366cdc541a4cb4584c650356d72, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1

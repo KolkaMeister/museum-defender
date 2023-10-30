@@ -68,7 +68,7 @@ MonoBehaviour:
   _ammoType: 2
   _desc: dedGun
   _name: PPH
-  _degreesInactiveRotation: 0
+  _degreesInactiveRotation: 90
   _inactiveHoldPoint: {fileID: 1600408920962527373}
   _holdPoint: {fileID: 1600408921677633154}
   _maxAmmo: 71
@@ -80,9 +80,8 @@ MonoBehaviour:
   _reloadTime: 1
   _attackLayer: 0
   _collider: {fileID: 1600408920335801981}
-  _shootRange: 8
   _spread: 8
-  _projSpawnPos: {fileID: 1600408921366970869}
+  _projSpawn: {fileID: 1600408921366970869}
   _force: 50
 --- !u!1 &1600408920962527372
 GameObject:

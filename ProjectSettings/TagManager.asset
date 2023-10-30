@@ -8,8 +8,6 @@ TagManager:
   - Allies
   - Enemies
   - Enemy
-  - Landmark
-  - Weapon
   layers:
   - Default
   - TransparentFX
@@ -20,7 +18,7 @@ TagManager:
   - Interactable
   - Allies
   - Enemies
-  - CollideObjects
+  - 
   - 
   - 
   - 
