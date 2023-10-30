@@ -82,7 +82,7 @@ MonoBehaviour:
   _collider: {fileID: 1600408920335801981}
   _shootRange: 8
   _spread: 5
-  _projSpawnPos: {fileID: 1600408921366970869}
+  _projSpawn: {fileID: 1600408921366970869}
   _force: 60
 --- !u!1 &1600408920962527372
 GameObject:
