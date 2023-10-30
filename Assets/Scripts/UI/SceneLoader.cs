@@ -14,9 +14,9 @@ namespace UI
         {
             _loader = SceneManager.LoadSceneAsync(buildIndex);
             _loader.allowSceneActivation = allowActivate;
-            OnSceneStartLoad.Invoke();
+            OnSceneStartLoad?.Invoke();
         }
-
+        
         public static float GetProgress() => _loader?.progress ?? -1;
 
         public static void ActivateScene()

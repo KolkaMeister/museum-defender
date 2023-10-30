@@ -6,7 +6,7 @@ public class WeaponsInventory
     public delegate void WeaponsListChanged(Weapon _DropWep, Weapon _TakeWep);
     public WeaponsListChanged OnListChanged;
 
-    public delegate void WeaponsUsageChanged(Weapon _current, Weapon _last);
+    public delegate void WeaponsUsageChanged(Weapon _last, Weapon _current);
     public WeaponsUsageChanged OnUseChanged;
 
     [SerializeField] private Weapon[] weapons = new Weapon[2];
@@ -38,10 +38,11 @@ public class WeaponsInventory
         weapons[index] = null;
     }
 
-    public void ChangeIndex(int _ind)
+    public void ChangeIndex(int index)
     {
-        var lastInd = _index;
-        _index = _ind;
-        OnUseChanged?.Invoke(weapons[_index], weapons[lastInd]);
+        if (_index == index) return;
+        int lastIndex = _index;
+        _index = index;
+        OnUseChanged?.Invoke(weapons[lastIndex], weapons[_index]);
     }
 }

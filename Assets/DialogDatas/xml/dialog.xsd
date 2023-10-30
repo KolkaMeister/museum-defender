@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="urn:HistoryTrip.Dialogs"
+           xmlns="urn:HistoryTrip.Dialogs"
+           elementFormDefault="qualified">
+  <xs:element name="Dialog">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="root">
+          <xs:attribute name="name" use="required"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="Set">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="Dialog"/>
+        <xs:element ref="PartDialog"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="PartDialog">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="root">
+          <xs:attribute name="ref" use="required"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="root">
+    <xs:sequence>
+      <xs:element ref="Phrase" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="Phrase">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="speech">
+          <xs:attribute name="author" type="xs:string" use="required"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Answer">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="speech">
+          <xs:attribute name="line" type="xs:string" use="required"/>
+          <xs:attribute name="ref" type="xs:string"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="speech">
+    <xs:sequence>
+      <xs:element name="Text" type="xs:normalizedString"/>
+      <xs:any minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="lay" type="xs:string"/>
+  </xs:complexType>
+
+</xs:schema>

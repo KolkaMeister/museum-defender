@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2a739e923db42adadda49867b8f6d53, type: 3}
+  m_Name: TestDialog
+  m_EditorClassIdentifier: 
+  XmlFile: {fileID: 4900000, guid: 1829d48a932e44a6879b1a7f00f444f2, type: 3}
+  Dialogs:
+  - <Name>k__BackingField: Oleg
+    <Text>k__BackingField: Privet dohodiaga, kak tvoi dela?
+    <Tag>k__BackingField: Oleg
+    <Phrase>k__BackingField: 0
+  - <Name>k__BackingField: Sasha
+    <Text>k__BackingField: Norm
+    <Tag>k__BackingField: Sasha
+    <Phrase>k__BackingField: 0
+  - <Name>k__BackingField: Oleg
+    <Text>k__BackingField: Chto budesh segodnya delat?
+    <Tag>k__BackingField: Oleg
+    <Phrase>k__BackingField: 1
+  - <Name>k__BackingField: 
+    <Text>k__BackingField: Run
+    <Tag>k__BackingField: 
+    <Phrase>k__BackingField: 2
+  - <Name>k__BackingField: 
+    <Text>k__BackingField: Fly
+    <Tag>k__BackingField: 
+    <Phrase>k__BackingField: 2
+  - <Name>k__BackingField: 
+    <Text>k__BackingField: Crouch
+    <Tag>k__BackingField: 
+    <Phrase>k__BackingField: 2
+  - <Name>k__BackingField: 
+    <Text>k__BackingField: Fight
+    <Tag>k__BackingField: 
+    <Phrase>k__BackingField: 2
+  Root:
+    <Name>k__BackingField: Oleg
+    <Text>k__BackingField: Privet dohodiaga, kak tvoi dela?
+    <Tag>k__BackingField: Oleg
+    <Phrase>k__BackingField: 0

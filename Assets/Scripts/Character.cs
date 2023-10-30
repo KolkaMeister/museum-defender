@@ -4,47 +4,46 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
-using Utility;
 
 public class Character : MonoBehaviour, ITakeDamage
 {
     //**********************Interaction****************************//
-    private readonly ClassPersistantProperty<IInteractable>
-        _interactionTarget = new ClassPersistantProperty<IInteractable>(null);
     [SerializeField] private GameObject _deadCond;
 
     //***********************Weapons*******************************//
-    private readonly WeaponsInventory _weaponInventory = new WeaponsInventory();
-    [SerializeField] private GameObject _weaponsHolder;
-    [SerializeField] private AmmoInventoryData _ammoInventory = new AmmoInventoryData();
-
-    [FormerlySerializedAs("holdPoint"), SerializeField]
-    private Transform _holdPoint;
-
-    [FormerlySerializedAs("backHoldPoint"), SerializeField]
-    private Transform _backHoldPoint;
+    private Inventory _inventory;
 
     //********************Physics***************************//
     [SerializeField] private Rigidbody2D _rb;
 
     [FormerlySerializedAs("_VelMulti"), SerializeField]
     private float _velMulti;
+    
+    //********************Dash********************//
+    [SerializeField] private float _dashTime;
+    [SerializeField] private float _dashDistance;
+    [SerializeField] private float _dashSpeed;
+    [SerializeField] private Cooldown _dashDelay;
 
-    [SerializeField] private Collider2D _collider;
+    private Interaction _interaction;
+    private Collider2D _collider;
     private Vector2 _moveDirection = new Vector2(0, 0);
     private Vector2 _aimPos = new Vector2(1, 1);
 
     [SerializeField] private PersistantProperty<float> _health = new PersistantProperty<float>(100);
-    [SerializeField] private EnemyAI _ai;
+    private EnemyAI _ai;
 
     private Animator _animator;
     private static readonly int _isMovingKey = Animator.StringToHash("IsMoving");
     private static readonly int _deathKey = Animator.StringToHash("Death");
+    private static readonly int _isDashingKey = Animator.StringToHash("IsDashing");
 
 
     private bool _isReloading;
-
     private bool _isDead;
+    private bool _isDash;
+
+    public Rigidbody2D Rb => _rb;
 
     public Vector2 MoveDirection
     {
@@ -59,7 +58,7 @@ public class Character : MonoBehaviour, ITakeDamage
         {
             _aimPos = value;
             CalculateScale(value);
-            CalculateWeaponRotation(value);
+            _inventory.CalculateWeaponRotation(value);
         }
     }
 
@@ -79,25 +78,19 @@ public class Character : MonoBehaviour, ITakeDamage
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        _interaction = GetComponent<Interaction>();
+        _inventory = GetComponent<Inventory>();
         TryGetComponent(out _collider);
         TryGetComponent(out _ai);
     }
 
     private void OnEnable()
     {
-        _interactionTarget.OnChanged += OnInteractionTargetChanged;
-        _weaponInventory.OnListChanged += OnInventoryChanged;
-        _weaponInventory.OnUseChanged += OnInventoryIndexChanged;
-        _weaponInventory.OnUseChanged += ReloadCheck;
         _health.OnChanged += OnHealthChanged;
     }
 
     private void OnDisable()
     {
-        _interactionTarget.OnChanged -= OnInteractionTargetChanged;
-        _weaponInventory.OnListChanged -= OnInventoryChanged;
-        _weaponInventory.OnUseChanged -= OnInventoryIndexChanged;
-        _weaponInventory.OnUseChanged -= ReloadCheck;
         _health.OnChanged -= OnHealthChanged;
     }
 
@@ -106,21 +99,14 @@ public class Character : MonoBehaviour, ITakeDamage
         Velocity();
     }
 
-    private void OnInteractionTargetChanged(IInteractable val)
-    {
-    }
-
     private void Velocity()
     {
+        if (_isDash) return;
         _rb.velocity = _moveDirection * _velMulti;
         _animator.SetBool(_isMovingKey, _rb.velocity != Vector2.zero);
     }
 
-    public void Interact()
-    {
-        CheckInteraction();
-        _interactionTarget.Value?.Interact(this);
-    }
+    public void Interact() => _interaction.Interact();
 
     private void CalculateScale(Vector2 view)
     {
@@ -128,118 +114,38 @@ public class Character : MonoBehaviour, ITakeDamage
         transform.localScale = new Vector2(dir > 0 ? 1 : -1, 1);
     }
 
-    private void CalculateWeaponRotation(Vector2 view)
+    public void Dash()
     {
-        Vector2 direction = view - (Vector2)_weaponsHolder.transform.position;
-        float rad = Mathf.Atan(direction.y / direction.x);
-        _weaponsHolder.transform.rotation = Quaternion.Euler(0, 0, rad * 180 / Mathf.PI);
+        if (_isDash || !_dashDelay.IsReady) return;
+        StartCoroutine(DashRoutine());
     }
 
-    private void CheckInteraction()
+    private IEnumerator DashRoutine()
     {
-        Collider2D coll = Physics2D.OverlapCircle(transform.position, 1, LayerMask.GetMask("Interactable"));
-        _interactionTarget.Value = coll != null ? coll.GetComponent<IInteractable>() : null;
-        // Debug.Log(coll?.name);
+        _isDash = true;
+        _rb.velocity = _moveDirection * _dashSpeed;
+        _animator.SetBool(_isDashingKey, true);
+        yield return new WaitForSeconds(_dashTime);
+        _animator.SetBool(_isDashingKey, false);
+        _isDash = false;
+        _dashDelay.Reset();
     }
 
     //////////Weapons Methods//////////
-    public void TakeWeapon(Weapon wep)
-    {
-        _weaponInventory.TakeWeapon(wep);
-        wep.SetAttackLayer(gameObject.layer == Idents.PlayerLayer ? Idents.EnemyLayer : Idents.PlayerLayer);
-    }
-
-    private void OnInventoryChanged(Weapon oldValue, Weapon newValue)
-    {
-        if (oldValue) DropWeaponAtPoint(oldValue, transform.position);
-        if (newValue) TakeUpWeapon(newValue);
-    }
-
-    private void DropWeaponAtPoint(Weapon wep, Vector3 position)
-    {
-        wep.Drop(position);
-    }
-
-    public void SetCurrentWeaponIndex(int weaponIndex)
-    {
-        // Debug.Log(weaponIndex);
-        _weaponInventory.ChangeIndex(weaponIndex);
-    }
-
-    private void OnInventoryIndexChanged(Weapon current, Weapon last)
-    {
-        if (last)
-        {
-            HangOnBackWeapon(last);
-            // Debug.Log(_last);
-        }
-
-        if (current)
-        {
-            TakeUpWeapon(current);
-            // Debug.Log(_current);
-        }
-    }
-
-    private void HangOnBackWeapon(Weapon wep)
-    {
-        wep.HandOnBack(_backHoldPoint);
-    }
-
-    private void TakeUpWeapon(Weapon wep)
-    {
-        wep.TakeUp(_holdPoint.transform, new Vector3(1, transform.localScale.y, transform.localScale.z));
-    }
+    public void TakeWeapon(Weapon wep) => _inventory.TakeWeapon(wep);
+    public void SetCurrentWeaponIndex(int weaponIndex) => _inventory.SetCurrentWeaponIndex(weaponIndex);
+    public void ReloadWeapon() => _inventory.Reload();
 
     public void Attack()
     {
-        if (!_weaponInventory.CurrentWeapon)
-            return;
-        if (_weaponInventory.CurrentWeapon.IsEmpty)
-            Reload();
+        if (_isDash) return;
+        
+        Weapon weapon = _inventory.CurrentWeapon;
+        if (!weapon) return;
+        if (weapon.IsEmpty)
+            _inventory.Reload();
         else
-            _weaponInventory.CurrentWeapon.Attack();
-    }
-
-    private void ReloadCheck(Weapon current, Weapon last)
-    {
-        if (current != last && _isReloading)
-        {
-            StopAllCoroutines();
-            _isReloading = false;
-        }
-    }
-
-    public void ReloadWeapon()
-    {
-        Reload();
-    }
-
-    private void Reload()
-    {
-        if (_isReloading) return;
-
-        Weapon current = _weaponInventory.CurrentWeapon;
-        if (!current || current.IsFull || current.ReloadTime == 0)
-            return;
-        if (_ammoInventory.GetAmmo(current.AmmoType) < 1)
-            return;
-        StartCoroutine(ReloadRoutine(current.ReloadTime));
-    }
-
-    private IEnumerator ReloadRoutine(float time)
-    {
-        _isReloading = true;
-        yield return new WaitForSeconds(time);
-
-        Weapon current = _weaponInventory.CurrentWeapon;
-        if (!current) yield break;
-
-        int totalCount = _ammoInventory.GetAmmo(current.AmmoType);
-        int relCount = Mathf.Min(totalCount, current.MaxAmmo);
-        current.Reload(relCount);
-        _ammoInventory.ReduceAmmo(current.AmmoType, relCount);
-        _isReloading = false;
+            weapon.Attack();
     }
 
     public void ChangeHealth(float value)
@@ -256,7 +162,7 @@ public class Character : MonoBehaviour, ITakeDamage
             IsDead = true;
             if (_collider) _collider.enabled = false;
             _animator.SetTrigger(_deathKey);
-            DropWeapons();
+            _inventory.DropAll();
             _moveDirection = Vector2.zero;
             if (_ai) _ai.enabled = false;
 
@@ -265,14 +171,8 @@ public class Character : MonoBehaviour, ITakeDamage
             Instantiate(_deadCond, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
-        else
-            Debug.Log(newValue);
-    }
-
-    private void DropWeapons()
-    {
-        _weaponInventory.DropWeapon(0);
-        _weaponInventory.DropWeapon(1);
+        // else
+            // Debug.Log(newValue);
     }
 
 #if UNITY_EDITOR
@@ -280,6 +180,11 @@ public class Character : MonoBehaviour, ITakeDamage
     {
         Handles.color = new Color(1, 1, 0, 0.1f);
         Handles.DrawSolidDisc(transform.position, Vector3.forward, 1);
+    }
+
+    private void OnValidate()
+    {
+        _dashSpeed = _dashTime == 0 ? 0 : _dashDistance / _dashTime;
     }
 #endif
 }

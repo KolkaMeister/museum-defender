@@ -1,15 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UI;
 using UnityEngine;
 
 public class InteractSceneLoad : MonoBehaviour, IInteractable
 {
-    [SerializeField] string _desc;
-    [SerializeField] int _loadSceneNumber;
-    public string Description { get => _desc; set => _desc=value; }
+    [SerializeField] private string _desc;
+    [SerializeField] private int _loadSceneNumber;
 
-    public void Interact(Character obj)
+    public string Description
+    {
+        get => _desc;
+        set => _desc = value;
+    }
+
+    public void Interact(Character _)
     {
         SceneLoader.LoadScene(_loadSceneNumber, false);
     }

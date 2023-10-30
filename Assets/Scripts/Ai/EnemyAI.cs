@@ -14,16 +14,17 @@ public class EnemyAI : MonoBehaviour
     private Seeker seeker;
     private Rigidbody2D rb;
     private Character Char;
+    FindTarget Ftarget;
 
     public Path path;
 
     public bool pathIsEnded = false;
     public bool isWeaponed = false;
-
+    public bool PVE = false;
     public float nextWaypointDistance = 1;
     public float stopDistance = 1;
-    public float distStop;
-    public float pogr = 0.5f;
+    public float DistToTarget;
+    public float pogr = 0.7f;
 
     private int currentWaypoint = 0;
     private Vector3 dir;
@@ -50,31 +51,51 @@ public class EnemyAI : MonoBehaviour
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         Char = GetComponent<Character>();
+        Ftarget = Char.GetComponent<FindTarget>();
     }
     void Start()
     {
         Starter();
         StartCoroutine(Founder());
+        PickWeapon();
+        if (PVE) StartCoroutine(PveTimer());
+    }
+    void PickWeapon() {
         if (isWeaponed == false)
         {
+            //Debug.Log("PickWeapon");
             Char.Interact();
+            if (transform.Find("HoldPoint").transform.childCount != 0) {
+                isWeaponed = true;
+                transform.Find("HoldPoint").transform.GetChild(0).tag = "Untagged";
+                target = null;
+                stopDistance = transform.Find("HoldPoint").transform.GetChild(0).GetComponent<Weapon>()._shootRange;
+            }
         }
     }
     IEnumerator UpdatePath()
     {
         if (target == null) {
             Char.MoveDirection = new Vector2(0, 0);
-            Char.GetComponent<FindTarget>().FindTargets();
+            Ftarget.FindTargets();
             yield return false;
         }
+        if (!GetComponent<FindTarget>().CheckTag()) {
+            //Debug.Log(GetComponent<FindTarget>().CheckTag()) ;
+            target = null;
+            Ftarget.FindTargets();
+            yield return false;
+        }
+        
         try
         {
             seeker.StartPath(transform.position, target.position, OnPathComplete);
         }
         catch {
-            Char.GetComponent<FindTarget>().FindTargets();
+            Ftarget.FindTargets();
             Char.MoveDirection = new Vector2(0, 0);
         }
+        PickWeapon();
         yield return new WaitForSeconds(1f / updateRate);
         StartCoroutine(UpdatePath());
     }
@@ -94,7 +115,7 @@ public class EnemyAI : MonoBehaviour
         {
             return;
         }
-        distStop = Vector3.Distance(transform.position, target.position);
+        DistToTarget = Vector3.Distance(transform.position, target.position);
         if (currentWaypoint >= path.vectorPath.Count)
         {
             Char.MoveDirection = new Vector2(0, 0);
@@ -107,12 +128,12 @@ public class EnemyAI : MonoBehaviour
         }
         pathIsEnded = false;
 
-        if (distStop >= stopDistance + pogr)
+        if (DistToTarget >= stopDistance + pogr)
         {
             dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
             Char.MoveDirection = new Vector2(dir.x, dir.y);
         }
-        else if (distStop <= stopDistance - pogr)
+        else if (DistToTarget <= stopDistance - pogr)
         {
             dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
             Char.MoveDirection = new Vector2(-dir.x, -dir.y);
@@ -133,16 +154,25 @@ public class EnemyAI : MonoBehaviour
 
     }
     public void FireControl() {
-        if (distStop <= stopDistance + 1 && target != null) {
+        if (DistToTarget <= stopDistance + 1 && target != null) {
             //Debug.Log("atk");
             Char.Attack();
         }
     }
-    // Update is called once per frame
-    void FixedUpdate()
+    IEnumerator PveTimer()
+    {
+        yield return new WaitForSeconds(Random.Range(7, 13));
+        Ftarget.FindTargets();
+        StartCoroutine(PveTimer());
+    }
+        void FixedUpdate()
     {
         MoveControl();
-        FireControl();
+        if (!PVE) FireControl();
+        else
+        {
+            //PVE controll
+        };
     }
 
 }
