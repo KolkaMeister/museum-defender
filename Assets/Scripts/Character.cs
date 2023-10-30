@@ -1,4 +1,5 @@
 using System.Collections;
+using Dialogs.Sideline;
 using UI;
 using UnityEditor;
 using UnityEngine;
@@ -24,6 +25,9 @@ public class Character : MonoBehaviour, ITakeDamage
     [SerializeField] private float _dashDistance;
     [SerializeField] private float _dashSpeed;
     [SerializeField] private Cooldown _dashDelay;
+    
+    //*******************Dialog*******************//
+    [SerializeField] private BubbleDialogView _dialogView;
 
     private Interaction _interaction;
     private Collider2D _collider;
@@ -43,6 +47,8 @@ public class Character : MonoBehaviour, ITakeDamage
     private bool _isDead;
     private bool _isDash;
 
+    public BubbleDialogView DialogView => _dialogView;
+    
     public Rigidbody2D Rb => _rb;
 
     public Vector2 MoveDirection
@@ -111,7 +117,9 @@ public class Character : MonoBehaviour, ITakeDamage
     private void CalculateScale(Vector2 view)
     {
         float dir = view.x - transform.position.x;
-        transform.localScale = new Vector2(dir > 0 ? 1 : -1, 1);
+        var scale = new Vector2(dir > 0 ? 1 : -1, 1);
+        transform.localScale = scale;
+        _dialogView.transform.localScale = scale;
     }
 
     public void Dash()

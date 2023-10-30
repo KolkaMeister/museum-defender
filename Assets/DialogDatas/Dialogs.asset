@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   XmlDialogs:
   - {fileID: 4900000, guid: 1829d48a932e44a6879b1a7f00f444f2, type: 3}
+  - {fileID: 4900000, guid: e21cda207d3d4bbcb9defea4733ff11c, type: 3}
+  - {fileID: 4900000, guid: 9881807fbcd04db9924eeab0c6bdd6fe, type: 3}

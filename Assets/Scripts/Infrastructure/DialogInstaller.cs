@@ -1,4 +1,5 @@
 ﻿using Dialogs;
+using Dialogs.Sideline;
 using UnityEngine;
 using Zenject;
 
@@ -8,13 +9,41 @@ namespace Infrastructure
     {
         [SerializeField] private DialogBox _dialogBox;
         [SerializeField] private DialogSo _dialogSo;
+        [SerializeField] private DialogConfigSo _dialogConfig;
         
         public override void InstallBindings()
         {
+            BindDialogConfig();
             BindDialogBox();
             BindDialogDataService();
             BindDialogController();
             BindInitialization();
+            
+            BindDialogPicker();
+            BindBubbleDialogManager();
+        }
+
+        private void BindDialogConfig()
+        {
+            Container
+                .BindInstance(_dialogConfig)
+                .AsSingle();
+        }
+
+        private void BindDialogPicker()
+        {
+            Container
+                .Bind<IDialogPicker>()
+                .To<DialogPicker>()
+                .AsSingle();
+        }
+
+        private void BindBubbleDialogManager()
+        {
+            Container
+                .Bind<IBubbleDialogManager>()
+                .To<BubbleDialogManager>()
+                .AsSingle();
         }
 
         private void BindDialogBox()
@@ -42,8 +71,8 @@ namespace Infrastructure
         private void BindDialogDataService()
         {
             Container
-                .BindInterfacesAndSelfTo<DialogDataService>()
-                .FromInstance(new DialogDataService(_dialogSo))
+                .BindInterfacesAndSelfTo<DialogDataProvider>()
+                .FromInstance(new DialogDataProvider(_dialogSo))
                 .AsSingle();
         }
     }

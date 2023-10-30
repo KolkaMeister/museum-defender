@@ -6,16 +6,18 @@ namespace Dialogs.States
 {
     public class TypePhraseState : DialogState, IEnterState, IUpdateState, IExitState
     {
+        private readonly DialogController _controller;
         private DialogNode _node;
         private Timer _typeDelay;
 
-        public TypePhraseState(DialogMachine machine, DialogBox box) : base(machine, box)
+        public TypePhraseState(DialogMachine machine, DialogBox box, DialogController controller) : base(machine, box)
         {
+            _controller = controller;
         }
 
         public void Enter()
         {
-            _node = _machine.GetPhrase();
+            _node = _controller.GetNextNode();
             _box.Speech.SetText(_node.Text, true);
             _box.SpeakerName.SetText(_node.Name, true);
 

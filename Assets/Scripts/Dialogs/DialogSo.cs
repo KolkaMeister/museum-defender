@@ -15,9 +15,11 @@ namespace Dialogs
         {
             for (int i = 0; i < XmlDialogs.Length; i++)
             {
-                if (Path.GetExtension(AssetDatabase.GetAssetPath(XmlDialogs[i])) == ".xml") continue;
-                XmlDialogs[i] = null;
-                throw new ArgumentException("Dialog must be an xml file");
+                if (Path.GetExtension(AssetDatabase.GetAssetPath(XmlDialogs[i])) != ".xml")
+                {
+                    XmlDialogs[i] = null;
+                    throw new ArgumentException("Dialog must be an xml file");
+                }
             }
         }
 #endif

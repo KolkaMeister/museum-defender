@@ -1,5 +1,6 @@
 using System;
 using Dialogs.Answers;
+using Dialogs.Sideline;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -11,7 +12,7 @@ namespace Dialogs
         public DialogTextView Speech;
         public DialogTextView SpeakerName;
         public Button Button;
-        public float TypeInterval = 0.3f;
+        [HideInInspector] public float TypeInterval = 0.3f;
         public float OpenTime;
         public float CloseTime;
         public Animator Animator;
@@ -20,8 +21,9 @@ namespace Dialogs
         [SerializeField] private Transform _answerContainer;
 
         [Inject]
-        private void Construct()
+        private void Construct(DialogConfigSo config)
         {
+            TypeInterval = config.StoryTypeInterval;
             Speech.Init(TypeInterval);
             SpeakerName.Init(TypeInterval);
             AnswerGroup = new AnswerGroup(_answerContainer);

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Dialogs.Nodes;
 using UnityEditor;
 using UnityEngine;
@@ -7,12 +6,12 @@ using Zenject;
 
 namespace Dialogs
 {
-    public class DialogDataService : IInitializable, IDialogDataService
+    public class DialogDataProvider : IInitializable, IDialogDataService
     {
         private readonly DialogSo _dialogSo;
         private readonly List<DialogTree> _dialogs = new List<DialogTree>();
 
-        public DialogDataService(DialogSo dialogSo)
+        public DialogDataProvider(DialogSo dialogSo)
         {
             _dialogSo = dialogSo;
         }
@@ -26,11 +25,13 @@ namespace Dialogs
             }
         }
 
-        public DialogTree GetDialog(string name) => _dialogs.FirstOrDefault(x => x.Name == name);
+        public DialogTree Find(string name) => _dialogs.Find(x => x.Name == name);
+        public List<DialogTree> FindAll(string template) => _dialogs.FindAll(x => x.Name.StartsWith(template));
     }
 
     public interface IDialogDataService
     {
-        public DialogTree GetDialog(string name);
+        public DialogTree Find(string name);
+        public List<DialogTree> FindAll(string template);
     }
 }

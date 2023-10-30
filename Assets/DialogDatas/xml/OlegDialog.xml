@@ -17,7 +17,7 @@
           <Text>Pogoda segodnya prekrasnay</Text>
         </Phrase>
       </Answer>
-      <Answer line="1" ref="partDialog.xml">
+      <Answer line="1" ref="PartOlegDialog.xml">
         <Text>Fly</Text>
       </Answer>
       <Answer line="2">

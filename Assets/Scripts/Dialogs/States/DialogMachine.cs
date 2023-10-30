@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Dialogs.Nodes;
 
 namespace Dialogs.States
 {
@@ -7,23 +6,17 @@ namespace Dialogs.States
     {
         public IDialogState GetCurrentState => _current;
 
-        private readonly DialogController _controller;
-        private readonly List<DialogState> _states = new List<DialogState>();
+        private readonly List<IDialogState> _states = new List<IDialogState>();
         private IDialogState _current;
-        private DialogBox _box;
 
-        public DialogMachine(DialogBox box, DialogController controller)
+        public void AddState(IDialogState state)
         {
-            _controller = controller;
-            _box = box;
-            _states.AddRange(new DialogState[]
-            {
-                new InitDialogState(this, box),
-                new StartPhraseState(this, box),
-                new TypePhraseState(this, box),
-                new WaitDialogState(this, box),
-                new CloseDialogState(this, box)
-            });
+            _states.Add(state);
+        }
+
+        public void RemoveState(IDialogState state)
+        {
+            _states.Remove(state);
         }
 
         public void StartDialog()
@@ -32,7 +25,7 @@ namespace Dialogs.States
         }
         
         public void ChangeState<TState>() 
-            where TState : DialogState
+            where TState : IDialogState
         {
             if(_current is IExitState exit)
                 exit.Exit();
@@ -41,30 +34,10 @@ namespace Dialogs.States
                 enter.Enter();
         }
 
-        public void TypeNext()
-        {
-            ChangeState<StartPhraseState>();
-        }
-
-        public void ForceType()
-        {
-            ChangeState<WaitDialogState>();
-        }
-
-        public DialogNode GetPhrase()
-        {
-            return _controller.GetNextNode();
-        }
-
         public void Update()
         {
             if(_current is IUpdateState update)
                 update.Update();
-        }
-
-        public void Finish()
-        {
-            ChangeState<CloseDialogState>();
         }
     }
 }

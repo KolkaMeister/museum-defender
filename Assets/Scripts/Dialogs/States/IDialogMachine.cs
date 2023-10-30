@@ -1,20 +1,15 @@
-﻿using Dialogs.Nodes;
-
-namespace Dialogs.States
+﻿namespace Dialogs.States
 {
     public interface IDialogMachine
     {
+        public void AddState(IDialogState state);
+        public void RemoveState(IDialogState state);
+        
         public void StartDialog();
         
         public void ChangeState<TState>()
-            where TState : DialogState;
-
-        public void TypeNext();
-        public void ForceType();
-        public DialogNode GetPhrase();
+            where TState : IDialogState;
 
         public void Update();
-
-        public void Finish();
     }
 }

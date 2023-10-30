@@ -37,10 +37,7 @@ namespace Dialogs.Nodes
             {
                 _pathStack.Push(path);
                 tree = new DialogTree();
-                string name = GetAttribute(root, NAME_ATTR);
-                CheckAttribute(name, root.Name);
-
-                tree.Name = name;
+                FillDialogAttributes(root, tree);
                 FillLinearDialog(root);
 
                 tree.Root = _startNode;
@@ -104,6 +101,15 @@ namespace Dialogs.Nodes
                 FillAnswer(child);
                 _nodeStack.Pop();
             }
+        }
+
+        private static void FillDialogAttributes(XmlNode root, DialogTree tree)
+        {
+            string name = GetAttribute(root, NAME_ATTR);
+            CheckAttribute(name, root.Name);
+
+            tree.Name = name;
+            tree.Tag = GetAttribute(root, TAG_ATTR, "");
         }
 
         private static void FillLeaves(List<DialogNode> leaves, DialogNode node)
