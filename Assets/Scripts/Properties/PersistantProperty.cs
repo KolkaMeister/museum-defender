@@ -4,10 +4,11 @@ using UnityEngine;
 [Serializable]
 public class PersistantProperty<TType>
 {
-    public delegate void OnValueChanged(TType newValue, TType oldValue);
-
-    public event OnValueChanged OnChanged;
     [SerializeField] private TType _value;
+
+    public delegate void OnValueChanged(TType newValue, TType oldValue);
+    public event OnValueChanged OnChanged;
+
     public TType Value
     {
         get => _value;
@@ -19,8 +20,9 @@ public class PersistantProperty<TType>
             OnChanged?.Invoke(_value, oldValue);
         }
     }
-    public PersistantProperty(TType _default)
+
+    public PersistantProperty(TType @default)
     {
-        _value= _default;
+        _value = @default;
     }
 }

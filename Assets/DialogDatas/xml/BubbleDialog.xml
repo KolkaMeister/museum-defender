@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Set xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns="urn:HistoryTrip.Dialogs"
+     xsi:schemaLocation="urn:HistoryTrip.Dialogs dialog.xsd">
+  <Dialog name="bubble 1">
+    <Phrase author="1">
+      <Text>Hi!</Text>
+    </Phrase>
+    <Phrase author="2">
+      <Text>Hello, my friend</Text>
+    </Phrase>
+    <Phrase author="1">
+      <Text>Do you sell fish?</Text>
+    </Phrase>
+    <Phrase author="2">
+      <Text>No, just show</Text>
+    </Phrase>
+    <Phrase author="1">
+      <Text>Beautiful!</Text>
+    </Phrase>
+  </Dialog>
+</Set>

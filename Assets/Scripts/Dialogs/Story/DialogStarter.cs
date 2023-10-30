@@ -10,7 +10,7 @@ namespace Dialogs
 
         [SerializeField] private string _desk;
         private DialogSystem _dialogSys;
-        private DialogDataService _dataSvc;
+        private DialogDataProvider _dataSvc;
         private DialogTree _tree;
 
         public string Description
@@ -20,7 +20,7 @@ namespace Dialogs
         }
 
         [Inject]
-        public void Construct(DialogSystem dialogSys, DialogDataService dataSvc)
+        public void Construct(DialogSystem dialogSys, DialogDataProvider dataSvc)
         {
             _dialogSys = dialogSys;
             _dataSvc = dataSvc;
@@ -28,11 +28,13 @@ namespace Dialogs
 
         private void Start()
         {
-            _tree = _dataSvc.GetDialog(DialogName);
+            _tree = _dataSvc.Find(DialogName);
         }
 
         public void Interact(Character obj)
         {
+            if (obj.gameObject == gameObject) 
+                return;
             _dialogSys.Start(_tree);
         }
     }

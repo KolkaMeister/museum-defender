@@ -56,8 +56,13 @@ public class Interaction : MonoBehaviour, IInteraction
 
     private void InternalCheck()
     {
-        Collider2D coll = Physics2D.OverlapCircle(transform.position, InteractionDistance, LayerMask.GetMask("Interactable"));
-        _target = coll ? coll.GetComponent<IInteractable>() : null;
+        _target = null;
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, InteractionDistance);
+        foreach (Collider2D coll in colliders)
+        {
+            if (coll.TryGetComponent(out _target))
+                break;
+        }
     }
 }
 

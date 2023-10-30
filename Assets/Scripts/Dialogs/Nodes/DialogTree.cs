@@ -7,6 +7,7 @@ namespace Dialogs.Nodes
     {
         public DialogNode Root;
         public string Name;
+        public string Tag;
 
         private List<DialogNode> _cache;
 

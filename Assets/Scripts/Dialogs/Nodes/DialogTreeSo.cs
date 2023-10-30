@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Dialogs.Nodes
 {
-    [CreateAssetMenu(fileName = "NewDialog", menuName = "HistoryTrip/DialogTree")]
+    [CreateAssetMenu(fileName = "NewDialog", menuName = "History Trip/Dialog Tree")]
     public class DialogTreeSo : ScriptableObject
     {
 #if UNITY_EDITOR

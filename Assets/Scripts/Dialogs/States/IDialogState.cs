@@ -2,7 +2,7 @@
 {
     public interface IDialogState
     {
-        public DialogMachine Machine { get; }
+        public IDialogMachine Machine { get; }
     }
 
     public interface IEnterState

@@ -5,22 +5,21 @@ namespace Dialogs
 {
     public class DialogSystem : IDialogSystem
     {
+        private DialogController _controller;
+
+        public DialogTree CurrentDialog { get; private set; }
+        public DialogNode CurrentNode { get; private set; }
+        
         public event Action OnDialogStarted;
         public event Action OnDialogEnded;
         public event Action OnPhraseStarted;
-
-        private DialogController _controller;
-        private DialogTree _currentDialog;
-        private DialogNode _currentNode;
-
-        private bool _isSpeaking;
 
         public void Start(DialogTree tree)
         {
             if (_controller == null) return;
 
-            _currentDialog = tree;
-            _currentNode = tree.Root;
+            CurrentDialog = tree;
+            CurrentNode = tree.Root;
             _controller.Start();
             OnDialogStarted?.Invoke();
         }
@@ -32,25 +31,25 @@ namespace Dialogs
 
         public DialogNode GetNextNode()
         {
+            CurrentNode.OnPhraseStarted?.Invoke();
             OnPhraseStarted?.Invoke();
-            _currentNode.OnPhraseStarted?.Invoke();
-            return _currentNode;
+            return CurrentNode;
         }
 
         public void Next(int index)
         {
-            if (_currentNode is not BranchDialogNode branch)
+            if (CurrentNode is not BranchDialogNode branch)
             {
-                _currentNode = _currentNode.Child;
+                CurrentNode = CurrentNode.Child;
             }
             else
             {
                 if (index == -1) return;
                 branch.Answers[index].OnPhraseStarted?.Invoke();
-                _currentNode = branch.Answers[index].Child;
+                CurrentNode = branch.Answers[index].Child;
             }
 
-            if (_currentNode == null)
+            if (CurrentNode == null)
             {
                 FinishDialog();
                 return;
@@ -63,13 +62,20 @@ namespace Dialogs
         {
             OnDialogEnded?.Invoke();
             _controller.Finish();
-            _currentNode = null;
-            _currentDialog = null;
+            CurrentNode = null;
+            CurrentDialog = null;
         }
     }
 
     public interface IDialogSystem
     {
+        public DialogTree CurrentDialog { get; }
+        public DialogNode CurrentNode { get; }
+        
+        public event Action OnDialogStarted;
+        public event Action OnDialogEnded;
+        public event Action OnPhraseStarted;
+        
         public void SetController(DialogController controller);
         public void Start(DialogTree tree);
     }
