@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Scaner : MonoBehaviour
+public class Scaner : MonoBehaviour //Cтарый скан
 {
-    [SerializeField] float Scanertime = 0.1f;
+    /*[SerializeField] float Scanertime = 0.1f;
     AstarPath _AstarPath;
     IEnumerator Scaners()
     {
@@ -15,6 +15,7 @@ public class Scaner : MonoBehaviour
     }
     void Start()
     {
+        
         _AstarPath = GetComponent<AstarPath>();
             StartCoroutine(Scaners());
     }
@@ -23,5 +24,5 @@ public class Scaner : MonoBehaviour
     void Update()
     {
         
-    }
+    }*/
 }
