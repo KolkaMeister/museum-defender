@@ -514,3 +514,7 @@ FodyWeavers.xsd
 
 ### VisualStudio Patch ###
 # Additional files built by Visual Studio
+Assets/Scripts/Dialog/StartDialog.cs.meta
+Assets/Scripts/Dialog/DialogData.cs.meta
+Assets/Scripts/Dialog.meta
+Assets/Scripts/Dialog/DialogBox.cs.meta

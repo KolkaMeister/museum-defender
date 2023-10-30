@@ -164,6 +164,7 @@ MonoBehaviour:
   _reloadTime: 1
   _attackLayer: 0
   _collider: {fileID: 5204334154838471873}
+  _shootRange: 7
   _spread: 0
   _projSpawn: {fileID: 5204334155870956361}
   _force: 40
