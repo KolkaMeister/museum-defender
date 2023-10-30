@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Dialogs
 {
-    [CreateAssetMenu(fileName = "Dialogs", menuName = "HistoryTrip/XmlDialogs")]
+    [CreateAssetMenu(fileName = "Dialogs", menuName = "History Trip/Xml Dialogs")]
     public class DialogSo : ScriptableObject
     {
         public TextAsset[] XmlDialogs;

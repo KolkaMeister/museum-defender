@@ -43,6 +43,8 @@ public class Character : MonoBehaviour, ITakeDamage
     private bool _isDead;
     private bool _isDash;
 
+    public Rigidbody2D Rb => _rb;
+
     public Vector2 MoveDirection
     {
         get => _moveDirection;
