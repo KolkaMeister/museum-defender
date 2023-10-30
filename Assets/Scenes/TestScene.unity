@@ -198,6 +198,102 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 691629221}
     m_Modifications:
+    - target: {fileID: 317124150712622505, guid: 5bf77d8bc075c08458f9583e47f499f6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 317124150712622505, guid: 5bf77d8bc075c08458f9583e47f499f6, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 317124150712622505, guid: 5bf77d8bc075c08458f9583e47f499f6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 317124150712622505, guid: 5bf77d8bc075c08458f9583e47f499f6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 317124150712622505, guid: 5bf77d8bc075c08458f9583e47f499f6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2267654185180092159, guid: 5bf77d8bc075c08458f9583e47f499f6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2267654185180092159, guid: 5bf77d8bc075c08458f9583e47f499f6, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2267654185180092159, guid: 5bf77d8bc075c08458f9583e47f499f6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2267654185180092159, guid: 5bf77d8bc075c08458f9583e47f499f6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2267654185180092159, guid: 5bf77d8bc075c08458f9583e47f499f6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4043999390721643769, guid: 5bf77d8bc075c08458f9583e47f499f6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4043999390721643769, guid: 5bf77d8bc075c08458f9583e47f499f6, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4043999390721643769, guid: 5bf77d8bc075c08458f9583e47f499f6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4043999390721643769, guid: 5bf77d8bc075c08458f9583e47f499f6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4043999390721643769, guid: 5bf77d8bc075c08458f9583e47f499f6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5071142295781085886, guid: 5bf77d8bc075c08458f9583e47f499f6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5071142295781085886, guid: 5bf77d8bc075c08458f9583e47f499f6, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5071142295781085886, guid: 5bf77d8bc075c08458f9583e47f499f6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5071142295781085886, guid: 5bf77d8bc075c08458f9583e47f499f6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5323288751474615984, guid: 5bf77d8bc075c08458f9583e47f499f6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5323288751474615984, guid: 5bf77d8bc075c08458f9583e47f499f6, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5323288751474615984, guid: 5bf77d8bc075c08458f9583e47f499f6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5323288751474615984, guid: 5bf77d8bc075c08458f9583e47f499f6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5323288751474615984, guid: 5bf77d8bc075c08458f9583e47f499f6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5578124224588082096, guid: 5bf77d8bc075c08458f9583e47f499f6, type: 3}
       propertyPath: _button
       value: 
@@ -766,12 +862,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   updateRate: 1
-  rangeAIM: 0.5
   pathIsEnded: 0
   isWeaponed: 0
+  PVE: 0
   nextWaypointDistance: 1
   stopDistance: 10
-  distStop: 0
+  DistToTarget: 0
   pogr: 0.5
 --- !u!114 &676883759
 MonoBehaviour:
@@ -786,6 +882,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Allies
+  targetTagPVE: Landmark
+  weaponTag: Weapon
 --- !u!70 &676883760
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1317,7 +1415,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!4 &1022131754
 Transform:
   m_ObjectHideFlags: 0
@@ -1377,6 +1475,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Allies
+  targetTagPVE: Landmark
+  weaponTag: Weapon
 --- !u!114 &1037776911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1391,12 +1491,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   updateRate: 1
-  rangeAIM: 0.5
   pathIsEnded: 0
   isWeaponed: 0
+  PVE: 0
   nextWaypointDistance: 1
   stopDistance: 10
-  distStop: 0
+  DistToTarget: 0
   pogr: 0.5
 --- !u!114 &1037776912
 MonoBehaviour:
@@ -1811,12 +1911,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   updateRate: 1
-  rangeAIM: 0.5
   pathIsEnded: 0
   isWeaponed: 0
+  PVE: 0
   nextWaypointDistance: 1
   stopDistance: 10
-  distStop: 0
+  DistToTarget: 0
   pogr: 0.5
 --- !u!114 &1565785955
 MonoBehaviour:
@@ -1831,6 +1931,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Allies
+  targetTagPVE: Landmark
+  weaponTag: Weapon
 --- !u!70 &1565785956
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
