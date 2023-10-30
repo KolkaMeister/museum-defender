@@ -132,9 +132,53 @@ public class Character : MonoBehaviour, ITakeDamage
     }
 
     //////////Weapons Methods//////////
-    public void TakeWeapon(Weapon wep) => _inventory.TakeWeapon(wep);
-    public void SetCurrentWeaponIndex(int weaponIndex) => _inventory.SetCurrentWeaponIndex(weaponIndex);
-    public void ReloadWeapon() => _inventory.Reload();
+    public void TakeWeapon(Weapon wep)
+    {
+        _weaponInventory.TakeWeapon(wep);
+        wep.SetAttackLayer(gameObject.layer == Idents.PlayerLayer ? Idents.EnemyLayer : Idents.PlayerLayer);
+    }
+
+    private void OnInventoryChanged(Weapon oldValue, Weapon newValue)
+    {
+        if (oldValue) DropWeaponAtPoint(oldValue, transform.position);
+        if (newValue) TakeUpWeapon(newValue);
+    }
+
+    private void DropWeaponAtPoint(Weapon wep, Vector3 position)
+    {
+        wep.Drop(position);
+    }
+
+    public void SetCurrentWeaponIndex(int weaponIndex)
+    {
+        // Debug.Log(weaponIndex);
+        _weaponInventory.ChangeIndex(weaponIndex);
+    }
+
+    private void OnInventoryIndexChanged(Weapon current, Weapon last)
+    {
+        if (last)
+        {
+            HangOnBackWeapon(last);
+            //Debug.Log(_last);
+        }
+
+        if (current)
+        {
+            TakeUpWeapon(current);
+            //Debug.Log(_current);
+        }
+    }
+
+    private void HangOnBackWeapon(Weapon wep)
+    {
+        wep.HandOnBack(_backHoldPoint);
+    }
+
+    private void TakeUpWeapon(Weapon wep)
+    {
+        wep.TakeUp(_holdPoint.transform, new Vector3(1, transform.localScale.y, transform.localScale.z));
+    }
 
     public void Attack()
     {
@@ -171,8 +215,14 @@ public class Character : MonoBehaviour, ITakeDamage
             Instantiate(_deadCond, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
-        // else
-            // Debug.Log(newValue);
+        /*else
+            Debug.Log(newValue);*/
+    }
+
+    private void DropWeapons()
+    {
+        _weaponInventory.DropWeapon(0);
+        _weaponInventory.DropWeapon(1);
     }
 
 #if UNITY_EDITOR
