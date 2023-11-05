@@ -250,8 +250,8 @@ TextureImporter:
         y: 104
         width: 34
         height: 59
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.48704574, y: 0.09687986}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -439,8 +439,8 @@ TextureImporter:
         y: 71
         width: 24
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.76425266}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -662,6 +662,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: tiles_3lkkk_26
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 159
+        width: 42
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 092568ff7224e814a8ddda81905b05cb
+      internalID: 626697860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -696,6 +717,7 @@ TextureImporter:
       tiles_3lkkk_25: 1744459033
       tiles_3lkkk_14: -1458049350
       tiles_3lkkk_16: -1074511579
+      tiles_3lkkk_26: 626697860
       tiles_3lkkk_7: -1100315723
       tiles_3lkkk_11: 2006823642
       tiles_3lkkk_13: 359936276
