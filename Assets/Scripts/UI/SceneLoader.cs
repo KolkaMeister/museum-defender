@@ -12,6 +12,8 @@ namespace UI
 
         public static void LoadScene(int buildIndex, bool allowActivate)
         {
+            if (_loader != null) 
+                return;
             _loader = SceneManager.LoadSceneAsync(buildIndex);
             _loader.allowSceneActivation = allowActivate;
             OnSceneStartLoad?.Invoke();
@@ -21,7 +23,8 @@ namespace UI
 
         public static void ActivateScene()
         {
-            if (_loader == null) return;
+            if (_loader == null) 
+                return;
             _loader.allowSceneActivation = true;
         }
     }
