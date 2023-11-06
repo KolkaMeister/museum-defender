@@ -168,19 +168,19 @@ public class Character : MonoBehaviour, ITakeDamage
             if (IsDead) return;
 
             IsDead = true;
-            if (_collider) _collider.enabled = false;
+            if (_collider) 
+                _collider.enabled = false;
             _animator.SetTrigger(_deathKey);
             _inventory.DropAll();
             _moveDirection = Vector2.zero;
-            if (_ai) _ai.enabled = false;
+            if (_ai) 
+                _ai.enabled = false;
 
             if (gameObject.name == "Player")
                 SceneLoader.LoadScene(SceneManager.GetActiveScene().buildIndex, false);
             Instantiate(_deadCond, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
-        // else
-            // Debug.Log(newValue);
     }
 
 #if UNITY_EDITOR

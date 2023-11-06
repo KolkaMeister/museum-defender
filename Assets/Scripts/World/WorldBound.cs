@@ -15,7 +15,7 @@ namespace World
         
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.TryGetComponent(out PlayerInputController player))
+            if (other.TryGetComponent(out PlayerInputController _))
             {
                 _controller.ProcessOutOfBound(other.attachedRigidbody); 
             }

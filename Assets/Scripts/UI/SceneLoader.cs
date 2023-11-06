@@ -6,7 +6,7 @@ namespace UI
 {
     public static class SceneLoader
     {
-        public static Action OnSceneStartLoad;
+        public static event Action OnSceneStartLoad;
 
         private static AsyncOperation _loader;
 
@@ -26,6 +26,7 @@ namespace UI
             if (_loader == null) 
                 return;
             _loader.allowSceneActivation = true;
+            _loader = null;
         }
     }
 }
