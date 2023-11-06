@@ -12,38 +12,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2a739e923db42adadda49867b8f6d53, type: 3}
   m_Name: TestDialog
   m_EditorClassIdentifier: 
-  XmlFile: {fileID: 4900000, guid: 1829d48a932e44a6879b1a7f00f444f2, type: 3}
+  XmlFile: {fileID: 4900000, guid: 9881807fbcd04db9924eeab0c6bdd6fe, type: 3}
   Dialogs:
-  - <Name>k__BackingField: Oleg
-    <Text>k__BackingField: Privet dohodiaga, kak tvoi dela?
-    <Tag>k__BackingField: Oleg
+  - <Name>k__BackingField: 1
+    <Text>k__BackingField: Good morning, how long time ago have you stood here?
+    <Tag>k__BackingField: 
     <Phrase>k__BackingField: 0
-  - <Name>k__BackingField: Sasha
-    <Text>k__BackingField: Norm
-    <Tag>k__BackingField: Sasha
+  - <Name>k__BackingField: 2
+    <Text>k__BackingField: I don't know. I think more than usually
+    <Tag>k__BackingField: 
     <Phrase>k__BackingField: 0
-  - <Name>k__BackingField: Oleg
-    <Text>k__BackingField: Chto budesh segodnya delat?
-    <Tag>k__BackingField: Oleg
-    <Phrase>k__BackingField: 1
-  - <Name>k__BackingField: 
-    <Text>k__BackingField: Run
+  - <Name>k__BackingField: 2
+    <Text>k__BackingField: Why have you come to me?
     <Tag>k__BackingField: 
-    <Phrase>k__BackingField: 2
-  - <Name>k__BackingField: 
-    <Text>k__BackingField: Fly
+    <Phrase>k__BackingField: 0
+  - <Name>k__BackingField: 1
+    <Text>k__BackingField: I have something...
     <Tag>k__BackingField: 
-    <Phrase>k__BackingField: 2
-  - <Name>k__BackingField: 
-    <Text>k__BackingField: Crouch
+    <Phrase>k__BackingField: 0
+  - <Name>k__BackingField: 2
+    <Text>k__BackingField: So, what is there?
     <Tag>k__BackingField: 
-    <Phrase>k__BackingField: 2
-  - <Name>k__BackingField: 
-    <Text>k__BackingField: Fight
+    <Phrase>k__BackingField: 0
+  - <Name>k__BackingField: 1
+    <Text>k__BackingField: One red and one blue
     <Tag>k__BackingField: 
-    <Phrase>k__BackingField: 2
+    <Phrase>k__BackingField: 0
+  - <Name>k__BackingField: 1
+    <Text>k__BackingField: Which will you choose?
+    <Tag>k__BackingField: 
+    <Phrase>k__BackingField: 0
+  - <Name>k__BackingField: 2
+    <Text>k__BackingField: Maybe blue
+    <Tag>k__BackingField: 
+    <Phrase>k__BackingField: 0
+  - <Name>k__BackingField: 1
+    <Text>k__BackingField: Ooookey...
+    <Tag>k__BackingField: 
+    <Phrase>k__BackingField: 0
   Root:
-    <Name>k__BackingField: Oleg
-    <Text>k__BackingField: Privet dohodiaga, kak tvoi dela?
-    <Tag>k__BackingField: Oleg
+    <Name>k__BackingField: 1
+    <Text>k__BackingField: Good morning, how long time ago have you stood here?
+    <Tag>k__BackingField: 
     <Phrase>k__BackingField: 0

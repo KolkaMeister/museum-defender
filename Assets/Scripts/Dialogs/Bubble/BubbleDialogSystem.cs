@@ -1,7 +1,6 @@
 ﻿using System;
 using Dialogs.Nodes;
 using Infrastructure;
-using UnityEngine;
 
 namespace Dialogs.Sideline
 {
@@ -30,13 +29,12 @@ namespace Dialogs.Sideline
             CurrentDialog = dialog;
             DialogNode node = CurrentDialog.Root;
             OnDialogStarted?.Invoke();
-            _controller.Start(new SpeakerData(node.Name, initiator.DialogView), 
-                new SpeakerData(node.Child.Name, initiated.DialogView));
+            _controller.Start(new SpeakerData(CurrentDialog.Speakers[0], initiator.DialogView), 
+                new SpeakerData(CurrentDialog.Speakers[1], initiated.DialogView));
         }
 
         public DialogNode GetNextNode()
         {
-            Debug.Log(CurrentNode?.Text);
             CurrentNode = CurrentNode == null ? CurrentDialog.Root : CurrentNode.Child;
             if (CurrentNode == null)
             {

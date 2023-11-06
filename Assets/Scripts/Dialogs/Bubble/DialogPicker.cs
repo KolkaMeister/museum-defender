@@ -5,9 +5,9 @@ namespace Dialogs.Sideline
 {
     public class DialogPicker : IDialogPicker
     {
-        private readonly IDialogDataService _dialogSvc;
+        private readonly IDialogDataProvider _dialogSvc;
 
-        public DialogPicker(IDialogDataService dialogSvc)
+        public DialogPicker(IDialogDataProvider dialogSvc)
         {
             _dialogSvc = dialogSvc;
         }

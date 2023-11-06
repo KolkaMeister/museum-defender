@@ -5,10 +5,10 @@ using System.Xml;
 
 namespace Dialogs.Nodes
 {
-    public static class DialogBuilder
+    public class DialogBuilder
     {
         private const string TEXT_ELEM = "Text";
-
+        
         private const string AUTHOR_ATTR = "author";
         private const string LAY_ATTR = "lay";
         private const string LINE_ATTR = "line";
@@ -18,6 +18,7 @@ namespace Dialogs.Nodes
 
         private const string EMPTY = "\0";
 
+        private static DialogTree _currentTree;
         private static DialogNode _startNode;
         private static Stack<DialogNode> _nodeStack;
         private static Stack<string> _pathStack;
@@ -31,20 +32,21 @@ namespace Dialogs.Nodes
             // when we have built part dialog and we return to parent dialog file. 
             _pathStack = new Stack<string>();
             
-            DialogTree tree = null;
+            _currentTree = null;
+            _startNode = null;
             XmlNode root = GetDialogRoot(path);
             if (root != null)
             {
                 _pathStack.Push(path);
-                tree = new DialogTree();
-                FillDialogAttributes(root, tree);
+                _currentTree = new DialogTree();
+                FillDialogAttributes(root, _currentTree);
                 FillLinearDialog(root);
 
-                tree.Root = _startNode;
+                _currentTree.Root = _startNode;
                 _pathStack.Pop();
             }
 
-            return tree;
+            return _currentTree;
         }
 
         private static void AddNode(DialogNode node, DialogData data)
@@ -109,7 +111,6 @@ namespace Dialogs.Nodes
             CheckAttribute(name, root.Name);
 
             tree.Name = name;
-            tree.Tag = GetAttribute(root, TAG_ATTR, "");
         }
 
         private static void FillLeaves(List<DialogNode> leaves, DialogNode node)
@@ -145,6 +146,7 @@ namespace Dialogs.Nodes
 
         private static DialogNode GetDialogNode(XmlNode xNode, DialogData data)
         {
+            _currentTree.AddSpeaker(data.Author);
             if (xNode.ChildNodes.Count > 1)
             {
                 var branchNode = new BranchDialogNode(data.Text, data.Author, data.Tag);

@@ -32,7 +32,7 @@ namespace Infrastructure
         private void BindDialogSystem()
         {
             Container
-                .BindInstance(new DialogSystem())
+                .BindInterfacesAndSelfTo<DialogSystem>()
                 .AsSingle();
         }
 

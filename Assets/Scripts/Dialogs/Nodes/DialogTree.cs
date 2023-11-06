@@ -7,10 +7,17 @@ namespace Dialogs.Nodes
     {
         public DialogNode Root;
         public string Name;
-        public string Tag;
-
+        
+        private HashSet<string> _speakers = new HashSet<string>();
         private List<DialogNode> _cache;
 
+        public List<string> Speakers => _speakers.ToList();
+
+        public bool AddSpeaker(string name)
+        {
+            return _speakers.Add(name);
+        }
+        
         public List<DialogNode> GetAllNodes(bool force = false)
         {
             if (_cache == null || force)

@@ -10,11 +10,6 @@ namespace Dialogs
         private float _typeInterval;
         private bool _isTyping;
 
-        public TMP_Text Text
-        {
-            get => _text;
-        }
-
         private void Awake()
         {
             _text = GetComponent<TMP_Text>();
