@@ -1069,43 +1069,55 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8517933948147225172, guid: d8bdcc2a6b19de4489427f21fd03cce8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8517933948147225172, guid: d8bdcc2a6b19de4489427f21fd03cce8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 381354675}
+    - target: {fileID: 8517933948147225172, guid: d8bdcc2a6b19de4489427f21fd03cce8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
       objectReference: {fileID: 1029453607}
     - target: {fileID: 8517933948147225172, guid: d8bdcc2a6b19de4489427f21fd03cce8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SwitchMenu
+      value: Play
       objectReference: {fileID: 0}
     - target: {fileID: 8517933948147225172, guid: d8bdcc2a6b19de4489427f21fd03cce8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UI.PlayMenuMediator, Assembly-CSharp
+      value: UnityEngine.AudioSource, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8517933948422920203, guid: d8bdcc2a6b19de4489427f21fd03cce8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 381354675}
+    - target: {fileID: 8517933948422920203, guid: d8bdcc2a6b19de4489427f21fd03cce8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
       objectReference: {fileID: 1029453607}
     - target: {fileID: 8517933948422920203, guid: d8bdcc2a6b19de4489427f21fd03cce8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Exit
+      value: Play
       objectReference: {fileID: 0}
     - target: {fileID: 8517933948422920203, guid: d8bdcc2a6b19de4489427f21fd03cce8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UI.PlayMenuMediator, Assembly-CSharp
+      value: UnityEngine.AudioSource, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8517933948768862929, guid: d8bdcc2a6b19de4489427f21fd03cce8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 381354675}
+    - target: {fileID: 8517933948768862929, guid: d8bdcc2a6b19de4489427f21fd03cce8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
       objectReference: {fileID: 1029453607}
     - target: {fileID: 8517933948768862929, guid: d8bdcc2a6b19de4489427f21fd03cce8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShowSettings
+      value: Play
       objectReference: {fileID: 0}
     - target: {fileID: 8517933948768862929, guid: d8bdcc2a6b19de4489427f21fd03cce8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UI.PlayMenuMediator, Assembly-CSharp
+      value: UnityEngine.AudioSource, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2386710357927830628, guid: d8bdcc2a6b19de4489427f21fd03cce8, type: 3}
@@ -1121,6 +1133,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31d0cd009bdf4826a954f38728c40a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &381354675 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7963312763009007950, guid: d8bdcc2a6b19de4489427f21fd03cce8, type: 3}
+  m_PrefabInstance: {fileID: 381354673}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &416169594
 GameObject:
   m_ObjectHideFlags: 0

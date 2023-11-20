@@ -57,8 +57,7 @@ namespace Infrastructure
         {
             Container
                 .Bind<IInitializable>()
-                .To<Initialization>()
-                .AsSingle();
+                .To<Initialization>();
         }
 
         private void BindDialogController()
