@@ -6,12 +6,14 @@ namespace UI
 {
     public static class SceneLoader
     {
-        public static Action OnSceneStartLoad;
+        public static event Action OnSceneStartLoad;
 
         private static AsyncOperation _loader;
 
         public static void LoadScene(int buildIndex, bool allowActivate)
         {
+            if (_loader != null) 
+                return;
             _loader = SceneManager.LoadSceneAsync(buildIndex);
             _loader.allowSceneActivation = allowActivate;
             OnSceneStartLoad?.Invoke();
@@ -21,8 +23,10 @@ namespace UI
 
         public static void ActivateScene()
         {
-            if (_loader == null) return;
+            if (_loader == null) 
+                return;
             _loader.allowSceneActivation = true;
+            _loader = null;
         }
     }
 }

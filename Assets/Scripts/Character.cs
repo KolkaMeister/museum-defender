@@ -88,6 +88,8 @@ public class Character : MonoBehaviour, ITakeDamage
         _inventory = GetComponent<Inventory>();
         TryGetComponent(out _collider);
         TryGetComponent(out _ai);
+        if(_dialogView)
+            _dialogView.SetActive(false);
     }
 
     private void OnEnable()
@@ -119,7 +121,8 @@ public class Character : MonoBehaviour, ITakeDamage
         float dir = view.x - transform.position.x;
         var scale = new Vector2(dir > 0 ? 1 : -1, 1);
         transform.localScale = scale;
-        _dialogView.transform.localScale = scale;
+        if(_dialogView)
+            _dialogView.SetScale(scale);
     }
 
     public void Dash()
@@ -168,19 +171,19 @@ public class Character : MonoBehaviour, ITakeDamage
             if (IsDead) return;
 
             IsDead = true;
-            if (_collider) _collider.enabled = false;
+            if (_collider) 
+                _collider.enabled = false;
             _animator.SetTrigger(_deathKey);
             _inventory.DropAll();
             _moveDirection = Vector2.zero;
-            if (_ai) _ai.enabled = false;
+            if (_ai) 
+                _ai.enabled = false;
 
             if (gameObject.name == "Player")
                 SceneLoader.LoadScene(SceneManager.GetActiveScene().buildIndex, false);
             Instantiate(_deadCond, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
-        // else
-            // Debug.Log(newValue);
     }
 
 #if UNITY_EDITOR

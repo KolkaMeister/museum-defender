@@ -1,17 +1,42 @@
 ﻿using System.Collections;
 using Dialogs;
 using Infrastructure.Timers;
+using UnityEngine;
 using Zenject;
 
 namespace Infrastructure
 {
-    public class BootstrapInstaller : MonoInstaller, ICoroutineRunner
+    public class BootstrapInstaller : MonoInstaller, ICoroutineRunner, IInitializable
     {
+        [SerializeField] private GameObject _globalMusicPrefab;
+        
         public override void InstallBindings()
         {
+            BindBootstrapInstaller();
             BindCoroutineRunner();
             BindDialogSystem();
             BindTimerManager();
+        }
+
+        public void AbortCoroutine(IEnumerator routine)
+        {
+            StopCoroutine(routine);
+        }
+
+        public Coroutine RunCoroutine(IEnumerator routine)
+        {
+            return StartCoroutine(routine);
+        }
+
+        public void Initialize()
+        {
+            GameObject music = Instantiate(_globalMusicPrefab);
+            DontDestroyOnLoad(music);
+        }
+
+        private void BindBootstrapInstaller()
+        {
+            Container.Bind<IInitializable>().FromInstance(this);
         }
 
         private void BindCoroutineRunner()
@@ -32,24 +57,8 @@ namespace Infrastructure
         private void BindDialogSystem()
         {
             Container
-                .BindInstance(new DialogSystem())
+                .BindInterfacesAndSelfTo<DialogSystem>()
                 .AsSingle();
         }
-
-        public void AbortCoroutine(IEnumerator routine)
-        {
-            StopCoroutine(routine);
-        }
-
-        public void RunCoroutine(IEnumerator routine)
-        {
-            StartCoroutine(routine);
-        }
-    }
-
-    public interface ICoroutineRunner
-    {
-        public void AbortCoroutine(IEnumerator routine);
-        public void RunCoroutine(IEnumerator routine);
     }
 }

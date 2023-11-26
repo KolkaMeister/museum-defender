@@ -81,6 +81,7 @@ GameObject:
   - component: {fileID: 3263748896599771818}
   - component: {fileID: 3263748896599771819}
   - component: {fileID: 3263748896599771812}
+  - component: {fileID: 4344100961779604630}
   m_Layer: 3
   m_Name: AliasGirlBlond
   m_TagString: Allies
@@ -317,9 +318,10 @@ MonoBehaviour:
   updateRate: 1
   pathIsEnded: 0
   isWeaponed: 0
+  PVE: 0
   nextWaypointDistance: 1
   stopDistance: 10
-  distStop: 0
+  DistToTarget: 0
   pogr: 0.5
 --- !u!114 &3263748896599771812
 MonoBehaviour:
@@ -334,6 +336,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Enemies
+  targetTagPVE: Landmark
+  weaponTag: Weapon
+--- !u!114 &4344100961779604630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6603019862872130876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac7e5d37871f49a3b44d8f7a93afaf4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TemplateName: bubble
+  _description: 
 --- !u!1001 &8403762801022707431
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -15,7 +15,11 @@ namespace Dialogs.Sideline
             TypeInterval = config.BubbleTypeInterval;
             WaitTime = config.BubbleWaitTime;
             Text.Init(TypeInterval);
-            SetActive(false);
+        }
+
+        public void SetScale(Vector3 scale)
+        {
+            transform.localScale = scale;
         }
 
         public void SetActive(bool value)
