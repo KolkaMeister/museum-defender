@@ -27,6 +27,7 @@ public class Inventory : MonoBehaviour
     public void TakeWeapon(Weapon wep)
     {
         _weaponInventory.TakeWeapon(wep);
+        wep.tag = "Untagged";
         wep.SetAttackLayer(gameObject.layer == Layers.Player ? Layers.Enemy : Layers.Player);
     }
 

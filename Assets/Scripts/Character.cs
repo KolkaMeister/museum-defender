@@ -181,7 +181,7 @@ public class Character : MonoBehaviour, ITakeDamage
             if (_ai)
                 _ai.enabled = false;
 
-            if (gameObject.name == "Player")
+            if (Id == EntityType.Player)
                 SceneLoader.LoadScene(SceneManager.GetActiveScene().buildIndex, false);
             Instantiate(_deadCond, transform.position, Quaternion.identity);
             Destroy(gameObject);

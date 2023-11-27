@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 6564133945317210326}
   m_Layer: 6
   m_Name: Spear
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,7 +96,7 @@ MonoBehaviour:
   _reloadTime: 0
   _attackLayer: 0
   _collider: {fileID: 6564133945317210326}
-  _shootRange: 0
+  _shootRange: 1
   animationTime: 0.3
   _damagePoint: {fileID: 6564133946950571401}
   _damageRadius: 0.7

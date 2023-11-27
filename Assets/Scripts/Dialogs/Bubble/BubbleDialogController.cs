@@ -4,6 +4,7 @@ using Dialogs.Nodes;
 using Dialogs.Sideline.States;
 using Dialogs.States;
 using Infrastructure;
+using UnityEngine;
 
 namespace Dialogs.Sideline
 {

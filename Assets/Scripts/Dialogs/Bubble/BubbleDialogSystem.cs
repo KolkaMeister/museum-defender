@@ -27,7 +27,6 @@ namespace Dialogs.Sideline
         public void Start(Character initiator, Character initiated, DialogTree dialog)
         {
             CurrentDialog = dialog;
-            DialogNode node = CurrentDialog.Root;
             OnDialogStarted?.Invoke();
             _controller.Start(new SpeakerData(CurrentDialog.Speakers[0], initiator.DialogView), 
                 new SpeakerData(CurrentDialog.Speakers[1], initiated.DialogView));

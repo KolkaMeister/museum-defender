@@ -67,7 +67,6 @@ public class EnemyAI : MonoBehaviour
             Char.Interact();
             if (transform.Find("HoldPoint").transform.childCount != 0) {
                 isWeaponed = true;
-                transform.Find("HoldPoint").transform.GetChild(0).tag = "Untagged";
                 target = null;
                 stopDistance = transform.Find("HoldPoint").transform.GetChild(0).GetComponent<Weapon>()._shootRange;
             }
