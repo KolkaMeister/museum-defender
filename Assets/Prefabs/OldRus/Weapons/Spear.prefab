@@ -84,18 +84,19 @@ MonoBehaviour:
   _ammoType: 0
   _desc: wadawda
   _name: Spear
-  _degreesInactiveRotation: 0
+  _degreesInactiveRotation: 90
   _inactiveHoldPoint: {fileID: 6564133945705736099}
   _holdPoint: {fileID: 6564133945907565891}
   _maxAmmo: 1515
   _currentAmmo: 1515
-  proj: {fileID: 0}
+  _proj: {fileID: 0}
   _spriteRenderer: {fileID: 6564133945375542015}
   _fireCooldown:
     _resetValue: 0.5
   _reloadTime: 0
   _attackLayer: 0
   _collider: {fileID: 6564133945317210326}
+  _shootRange: 0
   animationTime: 0.3
   _damagePoint: {fileID: 6564133946950571401}
   _damageRadius: 0.7

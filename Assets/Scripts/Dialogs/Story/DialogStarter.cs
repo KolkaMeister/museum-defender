@@ -33,7 +33,7 @@ namespace Dialogs
 
         public void Interact(Character obj)
         {
-            if (obj.gameObject == gameObject) 
+            if (obj.gameObject == gameObject || obj.Id != EntityType.Player) 
                 return;
             _dialogSys.Start(_tree);
         }

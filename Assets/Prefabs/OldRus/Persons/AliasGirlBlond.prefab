@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14928126b502f0b48bdc49498b58bcd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Id: 2
   _deadCond: {fileID: 6517416458725690611, guid: a7d2f0f85b7f6324c958382033c788b6, type: 3}
   _rb: {fileID: 6603019862872130818}
   _velMulti: 3
