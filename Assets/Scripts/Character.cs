@@ -116,6 +116,7 @@ public class Character : MonoBehaviour, ITakeDamage
         _animator.SetBool(_isMovingKey, _rb.velocity != Vector2.zero);
     }
 
+    public void Interact(InteractionType type) => _interaction.Interact(type);
     public void Interact() => _interaction.Interact();
 
     private void CalculateScale(Vector2 view)

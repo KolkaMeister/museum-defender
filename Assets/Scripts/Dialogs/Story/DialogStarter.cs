@@ -13,6 +13,8 @@ namespace Dialogs
         private IDialogDataProvider _dataProvider;
         private DialogTree _tree;
 
+        public InteractionType Id { get; set; } = InteractionType.Dialog;
+
         public string Description
         {
             get => _desk;

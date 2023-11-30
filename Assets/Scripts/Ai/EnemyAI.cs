@@ -64,7 +64,7 @@ public class EnemyAI : MonoBehaviour
         if (isWeaponed == false)
         {
             //Debug.Log("PickWeapon");
-            Char.Interact();
+            Char.Interact(InteractionType.Weapon);
             if (transform.Find("HoldPoint").transform.childCount != 0) {
                 isWeaponed = true;
                 target = null;

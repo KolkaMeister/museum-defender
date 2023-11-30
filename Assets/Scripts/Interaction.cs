@@ -1,4 +1,6 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Interaction : MonoBehaviour, IInteraction
@@ -7,25 +9,35 @@ public class Interaction : MonoBehaviour, IInteraction
     public float UpdateTime;
     public float InteractionDistance;
     
+    private readonly List<IInteractable> _targets = new List<IInteractable>();
     private bool _isInitialized;
     private Character _character;
-    private IInteractable _target;
     
 #if UNITY_EDITOR
     [Header("Debug")]
-    [SerializeField] private MonoBehaviour _debugTarget;
+    [SerializeField] private MonoBehaviour[] _debugTargets;
 
     private void Update()
     {
-        _debugTarget = _target as MonoBehaviour;
+        _debugTargets = _targets.OfType<MonoBehaviour>().ToArray();
     }
 #endif
+    
+    public void Interact(InteractionType id)
+    {
+        if (!_isInitialized) 
+            InternalCheck();
+
+        IInteractable target = _targets.Find(x => x.Id == id);
+        target?.Interact(_character);
+    }
     
     public void Interact()
     {
         if (!_isInitialized) 
             InternalCheck();
-        _target?.Interact(_character);
+
+        _targets?[0].Interact(_character);
     }
 
     public void CheckInteraction()
@@ -56,12 +68,12 @@ public class Interaction : MonoBehaviour, IInteraction
 
     private void InternalCheck()
     {
-        _target = null;
+        _targets.Clear();
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, InteractionDistance);
         foreach (Collider2D coll in colliders)
         {
-            if (coll.TryGetComponent(out _target))
-                break;
+            if (coll.TryGetComponent(out IInteractable target))
+                _targets.Add(target);
         }
     }
 }
@@ -69,5 +81,13 @@ public class Interaction : MonoBehaviour, IInteraction
 public interface IInteraction
 {
     public void Interact();
+    public void Interact(InteractionType id);
     public void CheckInteraction();
+}
+
+public enum InteractionType
+{
+    Dialog,
+    Weapon,
+    Scene
 }

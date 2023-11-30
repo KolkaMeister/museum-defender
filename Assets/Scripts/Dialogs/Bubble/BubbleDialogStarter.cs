@@ -12,6 +12,8 @@ namespace Dialogs.Sideline
         private IBubbleDialogManager _manager;
         private Character _character;
 
+        public InteractionType Id { get; set; } = InteractionType.Dialog;
+
         public string Description
         {
             get => _description;

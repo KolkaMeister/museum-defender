@@ -30,6 +30,8 @@ public class Weapon : MonoBehaviour, IInteractable
 
     public int MaxAmmo => _maxAmmo;
 
+    public InteractionType Id { get; set; } = InteractionType.Weapon;
+
     public string Description
     {
         get => _desc;
