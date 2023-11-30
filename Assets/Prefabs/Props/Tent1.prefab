@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5183273746024303754}
   - component: {fileID: 5183273746024303749}
-  - component: {fileID: 5183273746024303748}
+  - component: {fileID: 3761479796520681130}
   m_Layer: 9
   m_Name: Tent1
   m_TagString: Untagged
@@ -85,8 +85,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
---- !u!61 &5183273746024303748
-BoxCollider2D:
+--- !u!60 &3761479796520681130
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -98,7 +98,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.100702286, y: 0.37}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5191814, y: 0.19014639}
@@ -108,6 +108,22 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 4.89, y: 2.36}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 2.2266386, y: 1.7339311}
+      - {x: 1.9609318, y: 1.6415339}
+      - {x: 1.0421305, y: 1.3546562}
+      - {x: -0.4132023, y: 1.3030834}
+      - {x: -2.3356738, y: 1.6036568}
+      - {x: -2.41845, y: 1.717803}
+      - {x: -2.397439, y: 1.61585}
+      - {x: -2.4870608, y: 0.8583417}
+      - {x: -2.6216187, y: 0.03473282}
+      - {x: -2.7096896, y: -0.4117713}
+      - {x: -1.7161446, y: -0.8332586}
+      - {x: -0.9177811, y: -1.026336}
+      - {x: 1.1436131, y: -1.0022943}
+      - {x: 1.1319833, y: -1.0414255}
+      - {x: 1.6717658, y: -0.81079054}
+      - {x: 2.492272, y: -0.29968143}
+      - {x: 2.1960344, y: 1.2400465}
