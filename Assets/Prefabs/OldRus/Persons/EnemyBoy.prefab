@@ -109,6 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14928126b502f0b48bdc49498b58bcd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Id: 1
   _deadCond: {fileID: 6517416458725690611, guid: b36ee3e68bf29d041a072acd38e62aae, type: 3}
   _rb: {fileID: 8568531227713245098}
   _velMulti: 3
@@ -117,7 +118,7 @@ MonoBehaviour:
   _dashSpeed: 6.9999995
   _dashDelay:
     _resetValue: 2
-  _dialogView: {fileID: 0}
+  _dialogView: {fileID: 5741843400533754465}
   _health:
     _value: 100
 --- !u!114 &6985610843513616648
@@ -466,3 +467,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7478840392961466619, guid: 247b14784ed43d342a20c488f06ac4e6, type: 3}
   m_PrefabInstance: {fileID: 8273335730457560502}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5741843400533754465 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4431519106759657431, guid: 247b14784ed43d342a20c488f06ac4e6, type: 3}
+  m_PrefabInstance: {fileID: 8273335730457560502}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6b82e37d02444218d6ecdabf7db55bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

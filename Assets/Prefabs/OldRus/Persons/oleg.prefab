@@ -105,6 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14928126b502f0b48bdc49498b58bcd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Id: 2
   _deadCond: {fileID: 0}
   _rb: {fileID: 8843799142844812972}
   _velMulti: 3
@@ -113,6 +114,7 @@ MonoBehaviour:
   _dashSpeed: 6.9999995
   _dashDelay:
     _resetValue: 2
+  _dialogView: {fileID: 0}
   _health:
     _value: 100
 --- !u!114 &1855576108837344331

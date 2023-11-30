@@ -3,7 +3,7 @@ using Zenject;
 
 namespace Pools
 {
-    public class PoolInstaller : MonoInstaller, IInitializable
+    public class PoolInstaller : MonoInstaller
     {
         [SerializeField] private PoolType _poolTypes;
         [SerializeField] private Bullet _bulletPrefab;
@@ -12,25 +12,15 @@ namespace Pools
         
         public override void InstallBindings()
         {
-            BindPoolInstaller();
             BindPoolLocator();
-        }
-
-        public void Initialize()
-        {
-            var locator = Container.Resolve<PoolLocator>();
-            if ((_poolTypes & PoolType.Bullet) > 0)
-                locator.Add(_bulletPrefab, _commonCapacity, _commonParent, Container);
-        }
-
-        private void BindPoolInstaller()
-        {
-            Container.Bind<IInitializable>().FromInstance(this);
         }
 
         private void BindPoolLocator()
         {
-            Container.BindInterfacesAndSelfTo<PoolLocator>().AsSingle();
+            var locator = new PoolLocator();
+            if ((_poolTypes & PoolType.Bullet) > 0)
+                locator.Add(_bulletPrefab, _commonCapacity, _commonParent, Container);
+            Container.BindInterfacesAndSelfTo<PoolLocator>().FromInstance(locator).AsSingle();
         }
     }
 }
