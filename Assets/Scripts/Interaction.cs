@@ -36,8 +36,9 @@ public class Interaction : MonoBehaviour, IInteraction
     {
         if (!_isInitialized) 
             InternalCheck();
-
-        _targets?[0].Interact(_character);
+        
+        if(_targets.Count > 0)
+            _targets[0].Interact(_character);
     }
 
     public void CheckInteraction()
