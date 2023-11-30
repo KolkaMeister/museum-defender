@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01687ab6cc9449e0b7eec1545b4473ec, type: 3}
   m_Name: Dialogs
   m_EditorClassIdentifier: 
+  FileNames:
+  - BubbleDialog.xml
+  - BubbleDialog2.xml
+  - OlegDialog.xml
   XmlDialogs:
-  - {fileID: 4900000, guid: 1829d48a932e44a6879b1a7f00f444f2, type: 3}
-  - {fileID: 4900000, guid: e21cda207d3d4bbcb9defea4733ff11c, type: 3}
-  - {fileID: 4900000, guid: 9881807fbcd04db9924eeab0c6bdd6fe, type: 3}
+  - {fileID: 4900000, guid: 4f002fbd875d90d4b837f6ed2063ddc3, type: 3}
+  - {fileID: 4900000, guid: 9b79a33255a59884483fd3810236d4eb, type: 3}
+  - {fileID: 4900000, guid: 7a44eaaccc14aff498c70a81361faac8, type: 3}

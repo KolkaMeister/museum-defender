@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using Dialogs.Nodes;
-using UnityEditor;
 using UnityEngine;
 using Zenject;
 
@@ -18,9 +18,9 @@ namespace Dialogs
 
         public void Initialize()
         {
-            foreach (TextAsset file in _dialogSo.XmlDialogs)
+            foreach (string file in _dialogSo.FileNames)
             {
-                DialogTree tree = DialogBuilder.Build(AssetDatabase.GetAssetPath(file));
+                DialogTree tree = DialogBuilder.Build(Path.Combine(Application.streamingAssetsPath, file));
                 _dialogs.Add(tree);
             }
         }
