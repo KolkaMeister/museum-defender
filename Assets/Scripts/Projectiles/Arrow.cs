@@ -6,6 +6,7 @@ public class Arrow : Projectile
     {
         transform.SetParent(null);
         transform.localScale = Vector3.one;
+        transform.right = dir;
         _rb.velocity = dir * speed;
         _collider.isTrigger = true;
         _collider.enabled = true;
