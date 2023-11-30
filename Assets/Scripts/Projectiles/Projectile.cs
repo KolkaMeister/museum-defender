@@ -37,6 +37,11 @@ public class Projectile : MonoBehaviour
         obj.ChangeHealth(_modifyValue);
     }
 
+    public virtual void ChangeLayer(int layer)
+    {
+        _renderer.sortingOrder = layer;
+    }
+
     public virtual void Shot(Vector2 dir, float speed, int layer)
     {
     }

@@ -43,7 +43,6 @@ public class Weapon : MonoBehaviour, IInteractable
         transform.SetParent(null);
         transform.position = at;
         _collider.enabled = true;
-        ChangeSpriteOrder(1);
     }
 
     public void HandOnBack(Transform parent)
@@ -51,7 +50,6 @@ public class Weapon : MonoBehaviour, IInteractable
         transform.SetParent(parent);
         transform.localPosition = -PivotLocalInactivePosHold;
         transform.localRotation = Quaternion.Euler(0, 0, _degreesInactiveRotation);
-        ChangeSpriteOrder(1);
     }
 
     public void TakeUp(Transform parent, Vector3 localScale)
@@ -60,7 +58,6 @@ public class Weapon : MonoBehaviour, IInteractable
         transform.localPosition = -PivotLocalPosHold;
         transform.localRotation = Quaternion.identity;
         transform.localScale = localScale;
-        ChangeSpriteOrder(3);
         _collider.enabled = false;
     }
 

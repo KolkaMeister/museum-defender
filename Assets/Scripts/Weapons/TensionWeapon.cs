@@ -39,6 +39,6 @@ public class TensionWeapon : RangeWeapon
         _strungArrow = Instantiate(_proj, transform);
         _strungArrow.transform.localPosition = _arrowHoldPoint.localPosition;
         _strungArrow.Collider.enabled = false;
-        _strungArrow.Renderer.sortingOrder = SpriteRenderer.sortingOrder;
+        _strungArrow.ChangeLayer(2);
     }
 }

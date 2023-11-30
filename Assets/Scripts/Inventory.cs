@@ -29,6 +29,7 @@ public class Inventory : MonoBehaviour
         _weaponInventory.TakeWeapon(wep);
         wep.tag = "Untagged";
         wep.SetAttackLayer(gameObject.layer == Layers.Player ? Layers.Enemy : Layers.Player);
+        wep.ChangeSpriteOrder(2);
     }
 
     public void SetCurrentWeaponIndex(int weaponIndex)

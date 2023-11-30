@@ -29,9 +29,26 @@ namespace Dialogs
         {
             StopAllCoroutines();
             if (withAnimation)
+            {
                 StartCoroutine(TypeText(text));
+            }
             else
-                _text.text = text;
+            {
+                if (_text)
+                    _text.text = text;
+                else
+                    StartCoroutine(DelayedSetText(text));
+            }
+        }
+
+        private IEnumerator DelayedSetText(string text)
+        {
+            while (!_text)
+            {
+                yield return null;
+            }
+
+            _text.text = text;
         }
 
         private IEnumerator TypeText(string text)
