@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2659218474929845145}
   - component: {fileID: 2659218474929845146}
-  - component: {fileID: 2659218474929845144}
+  - component: {fileID: -2503105340011391881}
   m_Layer: 9
   m_Name: Fence27
   m_TagString: Untagged
@@ -85,8 +85,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
---- !u!61 &2659218474929845144
-BoxCollider2D:
+--- !u!60 &-2503105340011391881
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -98,7 +98,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.15, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -108,6 +108,16 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.5, y: 5.5}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.24264526, y: 2.7576475}
+      - {x: -0.058441162, y: 2.3861065}
+      - {x: -0.19676208, y: 1.4745235}
+      - {x: -0.32174683, y: 0.68529606}
+      - {x: -0.56100464, y: 0.40505743}
+      - {x: -0.625, y: -2.75}
+      - {x: 0.074539185, y: -2.6660151}
+      - {x: 0.16308594, y: -1.4280572}
+      - {x: 0.39231873, y: 0.053091526}
+      - {x: 0.5686035, y: 0.14308882}
+      - {x: 0.63900757, y: 2.3440714}
