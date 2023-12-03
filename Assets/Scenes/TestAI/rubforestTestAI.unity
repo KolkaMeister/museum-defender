@@ -55676,7 +55676,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: -1.1304936}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5191814, y: 0.19014639}
     oldSize: {x: 5.25, y: 5.6875}
     newSize: {x: 5.25, y: 5.6875}
     adaptiveTilingThreshold: 0.5
@@ -56062,7 +56062,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 349e38892d3e23446a1dbba430ab5fdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Scanertime: 1
 --- !u!114 &390520932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56077,7 +56076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAYIexCey8RXgIAABgFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1zmzAQ/SsenZsMOLUd99bajtODY0/cTi5cZLQYjYXESMJfGf/3roQMhHIB3tuP91YLn4RLU0JqlV5qzlaKAfkxIO6ZfBu05Cuc6V7JLb/CPeaDM5u7IOpj3qnlCvHYpRlVgNU8/Sn3wgVHCFaSZ0oXC7aHmTLWIJxRYQAprazLlgh9DsgZb8OJS7mE1Ku7D274lIK0oNu4UYiKH6f+moy/hFcyFbQogTnhbVZTfFSHSbQUIpz8VAnBTdBD7KX0frdlDhqcYcYp2vMyoscpAjnwfW6d7G72OssM2GBB08uca5xTXZb8UvXwCmoOtbAjFZVrNIqHXlRddPUfPxyNPZ9pVbzeG8eRa2Jznh7e6SWlxnbG24XnrfbYD+hExYHuBHzkIN/UUqtKMiStrlxqZWA4b18bb7Mc0kOL11p7YFW2E++f5kM8uN28/fNM8GIXKHzdCuXnPXXvoPFkfqNcvx4mRCHqNPw18Ifuu3sUiBeujUUqeJRO3E5V2oWShZ+Y81LZmdISPBwklyCpsJcNlrH9E+xxnbY95oW6LyY0D9z9Q+ileLiNj6IetVGn5qhMrk4rMPm6soLLbjHHvOGgZkrKesM6lu5p20pnNIWW2Fecfd0sko0n9Bl2oymLsngETw/DaArfh9PJJHuKs+cdI37zuESfVGxqoWE8eGqyLS5xy+4/ksFS09IvO9P0tOTXQnX0cZmpbaoB5Lqu0LgCjU3wq2QLxnFAW7CWS3/e5DMhQqUHYElTKPFOF2eradJWSUjJj8o6JCEz//NIiIObTd5oOHI4ueb3Yjdy+wdQSwMEFAAACAgAABgh7D/dM3VtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tFKamXmiRWqSqWWKQZqhaaqxrpGBZaqJkaW5eZqxYZpFUopSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAABgh7EJ7LxFeAgAAGAUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAABgh7D/dM3VtAAAAeAAAAAkAJAAAAAAAAAAAAAAAqwIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABjAwAAAAA=
+    dataString: UEsDBBQAAAgIAAAYIew6hggLWwIAABIFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z2jAQ/SuMzk3HdkoIvbVASA8kTEgnF1+EtcYaZMkjyQGS4b93JcsfcU+239uP91YrfxIuTQWZVXqtOdsoBuTnhLh38m3Sk49wpgcld/wD2pg3zmzhgqiPeaGWK8Rjl2ZUCVbz7Jc8CBccIVhLnitdrtgBFspYg3BOhQGktLIuWyL0OSFnfCQzl3IJqR/uObniWwbSgu7jpiEq+RJVy0zQsgLm9PbBs6gtOo2aQIleQkzsuEwJwU1QQuyl8k53VQEanFXGKRrzAqLvcwQK4IfCBgFd9nOeG7BBvKaXJdc4oaYs+a2asZXUHBtt71TUrtE0TryqpujmPz6Z3nk+16p8bBvH3pQteHZ8oZeMGjsY7BBe9tpjP6MTFUe6F/BWgHxSa61qyZC0unaptYFk2X923hYFZMceb7SOwLrqhz4+x5t4cr16++eF4OU+UPi5E8rPe+6+QePR/EG5fjFMiELUafhr4JUehhsUiAeujUUqeJRO3F7V2oWSlZ+Y81LbhdISPBwkVyCpsJctlrHjExxxg7Yj5oG6uxKaB669AqMUD/fxUTSiturUHZUp1GkDpniureByWMwxTziohZKy2bCBpTZtV+ucZtATh5qzr5tF8rsZvYf9dM6iPJ7C7U0SzeFHMp/N8ts4v98z4jePS/RJxbYRGsaDpyb74hK3rP2FTNaaVn7ZmaanNf8o1UAfl7naZRpAPjcVOlegsQleS7ZiHAe0A2u59OdNPlMiVHYElnaFUu90dbaapn2VlFT8XVmHpGThfxspcXC3yVsN7xxOrnlb7Equ/wBQSwMEFAAACAgAABgh7D/dM3VtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tFKamXmiRWqSqWWKQZqhaaqxrpGBZaqJkaW5eZqxYZpFUopSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAABgh7DqGCAtbAgAAEgUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAABgh7D/dM3VtAAAAeAAAAAkAJAAAAAAAAAAAAAAAqAIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABgAwAAAAA=
     upgradeData: 
     file_cachedStartup: {fileID: 4900000, guid: 3c730c00e45e60f43a54bc0208f64d6f, type: 3}
     data_cachedStartup: 
@@ -56199,7 +56198,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: -1.0456126}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.25}
     oldSize: {x: 6.9375, y: 6.5}
     newSize: {x: 6.9375, y: 6.5}
     adaptiveTilingThreshold: 0.5
@@ -57569,7 +57568,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: -1.1613913}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5191814, y: 0.19014639}
     oldSize: {x: 5.25, y: 5.6875}
     newSize: {x: 5.25, y: 5.6875}
     adaptiveTilingThreshold: 0.5
@@ -57769,7 +57768,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: -1.0661464}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.25}
     oldSize: {x: 6.9375, y: 6.5}
     newSize: {x: 6.9375, y: 6.5}
     adaptiveTilingThreshold: 0.5
@@ -59008,7 +59007,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: -0.9646869}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.25}
     oldSize: {x: 4.6875, y: 3.3125}
     newSize: {x: 4.6875, y: 3.3125}
     adaptiveTilingThreshold: 0.5
@@ -60387,7 +60386,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: -0.95337486}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.25}
     oldSize: {x: 6.9375, y: 6.5}
     newSize: {x: 6.9375, y: 6.5}
     adaptiveTilingThreshold: 0.5

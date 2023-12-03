@@ -109,6 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14928126b502f0b48bdc49498b58bcd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Id: 0
   _deadCond: {fileID: 6517416458725690611, guid: 58de0fbf29fb2ce45a0516c9b88e25b0, type: 3}
   _rb: {fileID: 8568531227713245098}
   _velMulti: 3
@@ -135,7 +136,7 @@ MonoBehaviour:
   IsUpdate: 1
   UpdateTime: 0.1
   InteractionDistance: 1
-  _debugTarget: {fileID: 0}
+  _debugTargets: []
 --- !u!114 &5901999060743541226
 MonoBehaviour:
   m_ObjectHideFlags: 0

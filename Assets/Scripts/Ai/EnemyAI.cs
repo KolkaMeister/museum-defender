@@ -20,11 +20,30 @@ public class EnemyAI : MonoBehaviour
 
     public bool pathIsEnded = false;
     public bool isWeaponed = false;
-    public bool PVE = false;
+    private bool _PVE = false;
+    private int collisionTick = 0;
+    Bounds bounds;
+    public bool PVE {
+        get { 
+            return _PVE;
+        }
+        set {
+            _PVE = value;
+            if (_PVE == true)
+            {
+                StartCoroutine(PveTimer());
+            }
+            else {
+                StopCoroutine(PveTimer());
+            }
+        }
+    }
     public float nextWaypointDistance = 1;
     public float stopDistance = 1;
     public float DistToTarget;
     public float pogr = 0.7f;
+
+    public int rand = 0;
 
     private int currentWaypoint = 0;
     private Vector3 dir;
@@ -51,14 +70,16 @@ public class EnemyAI : MonoBehaviour
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         Char = GetComponent<Character>();
-        Ftarget = Char.GetComponent<FindTarget>();
+        Ftarget = GetComponent<FindTarget>().enabled ? GetComponent<FindTarget>() : null;
+        bounds = GetComponent<Collider2D>().bounds;
     }
     void Start()
     {
         Starter();
         StartCoroutine(Founder());
         PickWeapon();
-        if (PVE) StartCoroutine(PveTimer());
+        if(PVE) StopCoroutine(PveTimer());
+        StartCoroutine(UpdatePathColider());
     }
     void PickWeapon() {
         if (isWeaponed == false)
@@ -76,10 +97,12 @@ public class EnemyAI : MonoBehaviour
     {
         if (target == null) {
             Char.MoveDirection = new Vector2(0, 0);
-            Ftarget.FindTargets();
+            if (Ftarget !=null) {
+                Ftarget.FindTargets();
+            }
             yield return false;
         }
-        if (!GetComponent<FindTarget>().CheckTag()) {
+        if (Ftarget !=null && !Ftarget.CheckTag()) {
             //Debug.Log(GetComponent<FindTarget>().CheckTag()) ;
             target = null;
             Ftarget.FindTargets();
@@ -91,12 +114,27 @@ public class EnemyAI : MonoBehaviour
             seeker.StartPath(transform.position, target.position, OnPathComplete);
         }
         catch {
-            Ftarget.FindTargets();
+            if (Ftarget != null) {
+                Ftarget.FindTargets();
+            }
             Char.MoveDirection = new Vector2(0, 0);
         }
         PickWeapon();
         yield return new WaitForSeconds(1f / updateRate);
         StartCoroutine(UpdatePath());
+    }
+    IEnumerator UpdatePathColider() {
+        var guo = new GraphUpdateObject(bounds);
+        // Set some settings
+        guo.updatePhysics = true;
+        AstarPath.active.UpdateGraphs(guo);
+        bounds = GetComponent<Collider2D>().bounds;
+        guo = new GraphUpdateObject(bounds);
+        // Set some settings
+        guo.updatePhysics = true;
+        AstarPath.active.UpdateGraphs(guo);
+        yield return new WaitForSeconds(0.5f / updateRate);
+        StartCoroutine(UpdatePathColider());
     }
     public void OnPathComplete(Path p) {
         //Debug.Log("We got a path. Error:? " + p.error);
@@ -114,7 +152,13 @@ public class EnemyAI : MonoBehaviour
         {
             return;
         }
-        DistToTarget = Vector3.Distance(transform.position, target.position);
+        try
+        {
+            DistToTarget = Vector3.Distance(target.GetComponent<Collider2D>().ClosestPoint(transform.position), transform.position);
+        }
+        catch {
+            DistToTarget = Vector3.Distance(target.transform.position, transform.position);
+        }
         if (currentWaypoint >= path.vectorPath.Count)
         {
             Char.MoveDirection = new Vector2(0, 0);
@@ -160,7 +204,8 @@ public class EnemyAI : MonoBehaviour
     }
     IEnumerator PveTimer()
     {
-        yield return new WaitForSeconds(Random.Range(7, 13));
+        rand = Random.Range(7, 28);
+        yield return new WaitForSeconds(rand);
         Ftarget.FindTargets();
         StartCoroutine(PveTimer());
     }

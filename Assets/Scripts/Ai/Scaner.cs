@@ -8,7 +8,6 @@ public class Scaner : MonoBehaviour //Cтарый скан
     AstarPath _AstarPath;
     IEnumerator Scaners()
     {
-        _AstarPath.Scan();
         yield return new WaitForSeconds(Scanertime);
         StartCoroutine(Scaners());
         // Start is called before the first frame update
@@ -23,6 +22,5 @@ public class Scaner : MonoBehaviour //Cтарый скан
     // Update is called once per frame
     void Update()
     {
-        
     }*/
 }

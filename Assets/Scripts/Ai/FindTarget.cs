@@ -11,33 +11,72 @@ public class FindTarget : MonoBehaviour
     EnemyAI enemy;
     // Start is called before the first frame update
     public void FindTargets() {
-        if (enemy.PVE)
+        if (enemy != null)
         {
-            myItems = GameObject.FindGameObjectsWithTag(targetTagPVE);
-        }
-        else {
-            if (transform.Find("HoldPoint").transform.childCount == 0)
+            if (enemy.PVE)
             {
                 enemy.stopDistance = 0;
-                myItems = GameObject.FindGameObjectsWithTag(weaponTag);
+                myItems = GameObject.FindGameObjectsWithTag(targetTagPVE);
             }
-            else {
-                myItems = GameObject.FindGameObjectsWithTag(targetTag);
+            else
+            {
+                if (transform.Find("HoldPoint").transform.childCount == 0)
+                {
+                    enemy.stopDistance = 0;
+                    myItems = GameObject.FindGameObjectsWithTag(weaponTag);
+                }
+                else
+                {
+                    myItems = GameObject.FindGameObjectsWithTag(targetTag);
+                }
+
             }
-            
+
+
+            //Debug.Log("Found " + myItems.Length + " instances with this script attached");
+            try
+            {
+                if (enemy.PVE)
+                {
+                    enemy.target = myItems[Random.Range(0, myItems.Length)].transform;
+                }
+                else {
+                    enemy.target = GetNearestItem(myItems).transform;
+                }
+            }
+            catch
+            {
+                Debug.Log("Нет целей");
+                enemy.PVE = true;
+                enemy.stopDistance = 0;
+            }
         }
-        
-        
-        //Debug.Log("Found " + myItems.Length + " instances with this script attached");
-        try {
-            enemy.target = myItems[Random.Range(0, myItems.Length)].transform;
+        else {
+            Debug.Log("aaa");
         }
-        catch {
-            Debug.Log("Нет целей");
-            enemy.PVE = true;
-            enemy.stopDistance = 0;
+    }
+    public GameObject GetNearestItem(GameObject[] myItems)
+    {
+        // Инициализируем переменные
+        float minDistance = float.MaxValue;
+        GameObject nearestItem = null;
+
+        // Перебираем массив объектов
+        for (int i = 0; i < myItems.Length; i++)
+        {
+            // Рассчитываем расстояние до текущего объекта
+            float distance = Vector3.Distance(myItems[i].transform.position, transform.position);
+
+            // Если расстояние меньше текущего минимального расстояния, то обновляем переменные
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                nearestItem = myItems[i];
+            }
         }
-        
+
+        // Возвращаем ближайший объект
+        return nearestItem;
     }
     public bool CheckTag() {
         try
@@ -52,9 +91,12 @@ public class FindTarget : MonoBehaviour
         catch { }
         return false;
     }
-    void Start()
+    void Awake()
     {
         enemy = GetComponent<EnemyAI>();
+    }
+    private void Start()
+    {
         FindTargets();
     }
 

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6603019862480020701}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: HoldPoint
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6603019862538249452}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: BackHoldPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,7 +82,8 @@ GameObject:
   - component: {fileID: 3263748896599771819}
   - component: {fileID: 3263748896599771812}
   - component: {fileID: 4344100961779604630}
-  m_Layer: 3
+  - component: {fileID: 6086223902451727819}
+  m_Layer: 7
   m_Name: AliasGirlBlond
   m_TagString: Allies
   m_Icon: {fileID: 0}
@@ -217,7 +218,7 @@ MonoBehaviour:
   IsUpdate: 1
   UpdateTime: 0.1
   InteractionDistance: 1
-  _debugTarget: {fileID: 0}
+  _debugTargets: []
 --- !u!50 &6603019862872130818
 Rigidbody2D:
   serializedVersion: 4
@@ -252,8 +253,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.8125, y: 1.375}
+  m_Offset: {x: 0.011382103, y: -0.0000032186508}
+  m_Size: {x: 0.82852745, y: 1.2725561}
   m_Direction: 0
 --- !u!95 &3263748896599771811
 Animator:
@@ -319,11 +320,11 @@ MonoBehaviour:
   updateRate: 1
   pathIsEnded: 0
   isWeaponed: 0
-  PVE: 0
-  nextWaypointDistance: 1
+  nextWaypointDistance: 0.5
   stopDistance: 10
   DistToTarget: 0
-  pogr: 0.5
+  pogr: 0.8
+  rand: 0
 --- !u!114 &3263748896599771812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,6 +354,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TemplateName: bubble
   _description: 
+--- !u!58 &6086223902451727819
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6603019862872130876}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.45910352
 --- !u!1001 &8403762801022707431
 PrefabInstance:
   m_ObjectHideFlags: 0
