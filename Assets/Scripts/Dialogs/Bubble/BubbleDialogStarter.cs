@@ -29,7 +29,7 @@ namespace Dialogs.Sideline
         
         public void Interact(Character obj)
         {
-            if (obj.gameObject == gameObject) 
+            if (obj.gameObject == gameObject || obj.Id == EntityType.Player) 
                 return;
             _manager.CreateDialog(obj, _character, TemplateName);
         }

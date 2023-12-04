@@ -10,6 +10,7 @@ namespace Infrastructure
         [SerializeField] private DialogBox _dialogBox;
         [SerializeField] private DialogSo _dialogSo;
         [SerializeField] private DialogConfigSo _dialogConfig;
+        [SerializeField] private BubbleDialogManager _bubbleManager;
         
         public override void InstallBindings()
         {
@@ -42,7 +43,7 @@ namespace Infrastructure
         {
             Container
                 .Bind<IBubbleDialogManager>()
-                .To<BubbleDialogManager>()
+                .FromInstance(_bubbleManager)
                 .AsSingle();
         }
 

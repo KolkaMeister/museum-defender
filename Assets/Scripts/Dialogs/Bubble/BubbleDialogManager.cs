@@ -1,16 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Infrastructure;
+using UnityEngine;
+using Zenject;
 
 namespace Dialogs.Sideline
 {
-    public class BubbleDialogManager : IBubbleDialogManager
+    public class BubbleDialogManager : MonoBehaviour, IBubbleDialogManager
     {
-        private readonly IDialogPicker _picker;
-        private readonly ICoroutineRunner _runner;
+        private IDialogPicker _picker;
+        private ICoroutineRunner _runner;
         private readonly List<BubbleDialogData> _dialogs = new List<BubbleDialogData>();
 
-        public BubbleDialogManager(IDialogPicker picker, ICoroutineRunner runner)
+        [Inject]
+        public void Construct(IDialogPicker picker, ICoroutineRunner runner)
         {
             _picker = picker;
             _runner = runner;
