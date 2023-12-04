@@ -16,7 +16,6 @@ public class Projectile : MonoBehaviour
     public SpriteRenderer Renderer => _renderer;
     public Rigidbody2D Rb => _rb;
 
-
     public void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();

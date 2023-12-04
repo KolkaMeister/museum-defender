@@ -28,7 +28,7 @@ public class Inventory : MonoBehaviour
     {
         _weaponInventory.TakeWeapon(wep);
         wep.tag = "Untagged";
-        wep.SetAttackLayer(gameObject.layer == Layers.Player ? Layers.Enemy : Layers.Player);
+        wep.SetAttackLayer(gameObject.layer == Layers.Allies ? Layers.Enemy : Layers.Allies);
         wep.ChangeSpriteOrder(2);
     }
 

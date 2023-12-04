@@ -30,7 +30,7 @@ public class MeleeWeapon : Weapon
 
     protected virtual void DealDamage()
     {
-        int lay = UnityUtils.ToLayerMask(_attackLayer == Layers.Enemy ? Layers.Enemy : Layers.Player);
+        int lay = UnityUtils.ToLayerMask(_attackLayer == Layers.Enemy ? Layers.Enemy : Layers.Allies);
         var colliders = Physics2D.OverlapCircleAll(_damagePoint.position, _damageRadius, lay);
         foreach (Collider2D item in colliders)
         {

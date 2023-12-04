@@ -19,6 +19,7 @@ public class Arrow : Projectile
             return;
         
         _rb.velocity = Vector2.zero;
+        _collider.enabled = false;
         transform.SetParent(collision.transform);
         if(collision.TryGetComponent(out ITakeDamage damage))
             ModifyHealth(damage);

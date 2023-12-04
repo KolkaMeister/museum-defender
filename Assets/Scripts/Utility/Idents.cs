@@ -6,7 +6,7 @@ namespace Utility
     {
         public static class Layers
         {
-            public static readonly int Player = LayerMask.NameToLayer("Player");
+            public static readonly int Allies = LayerMask.NameToLayer("Allies");
             public static readonly int Enemy = LayerMask.NameToLayer("Enemies");
         }
     }

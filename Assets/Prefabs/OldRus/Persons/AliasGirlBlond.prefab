@@ -250,7 +250,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.011382103, y: -0.0000032186508}
@@ -367,9 +367,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.32243723}
   serializedVersion: 2
-  m_Radius: 0.45910352
+  m_Radius: 0.31128377
 --- !u!1001 &8403762801022707431
 PrefabInstance:
   m_ObjectHideFlags: 0
