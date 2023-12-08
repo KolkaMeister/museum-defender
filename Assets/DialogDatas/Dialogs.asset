@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Dialogs
   m_EditorClassIdentifier: 
   FileNames:
+  - OlegDialog.xml
   - BubbleDialog.xml
   - BubbleDialog2.xml
-  - OlegDialog.xml
   XmlDialogs:
+  - {fileID: 4900000, guid: a2dae27098fe4724b5e7120a3c0145c8, type: 3}
   - {fileID: 4900000, guid: 4f002fbd875d90d4b837f6ed2063ddc3, type: 3}
   - {fileID: 4900000, guid: 9b79a33255a59884483fd3810236d4eb, type: 3}
-  - {fileID: 4900000, guid: 7a44eaaccc14aff498c70a81361faac8, type: 3}

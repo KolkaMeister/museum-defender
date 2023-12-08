@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Set xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+     xmlns="urn:HistoryTrip.Dialogs"
+     xsi:schemaLocation="urn:HistoryTrip.Dialogs dialog.xsd">
+  <Dialog name="Oleg">
+    <Phrase author="Oleg">
+      <Text>Privet dohodiaga, kak tvoi dela?</Text>
+    </Phrase>
+    <Phrase author="Sasha">
+      <Text>Norm</Text>
+    </Phrase>
+    <Phrase author="Oleg">
+      <Text>Chto budesh segodnya delat?</Text>
+      <Answer line="0">
+        <Text>Run</Text>
+        <Phrase author="Oleg">
+          <Text>Pogoda segodnya prekrasnay</Text>
+        </Phrase>
+      </Answer>
+      <Answer line="1" ref="PartOlegDialog.xml">
+        <Text>Fly</Text>
+      </Answer>
+      <Answer line="2">
+        <Text>Crouch</Text>
+      </Answer>
+      <Answer line="3">
+        <Text>Fight</Text>
+      </Answer>
+    </Phrase>
+    <Phrase author="Oleg" lay="0, 2">
+      <Text>Chto zh, udachi!</Text>
+    </Phrase>
+    <Phrase author="Oleg" lay="1, 3">
+      <Text>Oh, tyazhelo tebe budet</Text>
+    </Phrase>
+    <Phrase author="Oleg">
+      <Text>Stupai, druzhochek</Text>
+    </Phrase>
+  </Dialog>
+</Set>

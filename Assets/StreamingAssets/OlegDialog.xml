@@ -1,40 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Set xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+<Set xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      xmlns="urn:HistoryTrip.Dialogs"
      xsi:schemaLocation="urn:HistoryTrip.Dialogs dialog.xsd">
   <Dialog name="Oleg">
-    <Phrase author="Oleg">
-      <Text>Privet dohodiaga, kak tvoi dela?</Text>
-    </Phrase>
-    <Phrase author="Sasha">
-      <Text>Norm</Text>
-    </Phrase>
-    <Phrase author="Oleg">
-      <Text>Chto budesh segodnya delat?</Text>
-      <Answer line="0">
-        <Text>Run</Text>
-        <Phrase author="Oleg">
-          <Text>Pogoda segodnya prekrasnay</Text>
-        </Phrase>
-      </Answer>
-      <Answer line="1" ref="PartOlegDialog.xml">
-        <Text>Fly</Text>
+    <Phrase author="Игрок">
+      <Text>Великий Кнаязь Олег. Могу ли я задать вам несколько вопросов о нашей битве с Византией?</Text>
+      <Answer line="1">
+        <Text>Как проходит подготовка к походу на Византию?</Text>
       </Answer>
       <Answer line="2">
-        <Text>Crouch</Text>
+        <Text>Какие земли могут быть нашими союзниками в этой битве?</Text>
       </Answer>
       <Answer line="3">
-        <Text>Fight</Text>
+        <Text>Как мы собираемся действовать в походе против Византии?</Text>
       </Answer>
     </Phrase>
-    <Phrase author="Oleg" lay="0, 2">
-      <Text>Chto zh, udachi!</Text>
+    <Phrase author="Олег" lay="1">
+      <Text>Подготовка идет полным ходом. Наши воины полны решимости и готовы отдать свои жизни за русские земли.</Text>
     </Phrase>
-    <Phrase author="Oleg" lay="1, 3">
-      <Text>Oh, tyazhelo tebe budet</Text>
+    <Phrase author="Олег" lay="2">
+      <Text>Союзники - это важная часть нашего замысла. Мы договорились с племенами восточных славян, они обещают нам помочь.</Text>
     </Phrase>
-    <Phrase author="Oleg">
-      <Text>Stupai, druzhochek</Text>
+    <Phrase author="Олег" lay="3">
+      <Text>Мы зайдем с моря и атакуем на кораблях. Будем применять наши суда для перекрытия морских торговых путей. Также мы направим их на вражеские корабли и гавани, чтобы нанести удар по экономике Византии и ослабить ее оборону.</Text>
+    </Phrase>
+    <Phrase author="Олег" lay="3">
+      <Text>Кроме того, будем внезапно атаковать на различных направлениях, чтобы заставить Византию сдать свои силы и ресурсы. Наша цель - добиться победы в этой войне и защитить наши земли и народ от врага.</Text>
+    </Phrase>
+    <Phrase author="Игрок">
+      <Text>Спасибо, Великий Князь!</Text>
     </Phrase>
   </Dialog>
 </Set>
