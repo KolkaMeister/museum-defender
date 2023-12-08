@@ -20,7 +20,7 @@ public class EnemyAI : MonoBehaviour
 
     public bool pathIsEnded = false;
     public bool isWeaponed = false;
-    private bool _PVE = false;
+    [SerializeField] private bool _PVE = false;
     private int collisionTick = 0;
     Bounds bounds;
     public bool PVE {
@@ -205,17 +205,18 @@ public class EnemyAI : MonoBehaviour
     IEnumerator PveTimer()
     {
         rand = Random.Range(7, 28);
+        Char.Interact(InteractionType.Dialog);
         yield return new WaitForSeconds(rand);
         Ftarget.FindTargets();
         StartCoroutine(PveTimer());
     }
-        void FixedUpdate()
+    void FixedUpdate()
     {
         MoveControl();
         if (!PVE) FireControl();
         else
         {
-            //PVE controll
+            //PVE Controll
         };
     }
 
