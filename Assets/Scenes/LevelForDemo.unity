@@ -84072,6 +84072,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94d5ef95ec3a1de49bc6886056e0fe51, type: 3}
+--- !u!1 &1554647471 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8843799142844812946, guid: 94d5ef95ec3a1de49bc6886056e0fe51, type: 3}
+  m_PrefabInstance: {fileID: 1554647470}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1554647472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554647471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ab3d405304b4b12813715c7937ebac0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _olegDialogName: Oleg
+  _olegDialogEndTag: End
 --- !u!1001 &1556777733
 PrefabInstance:
   m_ObjectHideFlags: 0

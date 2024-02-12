@@ -46,7 +46,7 @@ public class FindTarget : MonoBehaviour
             }
             catch
             {
-                Debug.Log("Нет целей");
+                Debug.Log("РќРµС‚ С†РµР»РµР№");
                 enemy.PVE = true;
                 enemy.stopDistance = 0;
             }
@@ -57,17 +57,17 @@ public class FindTarget : MonoBehaviour
     }
     public GameObject GetNearestItem(GameObject[] myItems)
     {
-        // Инициализируем переменные
+        // РРЅРёС†РёР°Р»РёР·РёСЂСѓРµРј РїРµСЂРµРјРµРЅРЅС‹Рµ
         float minDistance = float.MaxValue;
         GameObject nearestItem = null;
 
-        // Перебираем массив объектов
+        // РџРµСЂРµР±РёСЂР°РµРј РјР°СЃСЃРёРІ РѕР±СЉРµРєС‚РѕРІ
         for (int i = 0; i < myItems.Length; i++)
         {
-            // Рассчитываем расстояние до текущего объекта
+            // Р Р°СЃСЃС‡РёС‚С‹РІР°РµРј СЂР°СЃСЃС‚РѕСЏРЅРёРµ РґРѕ С‚РµРєСѓС‰РµРіРѕ РѕР±СЉРµРєС‚Р°
             float distance = Vector3.Distance(myItems[i].transform.position, transform.position);
 
-            // Если расстояние меньше текущего минимального расстояния, то обновляем переменные
+            // Р•СЃР»Рё СЂР°СЃСЃС‚РѕСЏРЅРёРµ РјРµРЅСЊС€Рµ С‚РµРєСѓС‰РµРіРѕ РјРёРЅРёРјР°Р»СЊРЅРѕРіРѕ СЂР°СЃСЃС‚РѕСЏРЅРёСЏ, С‚Рѕ РѕР±РЅРѕРІР»СЏРµРј РїРµСЂРµРјРµРЅРЅС‹Рµ
             if (distance < minDistance)
             {
                 minDistance = distance;
@@ -75,7 +75,7 @@ public class FindTarget : MonoBehaviour
             }
         }
 
-        // Возвращаем ближайший объект
+        // Р’РѕР·РІСЂР°С‰Р°РµРј Р±Р»РёР¶Р°Р№С€РёР№ РѕР±СЉРµРєС‚
         return nearestItem;
     }
     public bool CheckTag() {

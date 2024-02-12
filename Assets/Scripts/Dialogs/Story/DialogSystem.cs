@@ -31,13 +31,15 @@ namespace Dialogs
 
         public DialogNode GetNextNode()
         {
-            CurrentNode.OnPhraseStarted?.Invoke();
+            CurrentNode.StartPhrase();
             OnPhraseStarted?.Invoke();
             return CurrentNode;
         }
 
         public void Next(int index)
         {
+            CurrentNode.EndPhrase();
+            
             if (CurrentNode is not BranchDialogNode branch)
             {
                 CurrentNode = CurrentNode.Child;
@@ -45,7 +47,7 @@ namespace Dialogs
             else
             {
                 if (index == -1) return;
-                branch.Answers[index].OnPhraseStarted?.Invoke();
+                branch.Answers[index].StartPhrase();
                 CurrentNode = branch.Answers[index].Child;
             }
 
