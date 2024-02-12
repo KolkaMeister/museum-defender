@@ -13,7 +13,7 @@ public class Spear : MeleeWeapon
     {
         if (!_fireCooldown.IsReady) return;
         
-        AttackAnimation();
+        AnimateAttack();
         DealDamage();
         _fireCooldown.Reset();
         SpawnSplash();

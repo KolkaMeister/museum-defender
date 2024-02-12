@@ -12,7 +12,7 @@ public class MeleeWeapon : Weapon
     [SerializeField] protected float _damage;
     protected bool _isAnimRoutine;
 
-    protected virtual void AttackAnimation()
+    protected virtual void AnimateAttack()
     {
         if (_isAnimRoutine)
         {

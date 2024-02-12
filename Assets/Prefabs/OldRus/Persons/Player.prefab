@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 1246957032}
   - component: {fileID: 2886519015962199136}
   - component: {fileID: 6607351010834241390}
+  - component: {fileID: 3537624700942484591}
   m_Layer: 7
   m_Name: Player
   m_TagString: Allies
@@ -399,6 +400,19 @@ CircleCollider2D:
   m_Offset: {x: -0.02990961, y: -0.37}
   serializedVersion: 2
   m_Radius: 0.2914548
+--- !u!114 &3537624700942484591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4030189607167085554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09445c94c2d641a28d077a208bcdb15d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Character>k__BackingField: {fileID: 4030189607167085555}
 --- !u!1 &4030189607290513938
 GameObject:
   m_ObjectHideFlags: 0

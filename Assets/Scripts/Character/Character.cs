@@ -122,7 +122,7 @@ public class Character : MonoBehaviour, ITakeDamage
     private void CalculateScale(Vector2 view)
     {
         float dir = view.x - transform.position.x;
-        var scale = new Vector2(dir > 0 ? 1 : -1, 1);
+        var scale = new Vector3(dir > 0 ? 1 : -1, 1, 1);
         transform.localScale = scale;
         if (_dialogView)
             _dialogView.SetScale(scale);
