@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dabeb88e95926744c9df6c796cbc6a8a
+guid: 910f7438825b8174497e2e17594eb2da
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -106,7 +106,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -129,13 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TENI_0
+      name: Tent_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 27
-        width: 46
-        height: 11
+        x: 12
+        y: 204
+        width: 84
+        height: 91
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,20 +143,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5055b6600708c5d4097caefd6808d804
-      internalID: 1763989519
+      spriteID: 7422bf134b50d1148beb47ae03d81f21
+      internalID: 506662063
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TENI_1
+      name: Tent_1
       rect:
         serializedVersion: 2
-        x: 83
-        y: 23
-        width: 102
-        height: 23
+        x: 110
+        y: 204
+        width: 82
+        height: 91
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,20 +164,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e82763de9796dc41805634e22c33b96
-      internalID: -871814477
+      spriteID: a59512a02a8696044805812fd222ca6f
+      internalID: 1207412297
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TENI_2
+      name: Tent_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 25
-        width: 17
-        height: 8
+        x: 204
+        y: 204
+        width: 84
+        height: 91
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,8 +185,134 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8bd9592aa564bc0438fecd301a2ee4fd
-      internalID: -543433756
+      spriteID: 2bdd1164f3c6f084f89261733809bc9b
+      internalID: -207055835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tent_3
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 108
+        width: 84
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec08d46e85a872f4ca723f4f5f8e30cb
+      internalID: 239681095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tent_4
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 108
+        width: 82
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f70c330b8558544db39504e8b967d0b
+      internalID: 889614910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tent_5
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 108
+        width: 84
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ad83202ea6d6f74fac0fb088e389ce6
+      internalID: -1672912979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tent_6
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 12
+        width: 84
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca5cf853119f6174996c27ba22969a98
+      internalID: -1980400718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tent_7
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 12
+        width: 82
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60da49fb535668045a43747864adb89d
+      internalID: -1224860908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tent_8
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 12
+        width: 84
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f7b0a57e6011ef49afddc551a29f3fe
+      internalID: 1506851855
       vertices: []
       indices: 
       edges: []
@@ -202,9 +328,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      TENI_1: -871814477
-      TENI_0: 1763989519
-      TENI_2: -543433756
+      Tent_1: 1207412297
+      Tent_6: -1980400718
+      Tent_0: 506662063
+      Tent_2: -207055835
+      Tent_5: -1672912979
+      Tent_7: -1224860908
+      Tent_3: 239681095
+      Tent_4: 889614910
+      Tent_8: 1506851855
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
