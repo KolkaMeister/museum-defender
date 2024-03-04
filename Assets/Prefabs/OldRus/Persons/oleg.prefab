@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 8843799142844812975}
   - component: {fileID: 8843799142844812974}
   - component: {fileID: 8843799142844812947}
+  - component: {fileID: 1855576108837344331}
+  - component: {fileID: 8789831338513710167}
   - component: {fileID: 8843799142844812972}
   - component: {fileID: 5572466142805624968}
   - component: {fileID: 7757798872781540451}
@@ -103,17 +105,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14928126b502f0b48bdc49498b58bcd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponsHolder: {fileID: 8843799143253323634}
+  Id: 2
+  _deadCond: {fileID: 0}
+  _rb: {fileID: 8843799142844812972}
+  _velMulti: 3
+  _dashTime: 0.3
+  _dashDistance: 2.1
+  _dashSpeed: 6.9999995
+  _dashDelay:
+    _resetValue: 2
+  _dialogView: {fileID: 0}
+  _health:
+    _value: 100
+--- !u!114 &1855576108837344331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8843799142844812946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad056776b074c3283c1f927500d549e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsUpdate: 0
+  UpdateTime: 0.1
+  InteractionDistance: 1
+  _debugTarget: {fileID: 0}
+--- !u!114 &8789831338513710167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8843799142844812946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cf4c7c80a76424fb9c07a8ceb24f4d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponsHolder: {fileID: 8843799143253323635}
   _ammoInventory:
     AmmoBags:
     - Type: 1
       Count: 50
-  holdPoint: {fileID: 8843799143253323635}
-  backHoldPoint: {fileID: 8843799143178317634}
-  _rb: {fileID: 8843799142844812972}
-  _VelMulti: 3
-  _health:
-    _value: 100
+  _holdPoint: {fileID: 8843799143253323635}
+  _backHoldPoint: {fileID: 8843799143178317634}
 --- !u!50 &8843799142844812972
 Rigidbody2D:
   serializedVersion: 4
@@ -167,8 +205,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1757dbc9d3d0b6b4cbfa6235c910b2a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DialogName: Oleg
   _desk: SpeachWithOleg
-  _dialogData: {fileID: 11400000, guid: 2253e2a42cb433a4180d175872351b65, type: 2}
 --- !u!70 &7757798872781540452
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

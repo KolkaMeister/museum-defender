@@ -1,4 +1,3 @@
-using System.Net.Http.Headers;
 using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -27,10 +26,11 @@ public class PlayerInputController : MonoBehaviour
     }
 
 
-     public void SetMousePosition(InputAction.CallbackContext context)
-     {
-         _mousePosition = context.ReadValue<Vector2>();
-     }
+    public void Dash(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            _character.Dash();
+    }
 
     public void Interact(InputAction.CallbackContext context)
     {
@@ -53,6 +53,11 @@ public class PlayerInputController : MonoBehaviour
     {
         if (context.performed)
             _character.ReloadWeapon();
+    }
+
+    public void SetMousePosition(InputAction.CallbackContext context)
+    {
+        _mousePosition = context.ReadValue<Vector2>();
     }
 
     public void SwitchWeapon(InputAction.CallbackContext context)

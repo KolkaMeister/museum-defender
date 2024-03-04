@@ -7,7 +7,6 @@ TagManager:
   - Background
   - Allies
   - Enemies
-  - Enemy
   - Landmark
   - Weapon
   layers:

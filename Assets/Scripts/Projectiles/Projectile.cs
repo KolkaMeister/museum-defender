@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -15,7 +14,8 @@ public class Projectile : MonoBehaviour
 
     public Collider2D Collider => _collider;
     public SpriteRenderer Renderer => _renderer;
-    
+    public Rigidbody2D Rb => _rb;
+
     public void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -27,7 +27,7 @@ public class Projectile : MonoBehaviour
         {
             ModifyHealth(damage);
             if (_destroyOnHit)
-                DestroyOnHit();
+                BackToPool();
         }
     }
 
@@ -36,20 +36,16 @@ public class Projectile : MonoBehaviour
         obj.ChangeHealth(_modifyValue);
     }
 
-    public virtual void AddForce(Vector3 dir, float speed)
+    public virtual void ChangeLayer(int layer)
     {
-        transform.rotation = Quaternion.Euler(0, 0, MathF.Atan2(dir.y, dir.x) * Mathf.Rad2Deg);
-        //Debug.Log(_dir);
-        //_rb.velocity= new Vector2(Mathf.Cos(transform.rotation.z), Mathf.Sin(transform.rotation.z)) * _multi;
-        _rb.velocity = transform.right * speed;
+        _renderer.sortingOrder = layer;
     }
 
-    public virtual void Shot(Vector3 dir, float speed, int layer)
+    public virtual void Shot(Vector2 dir, float speed, int layer)
     {
     }
 
-    private void DestroyOnHit()
+    protected virtual void BackToPool()
     {
-        Destroy(gameObject);
     }
 }

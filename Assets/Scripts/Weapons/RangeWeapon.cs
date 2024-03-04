@@ -1,29 +1,41 @@
+using Pools;
 using UnityEngine;
+using UnityEngine.Serialization;
+using Zenject;
 
 public class RangeWeapon : Weapon
 {
     [SerializeField] private int _spread;
-    [SerializeField] private Transform _projSpawnPos;
+    [SerializeField] private Transform _projSpawn;
     [SerializeField] protected float _force;
 
+    private IPool<Bullet> _bulletPool;
+
+    [Inject]
+    public void Construct(PoolLocator locator)
+    {
+        _bulletPool = locator.Get<Bullet>();
+    }
+    
     public override void Attack()
     {
         if (!_fireCooldown.IsReady || _currentAmmo < 1) return;
 
-        Projectile obj = Instantiate(_proj, _projSpawnPos.transform.position, Quaternion.identity);
-        Vector3 dir = GetFinalDir();
-        obj.AddForce(dir, _force);
+        float angle = GetSpreadAngle();
+        Projectile obj = _bulletPool.Pop(_projSpawn.position,
+            Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg));
+        
+        Vector2 dir = GetFinalDir(angle);
         obj.Shot(dir, _force, _attackLayer);
         _currentAmmo--;
         _fireCooldown.Reset();
     }
 
-    private Vector3 GetFinalDir()
+    private Vector2 GetFinalDir(float angle) => new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+
+    private float GetSpreadAngle()
     {
-        // TODO: Correct!!!
-        var aimVector = (_projSpawnPos.position - _holdPoint.position).normalized;
-        var finalRad = Mathf.Atan2(aimVector.x, aimVector.y) + Random.Range(-_spread, _spread) * Mathf.Deg2Rad;
-        var finalForceVec = new Vector3(Mathf.Sin(finalRad), Mathf.Cos(finalRad), _projSpawnPos.position.z);
-        return finalForceVec;
+        Vector3 aimVector = _projSpawn.position - _holdPoint.position;
+        return Mathf.Atan2(aimVector.y, aimVector.x) + Random.Range(-_spread, _spread) * Mathf.Deg2Rad;
     }
 }
