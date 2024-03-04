@@ -9,6 +9,7 @@ public class FindTarget : MonoBehaviour
     public string weaponTag = "Weapon";
     private GameObject[] myItems;
     EnemyAI enemy;
+    private int patroulpoint = 0;
     // Start is called before the first frame update
     public void FindTargets() {
         if (enemy != null)
@@ -36,8 +37,16 @@ public class FindTarget : MonoBehaviour
             //Debug.Log("Found " + myItems.Length + " instances with this script attached");
             try
             {
-                if (enemy.PVE)
+                if (enemy.PVE && enemy.Patroul)
                 {
+                    enemy.target = myItems[patroulpoint].transform;
+                    patroulpoint++;
+                    if (patroulpoint > myItems.Length - 1)
+                    {
+                        patroulpoint = 0;
+                    }
+                    
+                } else if (enemy.PVE) {
                     enemy.target = myItems[Random.Range(0, myItems.Length)].transform;
                 }
                 else {
