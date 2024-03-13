@@ -113,6 +113,7 @@ MonoBehaviour:
   _deadCond: {fileID: 6517416458725690611, guid: b36ee3e68bf29d041a072acd38e62aae, type: 3}
   _rb: {fileID: 8568531227713245098}
   _velMulti: 3
+  _pushForce: 10
   _dashTime: 0.3
   _dashDistance: 2.1
   _dashSpeed: 6.9999995
@@ -136,7 +137,7 @@ MonoBehaviour:
   IsUpdate: 1
   UpdateTime: 0.1
   InteractionDistance: 1
-  _debugTarget: {fileID: 0}
+  _debugTargets: []
 --- !u!114 &8049913962147843969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,11 +238,12 @@ MonoBehaviour:
   updateRate: 1
   pathIsEnded: 0
   isWeaponed: 0
-  PVE: 0
+  _PVE: 0
   nextWaypointDistance: 1
   stopDistance: 10
   DistToTarget: 0
   pogr: 0.5
+  rand: 0
 --- !u!114 &1194398105
 MonoBehaviour:
   m_ObjectHideFlags: 0
