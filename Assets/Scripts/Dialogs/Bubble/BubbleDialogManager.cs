@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Infrastructure;
 using UnityEngine;
@@ -44,6 +45,7 @@ namespace Dialogs.Sideline
         public void RemoveDialog(IBubbleDialogSystem system)
         {
             BubbleDialogData data = _dialogs.Single(x => x.System == system);
+            (data.System as IDisposable)?.Dispose();
             _dialogs.Remove(data);
         }
 

@@ -35,7 +35,10 @@ public class MeleeWeapon : Weapon
         foreach (Collider2D item in colliders)
         {
             if(item.TryGetComponent(out ITakeDamage health))
-                health.ChangeHealth(_damage);
+            {
+                health.AddHealth(-_damage);
+                health.Push(_damagePoint.position);
+            }
         }
     }
 

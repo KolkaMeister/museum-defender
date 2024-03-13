@@ -8,7 +8,7 @@ namespace Dialogs.Sideline
         public DialogTextView Text;
         [HideInInspector] public float TypeInterval;
         [HideInInspector] public float WaitTime;
-        
+
         [Inject]
         private void Construct(DialogConfigSo config)
         {

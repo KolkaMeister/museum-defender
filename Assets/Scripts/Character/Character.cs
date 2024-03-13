@@ -21,6 +21,7 @@ public class Character : MonoBehaviour, ITakeDamage
 
     [FormerlySerializedAs("_VelMulti"), SerializeField]
     private float _velMulti;
+    [SerializeField] private float _pushForce;
 
     //********************Dash********************//
     [SerializeField] private float _dashTime;
@@ -48,6 +49,7 @@ public class Character : MonoBehaviour, ITakeDamage
     private bool _isReloading;
     private bool _isDead;
     private bool _isDash;
+    private Vector3 _deadImpulse;
 
     public BubbleDialogView DialogView => _dialogView;
 
@@ -162,9 +164,15 @@ public class Character : MonoBehaviour, ITakeDamage
             weapon.Attack();
     }
 
-    public void ChangeHealth(float value)
+    public void AddHealth(float value)
     {
         _health.Value += value;
+    }
+
+    public void Push(Vector3 origin)
+    {
+        var dir = (transform.position - origin).normalized;
+        _deadImpulse = dir * _pushForce;
     }
 
     private void OnHealthChanged(float newValue, float old)
@@ -184,7 +192,8 @@ public class Character : MonoBehaviour, ITakeDamage
 
             if (Id == EntityType.Player)
                 SceneLoader.LoadScene(SceneManager.GetActiveScene().buildIndex, false);
-            Instantiate(_deadCond, transform.position, Quaternion.identity);
+            var dead = Instantiate(_deadCond, transform.position, Quaternion.identity).GetComponent<DeadCharacter>();
+            dead.SetImpulse(_deadImpulse);
             Destroy(gameObject);
         }
     }

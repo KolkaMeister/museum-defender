@@ -82,6 +82,10 @@ public class Weapon : MonoBehaviour, IInteractable
     {
     }
 
+    public virtual void ResetAttack()
+    {
+    }
+
     public virtual void Reload(int count) => _currentAmmo = count;
     public void SetAttackLayer(int layer) => _attackLayer = layer;
 }

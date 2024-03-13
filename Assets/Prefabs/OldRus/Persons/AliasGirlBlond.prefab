@@ -176,6 +176,7 @@ MonoBehaviour:
   _deadCond: {fileID: 6517416458725690611, guid: a7d2f0f85b7f6324c958382033c788b6, type: 3}
   _rb: {fileID: 6603019862872130818}
   _velMulti: 3
+  _pushForce: 10
   _dashTime: 0
   _dashDistance: 0
   _dashSpeed: 0
@@ -232,7 +233,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -320,6 +321,7 @@ MonoBehaviour:
   updateRate: 1
   pathIsEnded: 0
   isWeaponed: 0
+  _PVE: 0
   nextWaypointDistance: 0.5
   stopDistance: 10
   DistToTarget: 0

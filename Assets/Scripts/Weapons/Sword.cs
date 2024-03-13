@@ -15,6 +15,11 @@ public class Sword : MeleeWeapon
         _fireCooldown.Reset();
     }
 
+    public override void ResetAttack()
+    {
+        _animator.ResetTrigger(_attack);
+    }
+
     protected override void AnimateAttack()
     {
         _animator.SetTrigger(_attack);

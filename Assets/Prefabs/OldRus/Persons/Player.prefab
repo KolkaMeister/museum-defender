@@ -284,6 +284,7 @@ MonoBehaviour:
   _deadCond: {fileID: 6517416458725690611, guid: 429a5370836ae3e42b51126143be8579, type: 3}
   _rb: {fileID: 4030189607167085516}
   _velMulti: 3
+  _pushForce: 10
   _dashTime: 0.3
   _dashDistance: 2.1
   _dashSpeed: 6.9999995
@@ -340,7 +341,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}

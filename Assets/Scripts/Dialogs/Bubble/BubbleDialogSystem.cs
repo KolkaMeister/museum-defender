@@ -4,7 +4,7 @@ using Infrastructure;
 
 namespace Dialogs.Sideline
 {
-    public class BubbleDialogSystem : IBubbleDialogSystem
+    public class BubbleDialogSystem : IBubbleDialogSystem, IDisposable
     {
         private readonly IBubbleDialogManager _manager;
         private readonly ICoroutineRunner _runner;
@@ -58,6 +58,11 @@ namespace Dialogs.Sideline
             CurrentNode = null;
             CurrentDialog = null;
             _manager.RemoveDialog(this);
+        }
+
+        public void Dispose()
+        {
+            (_controller as IDisposable)?.Dispose();
         }
     }
 }

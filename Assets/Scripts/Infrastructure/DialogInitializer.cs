@@ -1,4 +1,5 @@
 ﻿using Dialogs;
+using UnityEngine;
 using Zenject;
 
 namespace Infrastructure
@@ -16,6 +17,7 @@ namespace Infrastructure
         
         public void Initialize()
         {
+            Debug.Log("New Initialize");
             _dialogSys.SetController(_controller);
         }
     }
