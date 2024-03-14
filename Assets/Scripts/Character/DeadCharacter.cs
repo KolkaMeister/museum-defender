@@ -7,5 +7,5 @@ public class DeadCharacter : MonoBehaviour
     public void SetImpulse(Vector3 impulse)
     {
         _rb.AddForce(impulse, ForceMode2D.Impulse);
-    }
+    } 
 }

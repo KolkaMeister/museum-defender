@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Dialogs.Sideline;
 using UI;
@@ -194,7 +195,25 @@ public class Character : MonoBehaviour, ITakeDamage
                 SceneLoader.LoadScene(SceneManager.GetActiveScene().buildIndex, false);
             var dead = Instantiate(_deadCond, transform.position, Quaternion.identity).GetComponent<DeadCharacter>();
             dead.SetImpulse(_deadImpulse);
+            DeathCounter();
             Destroy(gameObject);
+        }
+    }
+
+    private void DeathCounter() //Добавить +1 к счётчику убийств
+    {
+        if (this.tag == "Enemies") {
+            GameObject player;
+            try
+            {
+                player = GameObject.Find("Player");
+            }
+            catch
+            {
+                Debug.LogError("GameObject с тегом \"Player\" не найден!");
+                return;
+            }
+            player.GetComponent<QuestScripter>().DeathCount++;
         }
     }
 

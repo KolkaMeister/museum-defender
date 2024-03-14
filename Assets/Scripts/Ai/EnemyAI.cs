@@ -46,7 +46,7 @@ public class EnemyAI : MonoBehaviour
 
     public int rand = 0;
 
-    private int currentWaypoint = 0;
+    public int currentWaypoint = 0;
     private Vector3 dir;
     // Start is called before the first frame update
     IEnumerator Founder() {
