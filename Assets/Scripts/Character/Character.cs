@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Dialogs.Sideline;
 using UI;
@@ -21,6 +22,7 @@ public class Character : MonoBehaviour, ITakeDamage
 
     [FormerlySerializedAs("_VelMulti"), SerializeField]
     private float _velMulti;
+    [SerializeField] private float _pushForce;
 
     //********************Dash********************//
     [SerializeField] private float _dashTime;
@@ -48,6 +50,7 @@ public class Character : MonoBehaviour, ITakeDamage
     private bool _isReloading;
     private bool _isDead;
     private bool _isDash;
+    private Vector3 _deadImpulse;
 
     public BubbleDialogView DialogView => _dialogView;
 
@@ -122,7 +125,7 @@ public class Character : MonoBehaviour, ITakeDamage
     private void CalculateScale(Vector2 view)
     {
         float dir = view.x - transform.position.x;
-        var scale = new Vector2(dir > 0 ? 1 : -1, 1);
+        var scale = new Vector3(dir > 0 ? 1 : -1, 1, 1);
         transform.localScale = scale;
         if (_dialogView)
             _dialogView.SetScale(scale);
@@ -162,9 +165,15 @@ public class Character : MonoBehaviour, ITakeDamage
             weapon.Attack();
     }
 
-    public void ChangeHealth(float value)
+    public void AddHealth(float value)
     {
         _health.Value += value;
+    }
+
+    public void Push(Vector3 origin)
+    {
+        var dir = (transform.position - origin).normalized;
+        _deadImpulse = dir * _pushForce;
     }
 
     private void OnHealthChanged(float newValue, float old)
@@ -184,8 +193,27 @@ public class Character : MonoBehaviour, ITakeDamage
 
             if (Id == EntityType.Player)
                 SceneLoader.LoadScene(SceneManager.GetActiveScene().buildIndex, false);
-            Instantiate(_deadCond, transform.position, Quaternion.identity);
+            var dead = Instantiate(_deadCond, transform.position, Quaternion.identity).GetComponent<DeadCharacter>();
+            dead.SetImpulse(_deadImpulse);
+            DeathCounter();
             Destroy(gameObject);
+        }
+    }
+
+    private void DeathCounter() //Добавить +1 к счётчику убийств
+    {
+        if (this.tag == "Enemies") {
+            GameObject player;
+            try
+            {
+                player = GameObject.Find("Player");
+            }
+            catch
+            {
+                Debug.LogError("GameObject с тегом \"Player\" не найден!");
+                return;
+            }
+            player.GetComponent<QuestScripter>().DeathCount++;
         }
     }
 

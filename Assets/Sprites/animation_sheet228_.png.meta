@@ -101,6 +101,30 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -2280,7 +2304,6 @@ TextureImporter:
     nameFileIdTable:
       animation_sheet228__17: -2131016898
       animation_sheet228__69: 251232635
-      animation_sheet228__97: -852809479
       animation_sheet228__55: -270248295
       animation_sheet228__80: 32988316
       animation_sheet228__13: 1051916228
@@ -2314,8 +2337,8 @@ TextureImporter:
       animation_sheet228__5: 1057326554
       animation_sheet228__88: 2050656080
       animation_sheet228__47: 1724251837
-      animation_sheet228__7: 301103002
       animation_sheet228__87: -1799078891
+      animation_sheet228__7: 301103002
       animation_sheet228__54: -1907770659
       animation_sheet228__50: -818784122
       animation_sheet228__6: 1674345914
@@ -2337,8 +2360,8 @@ TextureImporter:
       animation_sheet228__38: 1083548843
       animation_sheet228__52: 1998613034
       animation_sheet228__21: 1254314771
-      animation_sheet228__67: -1664375323
       animation_sheet228__99: -1519295076
+      animation_sheet228__67: -1664375323
       animation_sheet228__72: -1490377988
       animation_sheet228__63: -1874299525
       animation_sheet228__95: 1196042482
@@ -2379,8 +2402,9 @@ TextureImporter:
       animation_sheet228__62: -2091364444
       animation_sheet228__31: -1400551674
       animation_sheet228__59: 317416736
-      animation_sheet228__68: 763401875
+      animation_sheet228__97: -852809479
       animation_sheet228__94: 229930923
+      animation_sheet228__68: 763401875
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

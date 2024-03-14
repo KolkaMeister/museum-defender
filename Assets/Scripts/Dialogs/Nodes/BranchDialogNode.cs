@@ -34,7 +34,10 @@ namespace Dialogs.Nodes
 
         public override DialogNode Find(string tag)
         {
-            return Tag == tag ? this : Answers.Find(x => x.Find(tag) != null);
+            return Tag == tag 
+                ? this 
+                : Answers.Select(answer => answer.Find(tag))
+                    .FirstOrDefault(result => result != null);
         }
     }
 }

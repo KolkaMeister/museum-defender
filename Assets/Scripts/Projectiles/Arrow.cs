@@ -22,6 +22,9 @@ public class Arrow : Projectile
         _collider.enabled = false;
         transform.SetParent(collision.transform);
         if(collision.TryGetComponent(out ITakeDamage damage))
+        {
+            damage.Push(transform.position);
             ModifyHealth(damage);
+        }
     }
 }

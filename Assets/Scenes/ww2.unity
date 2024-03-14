@@ -4344,6 +4344,10 @@ PrefabInstance:
       propertyPath: stopDistance
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7006611056085577392, guid: e4257366cdc541a4cb4584c650356d72, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8568531227713245076, guid: e4257366cdc541a4cb4584c650356d72, type: 3}
       propertyPath: m_Name
       value: SoldGerWW2
@@ -4392,7 +4396,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2131201807438126175, guid: e4257366cdc541a4cb4584c650356d72, type: 3}
+    - {fileID: 1362690396091042832, guid: e4257366cdc541a4cb4584c650356d72, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e4257366cdc541a4cb4584c650356d72, type: 3}
 --- !u!1 &1222840663
 GameObject:
@@ -5337,6 +5343,10 @@ PrefabInstance:
       propertyPath: stopDistance
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7006611056085577392, guid: e4257366cdc541a4cb4584c650356d72, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8568531227713245076, guid: e4257366cdc541a4cb4584c650356d72, type: 3}
       propertyPath: m_Name
       value: SoldGerWW2 (1)
@@ -5385,7 +5395,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2131201807438126175, guid: e4257366cdc541a4cb4584c650356d72, type: 3}
+    - {fileID: 1362690396091042832, guid: e4257366cdc541a4cb4584c650356d72, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e4257366cdc541a4cb4584c650356d72, type: 3}
 --- !u!1 &1650970196
 GameObject:

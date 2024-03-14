@@ -38,6 +38,7 @@ public class EnemyAI : MonoBehaviour
             }
         }
     }
+    public bool Patroul;
     public float nextWaypointDistance = 1;
     public float stopDistance = 1;
     public float DistToTarget;
@@ -45,7 +46,7 @@ public class EnemyAI : MonoBehaviour
 
     public int rand = 0;
 
-    private int currentWaypoint = 0;
+    public int currentWaypoint = 0;
     private Vector3 dir;
     // Start is called before the first frame update
     IEnumerator Founder() {
@@ -142,6 +143,7 @@ public class EnemyAI : MonoBehaviour
             path = p;
             currentWaypoint = 0;
         }
+        
     }
     public void MoveControl() {
         if (target == null)
@@ -167,6 +169,11 @@ public class EnemyAI : MonoBehaviour
                 return;
             }
             pathIsEnded = true;
+            if (Patroul)
+            {
+                Debug.Log("Patroul Go" + this.name);
+                Ftarget.FindTargets();
+            }
             return;
         }
         pathIsEnded = false;

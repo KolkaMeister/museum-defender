@@ -56,6 +56,7 @@ namespace World
         {
             if (collision.transform == _aim && collision.TryGetComponent(out ITakeDamage damage))
             {
+                damage.Push(transform.position);
                 ModifyHealth(damage);
                 _rb.velocity = Vector2.zero;
                 transform.SetParent(collision.transform);

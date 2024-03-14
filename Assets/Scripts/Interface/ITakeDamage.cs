@@ -1,7 +1,11 @@
+using UnityEngine;
+
 public interface ITakeDamage 
 {
     public PersistantProperty<float> Health { set; get; }
 
     public bool IsDead { set; get; }
-    public void ChangeHealth(float value);
+    public void AddHealth(float value);
+
+    public void Push(Vector3 origin);
 }

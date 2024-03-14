@@ -7,20 +7,17 @@ namespace Pools
 {
     public class PoolLocator : IInitializable
     {
-        private Dictionary<Type, object> _pools = new Dictionary<Type, object>();
+        private readonly Dictionary<Type, object> _pools = new Dictionary<Type, object>();
 
-        public void Add<T>(T prefab, int capacity, Transform parent, DiContainer container)
-            where T : MonoBehaviour
+        public void Add<T>(T prefab, int capacity, Transform parent, DiContainer container) where T : MonoBehaviour
         {
             _pools[typeof(T)] = new SimplePool<T>(prefab, capacity, parent, container);
         }
 
-        public void Add<T>(IPool<T> pool)
-            where T : MonoBehaviour =>
+        public void Add<T>(IPool<T> pool) where T : MonoBehaviour =>
             _pools[typeof(T)] = pool;
 
-        public IPool<T> Get<T>()
-            where T : MonoBehaviour =>
+        public IPool<T> Get<T>() where T : MonoBehaviour =>
             (IPool<T>)_pools[typeof(T)];
 
 

@@ -27,11 +27,9 @@ namespace Dialogs.States
         public void ChangeState<TState>() 
             where TState : IDialogState
         {
-            if(_current is IExitState exit)
-                exit.Exit();
+            (_current as IExitState)?.Exit();
             _current = _states.Find(x => x is TState);
-            if(_current is IEnterState enter)
-                enter.Enter();
+            (_current as IEnterState)?.Enter();
         }
 
         public void Update()

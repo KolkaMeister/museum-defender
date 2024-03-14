@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 910f7438825b8174497e2e17594eb2da
+guid: 92ca45c998f2da4408226fdfa12f8696
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -106,7 +106,19 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -117,190 +129,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: lagerssss_0
+      name: SpearSplash_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 204
-        width: 84
-        height: 91
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2}
+        x: 2
+        y: 3
+        width: 10
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c389a07db033e754ab0abf6d0d9d89b2
-      internalID: -522266691
+      spriteID: 72bf06d50d0803c4c85fd23274686ed3
+      internalID: -1128361088
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lagerssss_1
+      name: SpearSplash_1
       rect:
         serializedVersion: 2
-        x: 110
-        y: 204
-        width: 82
-        height: 91
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2}
+        x: 14
+        y: 3
+        width: 10
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b997163b23de5ca49adc1a0304302710
-      internalID: 751605600
+      spriteID: 0802756751e4f124ca4089f94591a0af
+      internalID: 1109888333
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lagerssss_2
+      name: SpearSplash_2
       rect:
         serializedVersion: 2
-        x: 204
-        y: 204
-        width: 84
-        height: 91
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2}
+        x: 36
+        y: 3
+        width: 10
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a790a2d189c6f7b4bba0a6e499a54441
-      internalID: -1930945700
+      spriteID: 913eeeefedf380847b312af33073da3d
+      internalID: 1041077835
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lagerssss_3
+      name: SpearSplash_3
       rect:
         serializedVersion: 2
-        x: 12
-        y: 108
-        width: 84
-        height: 91
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2}
+        x: 26
+        y: 3
+        width: 10
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c63bc9294a7f9b49b495051908f969f
-      internalID: -1333488008
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lagerssss_4
-      rect:
-        serializedVersion: 2
-        x: 111
-        y: 108
-        width: 82
-        height: 91
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d05ce5a3fa95cff4887cdaa2fcc10227
-      internalID: 1601926209
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lagerssss_5
-      rect:
-        serializedVersion: 2
-        x: 204
-        y: 108
-        width: 84
-        height: 91
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8a116b4dd2395b044a545400739dd700
-      internalID: -1116873162
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lagerssss_6
-      rect:
-        serializedVersion: 2
-        x: 12
-        y: 12
-        width: 84
-        height: 91
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5b01884d01d1b0546a3aea8adfd90f97
-      internalID: 527555570
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lagerssss_7
-      rect:
-        serializedVersion: 2
-        x: 110
-        y: 12
-        width: 82
-        height: 91
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8b10348333a37f84785ebb1f0f9ed960
-      internalID: -1581082440
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lagerssss_8
-      rect:
-        serializedVersion: 2
-        x: 204
-        y: 12
-        width: 84
-        height: 91
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 05603103e8564944eadc3079d0fa7ba5
-      internalID: 606386821
+      spriteID: 73185f61939657445aba0335225ee9d3
+      internalID: -1866050303
       vertices: []
       indices: 
       edges: []
@@ -316,15 +223,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      lagerssss_4: 1601926209
-      lagerssss_2: -1930945700
-      lagerssss_1: 751605600
-      lagerssss_8: 606386821
-      lagerssss_6: 527555570
-      lagerssss_3: -1333488008
-      lagerssss_0: -522266691
-      lagerssss_5: -1116873162
-      lagerssss_7: -1581082440
+      SpearSplash_0: -1128361088
+      SpearSplash_2: 1041077835
+      SpearSplash_3: -1866050303
+      SpearSplash_1: 1109888333
+      SpearSplash_4: -1523894273
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

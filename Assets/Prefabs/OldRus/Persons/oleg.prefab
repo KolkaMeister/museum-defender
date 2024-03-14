@@ -109,6 +109,7 @@ MonoBehaviour:
   _deadCond: {fileID: 0}
   _rb: {fileID: 8843799142844812972}
   _velMulti: 3
+  _pushForce: 10
   _dashTime: 0.3
   _dashDistance: 2.1
   _dashSpeed: 6.9999995
@@ -132,7 +133,7 @@ MonoBehaviour:
   IsUpdate: 0
   UpdateTime: 0.1
   InteractionDistance: 1
-  _debugTarget: {fileID: 0}
+  _debugTargets: []
 --- !u!114 &8789831338513710167
 MonoBehaviour:
   m_ObjectHideFlags: 0

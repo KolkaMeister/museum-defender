@@ -4,7 +4,7 @@ using Infrastructure;
 
 namespace Dialogs.Sideline
 {
-    public class BubbleDialogSystem : IBubbleDialogSystem
+    public class BubbleDialogSystem : IBubbleDialogSystem, IDisposable
     {
         private readonly IBubbleDialogManager _manager;
         private readonly ICoroutineRunner _runner;
@@ -34,6 +34,7 @@ namespace Dialogs.Sideline
 
         public DialogNode GetNextNode()
         {
+            CurrentNode?.EndPhrase();
             CurrentNode = CurrentNode == null ? CurrentDialog.Root : CurrentNode.Child;
             if (CurrentNode == null)
             {
@@ -41,7 +42,7 @@ namespace Dialogs.Sideline
             }
             else
             {
-                CurrentNode.OnPhraseStarted?.Invoke();
+                CurrentNode.StartPhrase();
                 OnPhraseStarted?.Invoke();
             }
 
@@ -58,19 +59,10 @@ namespace Dialogs.Sideline
             CurrentDialog = null;
             _manager.RemoveDialog(this);
         }
-    }
 
-    public interface IBubbleDialogSystem
-    {
-        public DialogTree CurrentDialog { get; }
-        public DialogNode CurrentNode { get; }
-        
-        public event Action OnDialogStarted;
-        public event Action OnDialogEnded;
-        public event Action OnPhraseStarted;
-
-        public void Start(Character initiator, Character initiated, DialogTree dialog);
-        public DialogNode GetNextNode();
-        public void Finish();
+        public void Dispose()
+        {
+            (_controller as IDisposable)?.Dispose();
+        }
     }
 }

@@ -1,14 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Dialogs.Nodes;
 using Dialogs.Sideline.States;
 using Dialogs.States;
 using Infrastructure;
-using UnityEngine;
 
 namespace Dialogs.Sideline
 {
-    public class BubbleDialogController : IBubbleDialogController
+    public class BubbleDialogController : IBubbleDialogController, IDisposable
     {
         private readonly IBubbleDialogSystem _system;
         private readonly ICoroutineRunner _runner;
@@ -63,6 +63,11 @@ namespace Dialogs.Sideline
                 yield return null;
                 _machine.Update();
             }
+        }
+
+        public void Dispose()
+        {
+            _runner.AbortCoroutine(Update());
         }
     }
 }

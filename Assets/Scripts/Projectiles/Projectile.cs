@@ -25,6 +25,7 @@ public class Projectile : MonoBehaviour
     {
         if (_damageLayer == collision.gameObject.layer && collision.TryGetComponent(out ITakeDamage damage))
         {
+            damage.Push(transform.position);
             ModifyHealth(damage);
             if (_destroyOnHit)
                 BackToPool();
@@ -33,7 +34,7 @@ public class Projectile : MonoBehaviour
 
     protected virtual void ModifyHealth(ITakeDamage obj)
     {
-        obj.ChangeHealth(_modifyValue);
+        obj.AddHealth(-_modifyValue);
     }
 
     public virtual void ChangeLayer(int layer)
