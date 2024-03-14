@@ -7509,6 +7509,7 @@ MonoBehaviour:
   pathIsEnded: 0
   isWeaponed: 1
   _PVE: 0
+  Patroul: 0
   nextWaypointDistance: 1
   stopDistance: 0
   DistToTarget: 10.471081
@@ -89885,6 +89886,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3263748896599771819, guid: 6f39439c6d1c7004bbf397a5f76e6b72, type: 3}
+      propertyPath: _PVE
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3263748896599771819, guid: 6f39439c6d1c7004bbf397a5f76e6b72, type: 3}
+      propertyPath: Patroul
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3263748896599771819, guid: 6f39439c6d1c7004bbf397a5f76e6b72, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -89942,7 +89951,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6603019862872130876, guid: 6f39439c6d1c7004bbf397a5f76e6b72, type: 3}
       propertyPath: m_Name
-      value: AliasGirlBlond (6)
+      value: TestPatrul
       objectReference: {fileID: 0}
     - target: {fileID: 6603019862872130876, guid: 6f39439c6d1c7004bbf397a5f76e6b72, type: 3}
       propertyPath: m_TagString

@@ -38,6 +38,7 @@ public class EnemyAI : MonoBehaviour
             }
         }
     }
+    public bool Patroul;
     public float nextWaypointDistance = 1;
     public float stopDistance = 1;
     public float DistToTarget;
@@ -142,6 +143,7 @@ public class EnemyAI : MonoBehaviour
             path = p;
             currentWaypoint = 0;
         }
+        
     }
     public void MoveControl() {
         if (target == null)
@@ -167,6 +169,11 @@ public class EnemyAI : MonoBehaviour
                 return;
             }
             pathIsEnded = true;
+            if (Patroul)
+            {
+                Debug.Log("Patroul Go" + this.name);
+                Ftarget.FindTargets();
+            }
             return;
         }
         pathIsEnded = false;
