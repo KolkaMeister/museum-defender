@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class QuestScripter : MonoBehaviour
 {
-    public GameObject DeathSpriteChange;
+    public GameObject GateQuest;
     //--Переменные условий квестов
-    public int DeathCountTarget;
     private int _deathCount;
     public int DeathCount
     {
@@ -22,9 +21,6 @@ public class QuestScripter : MonoBehaviour
     }
     
     private void DeathCountScript() {
-        if (DeathCount >= DeathCountTarget)
-        {
-            DeathSpriteChange.GetComponent<IDeathQuester>().QuestDone();
-        }
+        GateQuest.GetComponent<IDeathQuester>().QuestGo();
     }
 }
