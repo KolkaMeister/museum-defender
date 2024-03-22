@@ -6,6 +6,7 @@ public class DeathSpriteChange : MonoBehaviour, IDeathQuester
 {
     private GameObject parent;
     public GameObject targetObject;
+    public bool QuestDone = false;
 
     public int TargetDeathCount;
     private void Start()
@@ -13,9 +14,9 @@ public class DeathSpriteChange : MonoBehaviour, IDeathQuester
         parent = GameObject.Find("QusetTriggers");
     }
     public void QuestGo() {
-        if (parent.GetComponent<QuestScripter>().DeathCount >= 5) {
+        if (parent.GetComponent<QuestScripter>().DeathCount >= 5 && !QuestDone) {
             targetObject.GetComponent<Animator>().SetBool("Open", true);
-            Debug.Log("Quest");
+            QuestDone = true;
         }
     }
 }
