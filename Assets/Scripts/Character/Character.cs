@@ -207,13 +207,13 @@ public class Character : MonoBehaviour, ITakeDamage
             try
             {
                 quest = GameObject.Find("QusetTriggers");
+                quest.GetComponent<QuestScripter>().DeathCount++;
             }
             catch
             {
-                Debug.LogError("GameObject с тегом \"quest\" не найден!");
+                Debug.LogWarning("GameObject с тегом \"quest\" не найден! Вероятно игрок умер и квест не может завершится!");
                 return;
             }
-            quest.GetComponent<QuestScripter>().DeathCount++;
         }
     }
 
