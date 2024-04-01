@@ -4,9 +4,19 @@ using UnityEngine;
 
 public class DeathSpriteChange : MonoBehaviour, IDeathQuester
 {
+    private GameObject parent;
     public GameObject targetObject;
-    public Sprite NewSprite;
-    public void QuestDone() {
-        targetObject.GetComponent<SpriteRenderer>().sprite = NewSprite;
+    public bool QuestDone = false;
+
+    public int TargetDeathCount;
+    private void Start()
+    {
+        parent = GameObject.Find("QusetTriggers");
+    }
+    public void QuestGo() {
+        if (parent.GetComponent<QuestScripter>().DeathCount >= 5 && !QuestDone) {
+            targetObject.GetComponent<Animator>().SetBool("Open", true);
+            QuestDone = true;
+        }
     }
 }

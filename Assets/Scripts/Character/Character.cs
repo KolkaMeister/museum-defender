@@ -203,17 +203,17 @@ public class Character : MonoBehaviour, ITakeDamage
     private void DeathCounter() //Добавить +1 к счётчику убийств
     {
         if (this.tag == "Enemies") {
-            GameObject player;
+            GameObject quest;
             try
             {
-                player = GameObject.Find("Player");
+                quest = GameObject.Find("QusetTriggers");
+                quest.GetComponent<QuestScripter>().DeathCount++;
             }
             catch
             {
-                Debug.LogError("GameObject с тегом \"Player\" не найден!");
+                Debug.LogWarning("GameObject с тегом \"quest\" не найден! Вероятно игрок умер и квест не может завершится!");
                 return;
             }
-            player.GetComponent<QuestScripter>().DeathCount++;
         }
     }
 
