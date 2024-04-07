@@ -18,6 +18,8 @@ public class EnemyAI : MonoBehaviour
 
     public Path path;
 
+    public bool stop = false;
+
     public bool pathIsEnded = false;
     public bool isWeaponed = false;
     [SerializeField] private bool _PVE = false;
@@ -178,12 +180,12 @@ public class EnemyAI : MonoBehaviour
         }
         pathIsEnded = false;
 
-        if (DistToTarget >= stopDistance + pogr)
+        if ((DistToTarget >= stopDistance + pogr) && !stop)
         {
             dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
             Char.MoveDirection = new Vector2(dir.x, dir.y);
         }
-        else if (DistToTarget <= stopDistance - pogr)
+        else if ((DistToTarget <= stopDistance - pogr) && !stop)
         {
             dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
             Char.MoveDirection = new Vector2(-dir.x, -dir.y);
@@ -220,7 +222,7 @@ public class EnemyAI : MonoBehaviour
     void FixedUpdate()
     {
         MoveControl();
-        if (!PVE) FireControl();
+        if (!PVE && !stop) FireControl();
         else
         {
             //PVE Controll

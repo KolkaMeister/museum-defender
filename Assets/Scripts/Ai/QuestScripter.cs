@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class QuestScripter : MonoBehaviour
 {
-    public GameObject GateQuest;
+    public GameObject[] DeathCountQuests;
     //--Переменные условий квестов
     private int _deathCount;
     public int DeathCount
@@ -21,6 +21,18 @@ public class QuestScripter : MonoBehaviour
     }
     
     private void DeathCountScript() {
-        GateQuest.GetComponent<IDeathQuester>().QuestGo();
+        foreach (GameObject Quest in DeathCountQuests)
+        {
+            Quest.GetComponent<IDeathQuester>().QuestGo();
+        }
+    }
+    public void TriggerScript(string name)
+    {
+        try {
+            GameObject.Find("QusetTriggers").transform.Find(name).gameObject.GetComponent<IDeathQuester>().QuestGo();
+        } catch {
+            Debug.LogWarning("Не удаётся найти тригер квест квест с именем: " + name);
+        }
+        
     }
 }
