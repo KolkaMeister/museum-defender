@@ -96,7 +96,7 @@ MonoBehaviour:
   _reloadTime: 0
   _attackLayer: 0
   _collider: {fileID: 6564133945317210326}
-  _shootRange: 1
+  _shootRange: 0.5
   animationTime: 0.3
   _damagePoint: {fileID: 6564133946950571401}
   _damageRadius: 0.7
