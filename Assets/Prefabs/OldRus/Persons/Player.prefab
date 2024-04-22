@@ -432,16 +432,16 @@ MonoBehaviour:
   Id: 0
   _deadCond: {fileID: 6517416458725690611, guid: 429a5370836ae3e42b51126143be8579, type: 3}
   _rb: {fileID: 4030189607167085516}
-  _velMulti: 3
+  _velMulti: 4
   _pushForce: 10
   _dashTime: 0.3
-  _dashDistance: 2.1
-  _dashSpeed: 6.9999995
+  _dashDistance: 4.2
+  _dashSpeed: 13.999999
   _dashDelay:
     _resetValue: 2
   _dialogView: {fileID: 0}
   _health:
-    _value: 100
+    _value: 300
 --- !u!114 &2233834608653732482
 MonoBehaviour:
   m_ObjectHideFlags: 0
