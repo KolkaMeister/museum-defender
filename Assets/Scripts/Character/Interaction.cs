@@ -90,5 +90,6 @@ public enum InteractionType
 {
     Dialog,
     Weapon,
-    Scene
+    Scene,
+    Object
 }

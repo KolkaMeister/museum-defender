@@ -16,7 +16,9 @@ MonoBehaviour:
   - OlegDialog.xml
   - BubbleDialog.xml
   - BubbleDialog2.xml
+  - NewCons.xml
   XmlDialogs:
   - {fileID: 4900000, guid: a2dae27098fe4724b5e7120a3c0145c8, type: 3}
   - {fileID: 4900000, guid: 4f002fbd875d90d4b837f6ed2063ddc3, type: 3}
   - {fileID: 4900000, guid: 9b79a33255a59884483fd3810236d4eb, type: 3}
+  - {fileID: 4900000, guid: bcf2ff406f2417a4ca029fd5cdc47acf, type: 3}
