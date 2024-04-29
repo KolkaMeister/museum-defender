@@ -22,6 +22,8 @@ public class Character : MonoBehaviour, ITakeDamage
     private Vector2 _moveDirection = new Vector2(0, 0);
     private Vector2 _aimPos = new Vector2(1, 1);
 
+    public delegate void ReloadInfo(float value);
+    public ReloadInfo reloadInfo;
     private Animator _animator;
     static readonly int IsMovingKey = Animator.StringToHash("IsMoving");
     static readonly int DeathKey = Animator.StringToHash("Death");
@@ -186,6 +188,7 @@ public class Character : MonoBehaviour, ITakeDamage
         if (current != last&& _reloadRoutine!=null)
         {
         StopCoroutine(_reloadRoutine);
+        reloadInfo?.Invoke(0);
         _reloadRoutine = null;
         }
     }
@@ -214,6 +217,7 @@ public class Character : MonoBehaviour, ITakeDamage
         while (value<_time)
         {
             value += Time.deltaTime;
+            reloadInfo?.Invoke(value/_time);
             yield return null;
         }
         if (_weaponInventory.CurrentWeapon == null)
