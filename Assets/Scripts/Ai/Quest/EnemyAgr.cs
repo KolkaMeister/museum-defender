@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAgr : MonoBehaviour, IDeathQuester
+public class EnemyAgr : CQuest
 {
     private GameObject parent;
     public GameObject[] Enemys;
