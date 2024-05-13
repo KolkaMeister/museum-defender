@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5572466142805624968}
   - component: {fileID: 7757798872781540451}
   - component: {fileID: 7757798872781540452}
+  - component: {fileID: 1217537748}
   m_Layer: 6
   m_Name: oleg
   m_TagString: Untagged
@@ -206,7 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1757dbc9d3d0b6b4cbfa6235c910b2a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DialogName: Oleg
+  DialogName: NewCons
   _desk: SpeachWithOleg
 --- !u!70 &7757798872781540452
 CapsuleCollider2D:
@@ -224,6 +225,21 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.75, y: 1.375}
   m_Direction: 0
+--- !u!114 &1217537748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8843799142844812946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eac92699f5762f541a537c1948d6335a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _olegDialogName: NewCons
+  _olegDialogEndTag: End
+  SignalTowerQuest: {fileID: 0}
 --- !u!1 &8843799143178317637
 GameObject:
   m_ObjectHideFlags: 0

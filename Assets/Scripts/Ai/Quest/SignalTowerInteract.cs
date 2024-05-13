@@ -10,7 +10,7 @@ public class SignalTowerInteract : MonoBehaviour, IInteractable
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameObject.Find("QuestViewText").GetComponent<QuestView>().UpdateQuestText();
     }
 
     // Update is called once per frame
@@ -19,13 +19,23 @@ public class SignalTowerInteract : MonoBehaviour, IInteractable
         
     }
     public void Interact(Character obj) {
+        try {
+            bool a = GameObject.Find("SignalTowerQuest").activeSelf;
+        } catch { 
+            Debug.Log("Что-то не так");
+            return;
+        }
         gameObject.GetComponent<Animator>().SetBool("Enabaled", !GetComponent<Animator>().GetBool("Enabaled"));
         if (GetComponent<Animator>().GetBool("Enabaled")) {
-            GameObject.Find("SignalTowerQuest").GetComponent<SignalTowerQuest>().interacted += 1;
+            try { 
+                GameObject.Find("SignalTowerQuest").GetComponent<SignalTowerQuest>().interacted += 1; 
+            } catch { 
+                Debug.LogWarning("Что-то не так"); 
+            }
             
         }
         else {
-            GameObject.Find("SignalTowerQuest").GetComponent<SignalTowerQuest>().interacted -= 1;
+            try { GameObject.Find("SignalTowerQuest").GetComponent<SignalTowerQuest>().interacted -= 1; } catch { Debug.LogWarning("Что-то не так"); }
         }
     }
 }
