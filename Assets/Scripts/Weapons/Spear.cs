@@ -17,6 +17,7 @@ public class Spear : MeleeWeapon
         DealDamage();
         _fireCooldown.Reset();
         SpawnSplash();
+        _audioSource.Play();
     }
 
     protected override IEnumerator AnimationCoroutine()
