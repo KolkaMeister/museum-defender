@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeathSpriteChange : MonoBehaviour, IDeathQuester
+public class DeathSpriteChange : CQuest
 {
     private GameObject parent;
     public GameObject targetObject;

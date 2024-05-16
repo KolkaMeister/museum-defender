@@ -23,13 +23,13 @@ public class QuestScripter : MonoBehaviour
     private void DeathCountScript() {
         foreach (GameObject Quest in DeathCountQuests)
         {
-            Quest.GetComponent<IDeathQuester>().QuestGo();
+            Quest.GetComponent<CQuest>().QuestGo();
         }
     }
     public void TriggerScript(string name)
     {
         try {
-            GameObject.Find("QusetTriggers").transform.Find(name).gameObject.GetComponent<IDeathQuester>().QuestGo();
+            GameObject.Find("QusetTriggers").transform.Find(name).gameObject.GetComponent<CQuest>().QuestGo();
         } catch {
             Debug.LogWarning("Не удаётся найти тригер квест квест с именем: " + name);
         }
