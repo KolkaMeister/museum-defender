@@ -10,7 +10,7 @@ public class EnBar : MonoBehaviour
     private float _maxHp;
     void Start()
     {
-        _hp = GetComponent<Character>().Health;
+        _hp = GetComponentInParent<Character>().Health;
         _maxHp = _hp.Value;
         _hp.OnChanged += _barChange;
 
@@ -19,5 +19,6 @@ public class EnBar : MonoBehaviour
     private void _barChange(float newValue, float oldValue)
     {
         _hpImage.fillAmount = newValue / _maxHp;
+        Debug.Log(_hpImage.fillAmount);
     }
 }
