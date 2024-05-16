@@ -19,6 +19,7 @@ public class TensionWeapon : RangeWeapon
         _strungArrow.Shot(_arrowHoldPoint.position - _holdPoint.position, _force, _attackLayer);
         _strungArrow = null;
         _currentAmmo--;
+        _audioSource.Play();
     }
     
     public override void Reload(int count)

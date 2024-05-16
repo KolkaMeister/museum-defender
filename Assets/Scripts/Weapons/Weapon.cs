@@ -18,6 +18,7 @@ public class Weapon : MonoBehaviour, IInteractable
     [SerializeField] protected int _attackLayer;
     [SerializeField] protected Collider2D _collider;
     [SerializeField] public float _shootRange;
+    [SerializeField] protected AudioSource _audioSource;
     public Ammo AmmoType => _ammoType;
     public int DegreesInactiveRotation => _degreesInactiveRotation;
     public Vector3 PivotLocalInactivePosHold => _inactiveHoldPoint.localPosition;
