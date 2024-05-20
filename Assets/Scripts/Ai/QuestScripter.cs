@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,7 +17,13 @@ public class QuestScripter : MonoBehaviour
         set
         {
             _deathCount = value;
-            DeathCountScript();
+            try
+            {
+                DeathCountScript();
+            }
+            catch(Exception e) {
+                Debug.Log("Вероятно, нет квестов на счётчик смертей. Ошибка: " + e.Message);
+            }
         }
     }
     

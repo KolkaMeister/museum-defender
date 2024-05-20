@@ -11,7 +11,7 @@ public class EnemyAgr : CQuest
     {
         parent = GameObject.Find("QusetTriggers");
     }
-    public void QuestGo() {
+    new public void QuestGo() {
         if (!QuestDone) {
             foreach (GameObject enemy in Enemys)
             {

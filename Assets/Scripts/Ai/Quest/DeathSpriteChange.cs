@@ -13,7 +13,7 @@ public class DeathSpriteChange : CQuest
     {
         parent = GameObject.Find("QusetTriggers");
     }
-    public void QuestGo() {
+    new public void QuestGo() {
         if (parent.GetComponent<QuestScripter>().DeathCount >= TargetDeathCount && !QuestDone) {
             targetObject.GetComponent<Animator>().SetBool("Open", true);
             QuestDone = true;

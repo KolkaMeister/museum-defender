@@ -23,7 +23,6 @@ public class EnemyAI : MonoBehaviour
     public bool pathIsEnded = false;
     public bool isWeaponed = false;
     [SerializeField] private bool _PVE = false;
-    private int collisionTick = 0;
     Bounds bounds;
     public bool PVE {
         get { 
@@ -127,11 +126,13 @@ public class EnemyAI : MonoBehaviour
         StartCoroutine(UpdatePath());
     }
     IEnumerator UpdatePathColider() {
+        
         var guo = new GraphUpdateObject(bounds);
         // Set some settings
         guo.updatePhysics = true;
         AstarPath.active.UpdateGraphs(guo);
         bounds = GetComponent<Collider2D>().bounds;
+        bounds.size += new Vector3(1,1,0);
         guo = new GraphUpdateObject(bounds);
         // Set some settings
         guo.updatePhysics = true;
@@ -159,6 +160,9 @@ public class EnemyAI : MonoBehaviour
         try
         {
             DistToTarget = Vector3.Distance(target.GetComponent<Collider2D>().ClosestPoint(transform.position), transform.position);
+            if (DistToTarget == 0) {
+                DistToTarget = Vector3.Distance(target.transform.position, transform.position);
+            }
         }
         catch {
             DistToTarget = Vector3.Distance(target.transform.position, transform.position);
