@@ -253,9 +253,9 @@ MonoBehaviour:
   holdPoint: {fileID: 4030189607290513939}
   backHoldPoint: {fileID: 4030189607366502946}
   _rb: {fileID: 4030189607167085516}
-  _VelMulti: 3
+  _VelMulti: 5
   _health:
-    _value: 100
+    _value: 110
 --- !u!50 &4030189607167085516
 Rigidbody2D:
   serializedVersion: 4

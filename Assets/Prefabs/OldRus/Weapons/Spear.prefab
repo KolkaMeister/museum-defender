@@ -98,7 +98,7 @@ MonoBehaviour:
   animationTime: 0.3
   _damagePoint: {fileID: 6564133946950571401}
   _damageRadius: 0.7
-  _damage: 5
+  _damage: 25
   _splash: {fileID: 9113481150401330470, guid: a87aeab1635cdec459b16ebe6fbdf942, type: 3}
   _spriteBasePos: {x: 0, y: 0, z: 0}
   _spriteAttackPos: {x: 0.15, y: 0, z: 0}

@@ -114,7 +114,7 @@ MonoBehaviour:
   holdPoint: {fileID: 8568531227837951605}
   backHoldPoint: {fileID: 8568531227912957508}
   _rb: {fileID: 8568531227713245098}
-  _VelMulti: 3
+  _VelMulti: 5
   _health:
     _value: 100
 --- !u!50 &8568531227713245098

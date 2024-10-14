@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14928126b502f0b48bdc49498b58bcd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _deadCond: {fileID: 0}
   _weaponsHolder: {fileID: 8843799143253323634}
   _ammoInventory:
     AmmoBags:
@@ -111,9 +112,9 @@ MonoBehaviour:
   holdPoint: {fileID: 8843799143253323635}
   backHoldPoint: {fileID: 8843799143178317634}
   _rb: {fileID: 8843799142844812972}
-  _VelMulti: 3
+  _VelMulti: 5
   _health:
-    _value: 100
+    _value: 150
 --- !u!50 &8843799142844812972
 Rigidbody2D:
   serializedVersion: 4
@@ -169,6 +170,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _desk: SpeachWithOleg
   _dialogData: {fileID: 11400000, guid: 2253e2a42cb433a4180d175872351b65, type: 2}
+  onDialogEnd:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!70 &7757798872781540452
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

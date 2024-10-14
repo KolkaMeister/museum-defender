@@ -38,7 +38,7 @@ public class Projectile : MonoBehaviour
         //_rb.velocity= new Vector2(Mathf.Cos(transform.rotation.z), Mathf.Sin(transform.rotation.z)) * _multi;
         _rb.velocity = transform.right * _multi;
     }
-    private void DestroyOnHit()
+    protected void DestroyOnHit()
     {
         Destroy(gameObject);
     }

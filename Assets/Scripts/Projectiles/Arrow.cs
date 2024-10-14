@@ -14,6 +14,11 @@ public class Arrow : Projectile
             _rb.velocity = Vector2.zero;
             transform.SetParent(collision.gameObject.transform);
         }
+        else if (collision.gameObject.tag == "Object") //При соприкосновении с объектом с тегом объект удаляется
+        {
+            //Debug.Log("enter");
+            DestroyOnHit();
+        }
     }
     private void Update()
     {
