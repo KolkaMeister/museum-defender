@@ -8,6 +8,7 @@ TagManager:
   - Allies
   - Enemies
   - Enemy
+  - Object
   layers:
   - Default
   - TransparentFX
