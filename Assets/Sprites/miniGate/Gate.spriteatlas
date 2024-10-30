@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Gate
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 2
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 2df7e32372716244db9653725862efa6, type: 3}
+    - {fileID: 2800000, guid: 5d407997718cdeb4981f6d87a58327ff, type: 3}
+    - {fileID: 2800000, guid: 1472a72a2eaec6b4b804f9a21f954581, type: 3}
+    - {fileID: 2800000, guid: b1742195daa711c41a5b1f79a9febc8c, type: 3}
+    - {fileID: 2800000, guid: 328d8102ba785e143a27c359ccb709f5, type: 3}
+    - {fileID: 2800000, guid: 53556d665d84a724e8daf0cea8669f3c, type: 3}
+    - {fileID: 2800000, guid: da989e7485be2aa41b412878deaedf90, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 328d8102ba785e143a27c359ccb709f5, type: 3}
+  - {fileID: 21300000, guid: 2df7e32372716244db9653725862efa6, type: 3}
+  - {fileID: 21300000, guid: da989e7485be2aa41b412878deaedf90, type: 3}
+  - {fileID: 21300000, guid: b1742195daa711c41a5b1f79a9febc8c, type: 3}
+  - {fileID: 21300000, guid: 53556d665d84a724e8daf0cea8669f3c, type: 3}
+  - {fileID: 21300000, guid: 5d407997718cdeb4981f6d87a58327ff, type: 3}
+  - {fileID: 21300000, guid: 1472a72a2eaec6b4b804f9a21f954581, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - animMiniGate4
+  - animMiniGate
+  - animMiniGate6
+  - animMiniGate3
+  - animMiniGate5
+  - animMiniGate1
+  - animMiniGate2
+  m_RenderDataMap: {}
+  m_Tag: Gate
+  m_IsVariant: 0

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Set xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns="urn:HistoryTrip.Dialogs"
+     xsi:schemaLocation="urn:HistoryTrip.Dialogs dialog.xsd">
+  <Dialog name="NewCons">
+    <Phrase author="Action">
+      <Text>Выберите дейсвтие</Text>
+      <Answer line="1">
+        <Text>Взять квест</Text>
+      </Answer>
+    </Phrase>
+    <Phrase author="Олег" lay="1">
+      <Text>Держи квест</Text>
+    </Phrase>
+    <Phrase author="Игрок" tag="End">
+      <Text>Спасибо, Великий Князь!</Text>
+    </Phrase>
+  </Dialog>
+</Set>

@@ -5,22 +5,25 @@ using Unity.Mathematics;
 using UnityEngine;
 
 [Serializable]
-public class ClassPersistantProperty<TType> where TType:class
+public class ClassPersistantProperty<TType> where TType : class
 {
-    private TType _value;
-    public delegate void OnValueChanged(TType _value);
+    public delegate void OnValueChanged(TType value);
     public OnValueChanged OnChanged;
+    
+    private TType _value;
+
     public TType Value
     {
-        get { return _value; }
-        set 
+        get => _value;
+        set
         {
-                if (_value==value)
+            if (_value.Equals(value))
                 return;
             _value = value;
             OnChanged?.Invoke(_value);
         }
     }
+
     public ClassPersistantProperty(TType value)
     {
         _value = value;

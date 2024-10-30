@@ -1,19 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FollowCamera : MonoBehaviour
 {
-    [SerializeField] private GameObject target;
-    void Awake()
+    private GameObject _target;
+
+    private void Awake()
     {
-       target = FindObjectOfType<PlayerInputController>().gameObject;
+        _target = FindObjectOfType<PlayerInputController>().gameObject;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (target != null)
-            transform.position= new Vector3(target.transform.position.x, target.transform.position.y,transform.position.z);
+        if (_target)
+            transform.position = new Vector3(_target.transform.position.x, _target.transform.position.y, transform.position.z);
     }
 }

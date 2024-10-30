@@ -1,22 +1,27 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Sword : MeleeWeapon
 {
-    [SerializeField] private Transform _sprite;
-    [SerializeField] float[] holdRotations;
-    protected override void AttackAnimation()
+    private static readonly int _attack = Animator.StringToHash("Attack");
+    [SerializeField] private Animator _animator;
+    
+    public override void Attack()
     {
+        if (!_fireCooldown.IsReady) return;
+
+        AnimateAttack();
+        DealDamage();
+        _fireCooldown.Reset();
     }
-        protected override IEnumerator AnimationCoroutine()
-        {
-            float startTime = Time.time;
-            float end = startTime + animationTime;
-            while (Time.time < end)
-            {
-                
-                yield return null;
-            }
-        }
+
+    public override void ResetAttack()
+    {
+        _animator.ResetTrigger(_attack);
+    }
+
+    protected override void AnimateAttack()
+    {
+        _animator.SetTrigger(_attack);
+    }
 }

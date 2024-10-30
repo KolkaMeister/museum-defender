@@ -7,7 +7,7 @@ using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 
 public class UnityRemoteTestScript : MonoBehaviour
 {
-    public Camera camera;
+    public Camera _camera;
 
     public Text accelerometerInputText;
     public Text touchInputText;
@@ -77,7 +77,7 @@ public class UnityRemoteTestScript : MonoBehaviour
         {
             var touchPosition = touchscreen.primaryTouch.position.ReadValue();
             var worldSpacePosition =
-                camera.ScreenToWorldPoint(new Vector3(touchPosition.x, touchPosition.y, transform.position.z + m_CubeOffsetFromCanvas));
+                _camera.ScreenToWorldPoint(new Vector3(touchPosition.x, touchPosition.y, transform.position.z + m_CubeOffsetFromCanvas));
             rotatingCube.position = worldSpacePosition;
         }
     }

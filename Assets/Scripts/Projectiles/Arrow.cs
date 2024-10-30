@@ -1,33 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Arrow : Projectile
 {
-    private float speed;
-    private float delay = 0.2f;
-    protected override void OnTriggerEnter2D(Collider2D collision)
+    public override void Shot(Vector2 dir, float speed, int layer)
     {
-        if (damageLayer == collision.gameObject.layer && collision.gameObject.GetComponent<ITakeDamage>() != null)
-        {
-            ModifyHealth(collision.gameObject.GetComponent<ITakeDamage>());
-            _rb.velocity = Vector2.zero;
-            transform.SetParent(collision.gameObject.transform);
-        }
-        else if (collision.gameObject.tag == "Object") //При соприкосновении с объектом с тегом объект удаляется
-        {
-            //Debug.Log("enter");
-            DestroyOnHit();
-        }
-    }
-    private void Update()
-    {
-        speed = GetComponent<Rigidbody2D>().velocity.magnitude; //При достижения стрелы определённой скорости через время она удалится
-        if (speed > 39)
-        {
-            Destroy(this.gameObject, delay);
-            //Debug.Log("Delete arrow");
-        }
+        transform.SetParent(null);
+        transform.localScale = Vector3.one;
+        transform.right = dir;
+        _rb.velocity = dir * speed;
+        _collider.isTrigger = true;
+        _collider.enabled = true;
+        _damageLayer = layer;
     }
 
+    protected override void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (_damageLayer != collision.gameObject.layer) 
+            return;
+        
+        _rb.velocity = Vector2.zero;
+        _collider.enabled = false;
+        transform.SetParent(collision.transform);
+        if(collision.TryGetComponent(out ITakeDamage damage))
+        {
+            damage.Push(transform.position);
+            ModifyHealth(damage);
+        }
+    }
 }

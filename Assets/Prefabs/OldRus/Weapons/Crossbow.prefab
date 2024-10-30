@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1062437676}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.3, y: 0, z: 0}
+  m_LocalPosition: {x: 0.7, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43,10 +43,10 @@ GameObject:
   - component: {fileID: 5204334154838471879}
   - component: {fileID: 5204334154838471873}
   - component: {fileID: 1473727977}
-  - component: {fileID: -8185847108483121691}
+  - component: {fileID: -1908257140584748392}
   m_Layer: 6
   m_Name: Crossbow
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,7 +110,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: -1081258628, guid: 8a35ad4ab42bbe4478c0cb808f99db3b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -121,7 +121,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!58 &5204334154838471873
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -153,24 +153,26 @@ MonoBehaviour:
   _ammoType: 1
   _desc: IT'S TIME FOR CROSSBOW!!
   _name: Crossbow
-  _degreesUnactivRotation: 120
-  _unactiveHoldPoint: {fileID: 5204334155201600049}
+  _degreesInactiveRotation: 120
+  _inactiveHoldPoint: {fileID: 5204334155201600049}
   _holdPoint: {fileID: 5204334156180962366}
   _maxAmmo: 1
   _currentAmmo: 1
-  proj: {fileID: 4924226676793480949, guid: 4d6a46085fd615a44a910337fa42ddae, type: 3}
+  _proj: {fileID: 4924226676793480949, guid: 4d6a46085fd615a44a910337fa42ddae, type: 3}
   _spriteRenderer: {fileID: 5204334154838471879}
   _fireCooldown:
     _resetValue: 0
   _reloadTime: 1
   _attackLayer: 0
+  _collider: {fileID: 5204334154838471873}
+  _shootRange: 7
+  _audioSource: {fileID: -1908257140584748392}
   _spread: 0
-  _projSpawnPos: {fileID: 0}
+  _projSpawn: {fileID: 5204334155870956361}
   _force: 40
   _arrowHoldPoint: {fileID: 1062437677}
   _strungArrow: {fileID: 0}
-  soundShoot: {fileID: 8300000, guid: 5dcd9fa74045c354ea1eb7b5aaad1911, type: 3}
---- !u!82 &-8185847108483121691
+--- !u!82 &-1908257140584748392
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -180,9 +182,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5dcd9fa74045c354ea1eb7b5aaad1911, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 48d30882723803e4990c0e0469adbf2a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -290,7 +292,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5204334155201600048}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.2, y: 0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -352,7 +354,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5204334156180962361}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.28, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

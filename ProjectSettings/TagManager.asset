@@ -7,8 +7,8 @@ TagManager:
   - Background
   - Allies
   - Enemies
-  - Enemy
-  - Object
+  - Landmark
+  - Weapon
   layers:
   - Default
   - TransparentFX
@@ -19,8 +19,8 @@ TagManager:
   - Interactable
   - Allies
   - Enemies
-  - 
-  - 
+  - CollideObjects
+  - NoScan
   - 
   - 
   - 

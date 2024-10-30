@@ -1,0 +1,249 @@
+fileFormatVersion: 2
+guid: 7d3aebc6dfe50214a8d777194fe2a578
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: lager1 1_0
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 32
+        width: 49
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eebb86fc133277b4592c7721c6805798
+      internalID: 785999482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      lager1_5: 272547395
+      lager1_53: -2046958666
+      lager1_85: 1919048820
+      lager1_10: -539488517
+      lager1_63: 2017820100
+      lager1_27: 1780566917
+      lager1_79: -1434716573
+      lager1_59: -1168242545
+      lager1_71: -583368735
+      lager1_62: -1288921420
+      lager1_30: -784213925
+      lager1_31: 1898162876
+      lager1_57: 1006053874
+      lager1_11: 1936855915
+      lager1_12: -1146276493
+      lager1_65: 2121394452
+      lager1_61: -1432566420
+      lager1_9: 1855770172
+      lager1_15: -977163693
+      lager1_76: 1243355982
+      lager1_0: -633947417
+      lager1_60: 675488935
+      lager1_74: 943960831
+      lager1_29: 1598378183
+      lager1_68: -1074374312
+      lager1_78: 1302543034
+      lager1_84: 958748886
+      lager1_3: 613782444
+      lager1_14: 896142523
+      lager1_32: -1705807817
+      lager1_80: 154573203
+      lager1_28: -1193089335
+      lager1_34: 318814696
+      lager1_6: 1774159316
+      lager1_38: -1058665314
+      lager1_24: 1010655996
+      lager1_88: -834093732
+      lager1_73: 1731521216
+      lager1_41: -1296896110
+      lager1_4: -391398091
+      lager1_50: 343899206
+      lager1_52: 1205950302
+      lager1_54: 1754419176
+      lager1_2: -469081462
+      lager1_51: -566080923
+      lager1_55: -1853981473
+      lager1_45: 1612610932
+      lager1_81: 647786643
+      lager1_56: 266296046
+      lager1 1_0: 785999482
+      lager1_33: -639901156
+      lager1_22: 1833417966
+      lager1_13: -1270487601
+      lager1_43: 1507240768
+      lager1_75: 273595379
+      lager1_19: 770078807
+      lager1_69: -1628911980
+      lager1_49: -344450436
+      lager1_66: -1763201965
+      lager1_82: -1927747507
+      lager1_89: 1250492223
+      lager1_40: -384705698
+      lager1_1: -664539624
+      lager1_67: 892338639
+      lager1_21: 768405718
+      lager1_90: 1178772017
+      lager1_18: 153621117
+      lager1_26: -1357016291
+      lager1_47: -1207604888
+      lager1_48: -889285531
+      lager1_35: -179606780
+      lager1_64: 1455100931
+      lager1_46: 1631605835
+      lager1_87: -1138397982
+      lager1_42: 539049489
+      lager1_70: -1829873895
+      lager1_86: -1029191472
+      lager1_83: 125541948
+      lager1_20: -1099722382
+      lager1_7: 173611012
+      lager1_37: 653061879
+      lager1_44: 1279421261
+      lager1_72: 575912439
+      lager1_25: -1591989972
+      lager1 1_1: -1238253301
+      lager1_77: -508185200
+      lager1_16: -478031065
+      lager1_23: -395240574
+      lager1_8: -1652472121
+      lager1_36: 1632099095
+      lager1_17: 265474652
+      lager1_39: -214907307
+      lager1_58: -1266354910
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

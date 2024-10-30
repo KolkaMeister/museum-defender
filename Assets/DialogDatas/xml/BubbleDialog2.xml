@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Set xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns="urn:HistoryTrip.Dialogs"
+     xsi:schemaLocation="urn:HistoryTrip.Dialogs dialog.xsd">
+  <Dialog name="bubble 2">
+    <Phrase author="1">
+      <Text>Good morning, how long time ago have you stood here?</Text>
+    </Phrase>
+    <Phrase author="2">
+      <Text>I don't know. I think more than usually</Text>
+    </Phrase>
+    <Phrase author="2">
+      <Text>Why have you come to me?</Text>
+    </Phrase>
+    <Phrase author="1">
+      <Text>I have something...</Text>
+    </Phrase>
+    <Phrase author="2">
+      <Text>So, what is there?</Text>
+    </Phrase>
+    <Phrase author="1">
+      <Text>One red and one blue</Text>
+    </Phrase>
+    <Phrase author="1">
+      <Text>Which will you choose?</Text>
+    </Phrase>
+    <Phrase author="2">
+      <Text>Maybe blue</Text>
+    </Phrase>
+    <Phrase author="1">
+      <Text>Ooookey...</Text>
+    </Phrase>
+  </Dialog>
+</Set>
