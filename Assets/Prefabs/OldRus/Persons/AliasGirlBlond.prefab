@@ -176,7 +176,7 @@ MonoBehaviour:
   Id: 2
   _deadCond: {fileID: 6517416458725690611, guid: a7d2f0f85b7f6324c958382033c788b6, type: 3}
   _rb: {fileID: 6603019862872130818}
-  _velMulti: 7
+  _velMulti: 5
   _pushForce: 10
   _dashTime: 0
   _dashDistance: 0

@@ -24,16 +24,18 @@ public class Arrow : Projectile
             //Debug.Log("Delete arrow");
         }
     }
-
-    protected override void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (_damageLayer != collision.gameObject.layer) 
-            return;
-        else if (collision.gameObject.tag == "Object")
+        if (collision.gameObject.tag == "Object")
         {
             //Debug.Log("enter");
             Destroy(this.gameObject);
         }
+    }
+    protected override void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (_damageLayer != collision.gameObject.layer) 
+            return;
 
         _rb.velocity = Vector2.zero;
         _collider.enabled = false;
