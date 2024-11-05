@@ -24,11 +24,11 @@ public class Arrow : Projectile
             //Debug.Log("Delete arrow");
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Object")
         {
-            //Debug.Log("enter");
+            Debug.Log("enter Obj");
             Destroy(this.gameObject);
         }
     }
