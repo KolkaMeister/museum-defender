@@ -9,6 +9,7 @@ TagManager:
   - Enemies
   - Landmark
   - Weapon
+  - Object
   layers:
   - Default
   - TransparentFX

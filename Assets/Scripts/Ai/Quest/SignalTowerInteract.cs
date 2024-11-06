@@ -5,6 +5,8 @@ using UnityEngine;
 public class SignalTowerInteract : MonoBehaviour, IInteractable
 {
     public InteractionType Id { get; set; } = InteractionType.Object;
+    public AudioSource soundZahvV;
+    public AudioSource soundGor;
 
     public string Description { get; set; }
     // Start is called before the first frame update
@@ -26,7 +28,9 @@ public class SignalTowerInteract : MonoBehaviour, IInteractable
             return;
         }
         gameObject.GetComponent<Animator>().SetBool("Enabaled", !GetComponent<Animator>().GetBool("Enabaled"));
+        soundZahvV.Play();
         if (GetComponent<Animator>().GetBool("Enabaled")) {
+            soundGor.Play();
             try { 
                 GameObject.Find("SignalTowerQuest").GetComponent<SignalTowerQuest>().interacted += 1; 
             } catch { 

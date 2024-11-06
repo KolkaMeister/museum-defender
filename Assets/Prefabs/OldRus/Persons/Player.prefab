@@ -330,7 +330,7 @@ MonoBehaviour:
   Id: 0
   _deadCond: {fileID: 6517416458725690611, guid: 429a5370836ae3e42b51126143be8579, type: 3}
   _rb: {fileID: 4030189607167085516}
-  _velMulti: 4
+  _velMulti: 6
   _pushForce: 10
   _dashTime: 0.3
   _dashDistance: 4.2
