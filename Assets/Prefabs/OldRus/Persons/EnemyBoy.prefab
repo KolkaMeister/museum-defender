@@ -478,8 +478,16 @@ PrefabInstance:
       value: AgrArea
       objectReference: {fileID: 0}
     - target: {fileID: 4444691649959894774, guid: 00f2b17cc8f99b64c9a902e381f58588, type: 3}
-      propertyPath: m_Enabled
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
+    - target: {fileID: 4444691649959894774, guid: 00f2b17cc8f99b64c9a902e381f58588, type: 3}
+      propertyPath: m_Color.a
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4444691649959894774, guid: 00f2b17cc8f99b64c9a902e381f58588, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4444691649959894775, guid: 00f2b17cc8f99b64c9a902e381f58588, type: 3}
       propertyPath: m_RootOrder
@@ -487,11 +495,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4444691649959894775, guid: 00f2b17cc8f99b64c9a902e381f58588, type: 3}
       propertyPath: m_LocalScale.x
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4444691649959894775, guid: 00f2b17cc8f99b64c9a902e381f58588, type: 3}
       propertyPath: m_LocalScale.y
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4444691649959894775, guid: 00f2b17cc8f99b64c9a902e381f58588, type: 3}
       propertyPath: m_LocalPosition.x
@@ -533,8 +541,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4444691649959894773, guid: 00f2b17cc8f99b64c9a902e381f58588, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00f2b17cc8f99b64c9a902e381f58588, type: 3}
 --- !u!4 &5616544722852465041 stripped
 Transform:
