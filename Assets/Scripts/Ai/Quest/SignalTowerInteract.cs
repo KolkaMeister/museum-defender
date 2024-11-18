@@ -21,25 +21,36 @@ public class SignalTowerInteract : MonoBehaviour, IInteractable
         
     }
     public void Interact(Character obj) {
-        try {
-            bool a = GameObject.Find("SignalTowerQuest").activeSelf;
-        } catch { 
-            Debug.Log("Что-то не так");
-            return;
-        }
-        gameObject.GetComponent<Animator>().SetBool("Enabaled", !GetComponent<Animator>().GetBool("Enabaled"));
-        soundZahvV.Play();
-        if (GetComponent<Animator>().GetBool("Enabaled")) {
-            soundGor.Play();
-            try { 
-                GameObject.Find("SignalTowerQuest").GetComponent<SignalTowerQuest>().interacted += 1; 
-            } catch { 
-                Debug.LogWarning("Что-то не так"); 
+        if (GetComponent<Animator>().GetBool("Enabaled") == false)
+        {
+            try
+            {
+                bool a = GameObject.Find("SignalTowerQuest").activeSelf;
             }
-            
-        }
-        else {
-            try { GameObject.Find("SignalTowerQuest").GetComponent<SignalTowerQuest>().interacted -= 1; } catch { Debug.LogWarning("Что-то не так"); }
+            catch
+            {
+                Debug.Log("Что-то не так");
+                return;
+            }
+            gameObject.GetComponent<Animator>().SetBool("Enabaled", !GetComponent<Animator>().GetBool("Enabaled"));
+            soundZahvV.Play();
+            if (GetComponent<Animator>().GetBool("Enabaled"))
+            {
+                soundGor.Play();
+                try
+                {
+                    GameObject.Find("SignalTowerQuest").GetComponent<SignalTowerQuest>().interacted += 1;
+                }
+                catch
+                {
+                    Debug.LogWarning("Что-то не так");
+                }
+
+            }
+            else
+            {
+                try { GameObject.Find("SignalTowerQuest").GetComponent<SignalTowerQuest>().interacted -= 1; } catch { Debug.LogWarning("Что-то не так"); }
+            }
         }
     }
 }
