@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Sprites/Notes/NotesItemUSS.uss?fileID=7433441132597879392&amp;guid=247f17b44743b4f44a2738144eed2668&amp;type=3#NotesItemUSS" />
+    <ui:VisualElement name="IconBack" style="background-image: url(&apos;project://database/Assets/Sprites/Notes/Sprites/%D0%A0%D0%B0%D0%BC%D0%BA%D0%B0_%D0%BA%D0%B0%D1%80%D1%82%D1%8B.png?fileID=21300000&amp;guid=ddcf9e28fc20d364bb98dbff29299754&amp;type=3#Рамка_карты&apos;); flex-grow: 0; flex-basis: auto; -unity-background-scale-mode: scale-to-fit; flex-shrink: 1; width: 100%; height: 241px; align-items: center; justify-content: center;">
+        <ui:VisualElement name="Icon" style="flex-basis: auto; flex-grow: 0; width: 160px; height: 160px; justify-content: center; background-image: url(&apos;project://database/Assets/Sprites/signal%20tower/1.png?fileID=21300000&amp;guid=1ae4af73add721148aa84ed065790e22&amp;type=3#1&apos;);" />
+    </ui:VisualElement>
+</ui:UXML>
