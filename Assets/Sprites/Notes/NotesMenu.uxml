@@ -10,14 +10,14 @@
                     <ui:Button display-tooltip-when-elided="true" name="Right" style="background-image: url(&apos;project://database/Assets/Sprites/Notes/Sprites/%D1%81%D1%82%D1%80%D0%B5%D0%BB%D0%BA%D0%B8.png?fileID=-1446623358&amp;guid=8abce34aaac9f0046b419bcac3e6f007&amp;type=3#стрелки_1&apos;); border-left-color: rgba(255, 255, 255, 0); border-right-color: rgba(255, 255, 255, 0); border-top-color: rgba(255, 255, 255, 0); border-bottom-color: rgba(255, 255, 255, 0); background-color: rgba(88, 88, 88, 0); width: 35px; height: 49px;" />
                 </ui:VisualElement>
                 <ui:ListView focusable="true" name="ItemList" horizontal-scrolling="false" />
-                <ui:Instance template="NotesItem" name="NotesItem" style="display: flex;" />
+                <ui:Instance template="NotesItem" name="NotesItem" style="display: none; visibility: hidden;" />
             </ui:VisualElement>
             <ui:VisualElement name="CenterPanel" style="flex-grow: 1; visibility: visible; display: flex; width: 720px;">
                 <ui:VisualElement name="ItemBack" style="background-image: none; flex-grow: 1; flex-basis: 100%; background-color: rgba(0, 255, 0, 0); width: auto; height: auto;">
                     <ui:VisualElement name="ItemSprite" style="background-image: none; flex-grow: 0; width: 240px; height: 240px; flex-shrink: 0; flex-basis: auto; position: absolute; left: 276px; top: 98px;" />
                 </ui:VisualElement>
                 <ui:VisualElement name="DescriptionBack" style="flex-grow: 0; background-image: none; background-color: rgba(0, 0, 0, 0); color: rgb(0, 0, 0); font-size: 12px; height: auto; flex-basis: 100%;">
-                    <ui:Label text="Здесь будет описание предмета, когда вы найдёте хотя бы один" name="Description" style="font-size: 24px; flex-grow: 0; padding-left: 80px; padding-top: 60px; padding-bottom: 53px; margin-bottom: 0; padding-right: 100px; white-space: normal; -unity-text-align: upper-left; flex-shrink: 0; height: auto; flex-basis: auto;" />
+                    <ui:Label text="Здесь будет описание предмета, когда вы найдёте хотя бы один и выберете его" name="Description" style="font-size: 24px; flex-grow: 0; padding-left: 80px; padding-top: 60px; padding-bottom: 53px; margin-bottom: 0; padding-right: 100px; white-space: normal; -unity-text-align: upper-left; flex-shrink: 0; height: auto; flex-basis: auto;" />
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>

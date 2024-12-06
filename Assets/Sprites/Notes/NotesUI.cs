@@ -14,6 +14,13 @@ public class NotesUI : MonoBehaviour
     [SerializeField]
     bool UnlockAll;
     ItemListController itemListController = new ItemListController();
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.C))
+        {
+            Toggle();
+        }
+    }
     private void OnEnable()
     {
         UIDocument = GetComponent<UIDocument>();
@@ -24,6 +31,8 @@ public class NotesUI : MonoBehaviour
         //RightPanel = background.Q("RightPanel");
 
         itemListController.InitializeItemList(background, NotesItemAsset, UnlockAll);
+        Hide();
+
     }
     public void AddItem(NotesItem notesItem)
     {
@@ -41,9 +50,11 @@ public class NotesUI : MonoBehaviour
     private void Hide()
     {
         root.style.visibility = Visibility.Hidden;
+        root.style.display = DisplayStyle.None;
     }
     private void Show()
     {
         root.style.visibility = Visibility.Visible;
+        root.style.display = DisplayStyle.Flex;
     }
 }
