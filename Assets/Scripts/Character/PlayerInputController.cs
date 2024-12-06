@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class PlayerInputController : MonoBehaviour
 {
     [SerializeField] private Character _character;
+    [SerializeField] private NotesUI _notesUI;
     [SerializeField] private bool _isAttackPressed;
     private Camera _camera;
     private PlayMenuMediator _mediator;
@@ -69,7 +70,14 @@ public class PlayerInputController : MonoBehaviour
             ? WeaponNumber.First : WeaponNumber.Second;
         _character.SetCurrentWeaponIndex((int)index);
     }
-
+    public void ToggleNotes(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _notesUI.Toggle();
+            Debug.Log("_notesUI Toggled");
+        }
+    }
     private void Update()
     {
         _character.AimPos = _camera.ScreenToWorldPoint(_mousePosition);
