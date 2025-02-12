@@ -228,5 +228,15 @@ public class Character : MonoBehaviour, ITakeDamage
     {
         _dashSpeed = _dashTime == 0 ? 0 : _dashDistance / _dashTime;
     }
+
+    internal Inventory GetInventory()
+    {
+        return _inventory;
+    }
+
+    internal void AddItem(NotesItem notesItem)
+    {
+        _inventory.AddNote(notesItem);
+    }
 #endif
 }

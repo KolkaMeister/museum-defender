@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 using UnityEngine.UIElements;
 
 public class NotesUI : MonoBehaviour
@@ -14,11 +16,27 @@ public class NotesUI : MonoBehaviour
     [SerializeField]
     bool UnlockAll;
     ItemListController itemListController = new ItemListController();
+    [SerializeField]
+    Character _character;
+    private void Awake()
+    {
+        _character.GetInventory().itemGrabed += OnCharacterInventory_ItemGrabbed;
+    }
+
+    private void OnCharacterInventory_ItemGrabbed(NotesItem item)
+    {
+       AddItem(item);
+    }
+
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.C))
         {
-            Toggle();
+            Show();   
+        }
+        if(Input.GetKeyUp(KeyCode.Escape))
+        {
+            Hide(); 
         }
     }
     private void OnEnable()

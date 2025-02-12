@@ -33,7 +33,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2842008258248659536, guid: bc8a29685caa2a149924617c42b054ac, type: 3}
       propertyPath: m_Name
-      value: helmet
+      value: helmet Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4959766470765251454, guid: bc8a29685caa2a149924617c42b054ac, type: 3}
       propertyPath: m_RootOrder
