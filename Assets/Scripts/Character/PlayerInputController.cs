@@ -1,3 +1,5 @@
+using System;
+using System.Reflection;
 using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -70,11 +72,16 @@ public class PlayerInputController : MonoBehaviour
         _character.SetCurrentWeaponIndex((int)index);
     }
 
+
     private void Update()
     {
         _character.AimPos = _camera.ScreenToWorldPoint(_mousePosition);
         if (_isAttackPressed)
             _character.Attack();
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            _character.SetCurrentWeaponIndex_2();
+        }
     }
 
     private enum WeaponNumber

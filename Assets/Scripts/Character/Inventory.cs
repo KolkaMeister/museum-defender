@@ -38,6 +38,12 @@ public class Inventory : MonoBehaviour
         _weaponInventory.ChangeIndex(weaponIndex);
     }
 
+    public void SetCurrentWeaponIndex_2()
+    {
+        // Debug.Log(weaponIndex);
+        _weaponInventory.ChangeIndex_2();
+    }
+
     public void Reload()
     {
         if (_isReloading) return;
