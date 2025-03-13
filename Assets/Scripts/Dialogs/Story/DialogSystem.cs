@@ -38,6 +38,11 @@ namespace Dialogs
 
         public void Next(int index)
         {
+            if (CurrentNode == null)
+            {
+                FinishDialog();
+                return;
+            }
             CurrentNode.EndPhrase();
             
             if (CurrentNode is not BranchDialogNode branch)
@@ -50,12 +55,7 @@ namespace Dialogs
                 branch.Answers[index].StartPhrase();
                 CurrentNode = branch.Answers[index].Child;
             }
-
-            if (CurrentNode == null)
-            {
-                FinishDialog();
-                return;
-            }
+            
 
             _controller.TypeNext();
         }

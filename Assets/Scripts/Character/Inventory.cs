@@ -12,14 +12,14 @@ public class Inventory : MonoBehaviour
     [SerializeField] private AmmoInventoryData _ammoInventory = new AmmoInventoryData();
     [SerializeField] private Transform _holdPoint;
     [SerializeField] private Transform _backHoldPoint;
-    private List<NotesItem> _grabedItems;
+    private List<NotesItem> _grabedItems = new();
     public Action<NotesItem> itemGrabed;
     private bool _isReloading;
     private bool _isDead;
     public void AddNote(NotesItem notesItem)
     {
         _grabedItems.Add(notesItem);
-        itemGrabed.Invoke(notesItem);
+        itemGrabed?.Invoke(notesItem);
     }
     public Weapon CurrentWeapon => _weaponInventory.CurrentWeapon;
 

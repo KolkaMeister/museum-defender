@@ -2,6 +2,7 @@ using System;
 using Dialogs.Answers;
 using Dialogs.Sideline;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using Zenject;
 
@@ -17,6 +18,7 @@ namespace Dialogs
         public float CloseTime;
         public Animator Animator;
         public AnswerGroup AnswerGroup;
+        public event Action ScreenClicked;
         
         [SerializeField] private Transform _answerContainer;
 
@@ -28,7 +30,13 @@ namespace Dialogs
             SpeakerName.Init(TypeInterval);
             AnswerGroup = new AnswerGroup(_answerContainer);
         }
-
+        private void Update()
+        {
+            if(Input .GetMouseButtonDown(0))
+            {
+                ScreenClicked?.Invoke();
+            }
+        }
         private void Start()
         {
             Clear();

@@ -13,6 +13,7 @@ public class Sword : MeleeWeapon
         AnimateAttack();
         DealDamage();
         _fireCooldown.Reset();
+        _audioSource.Play();
     }
 
     public override void ResetAttack()
