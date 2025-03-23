@@ -14,10 +14,11 @@ namespace UI
         {
             SwitchMenu(!IsActive);
         }
-
+        
         public void SwitchMenu(bool active)
         {
             IsActive = active;
+            _anim.updateMode = AnimatorUpdateMode.UnscaledTime;
             _anim.SetBool(_show, IsActive);
             _anim.SetBool(_hide, !IsActive);
         }

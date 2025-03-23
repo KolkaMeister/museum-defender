@@ -18,28 +18,23 @@ public class NotesUI : MonoBehaviour
     ItemListController itemListController = new ItemListController();
     [SerializeField]
     Character _character;
-    private void Awake()
-    {
-        _character.GetInventory().itemGrabed += OnCharacterInventory_ItemGrabbed;
-    }
-
+    [SerializeField] bool OpenOnStart = false;
     private void OnCharacterInventory_ItemGrabbed(NotesItem item)
     {
        AddItem(item);
     }
-
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.C))
-        {
-            Show();   
-        }
-        if(Input.GetKeyUp(KeyCode.Escape))
-        {
-            Hide(); 
-        }
+        //if (Input.GetKeyUp(KeyCode.C))
+        //{
+        //    Show();   
+        //}
+        //if(Input.GetKeyUp(KeyCode.Escape))
+        //{
+        //    Hide(); 
+        //}
     }
-    private void OnEnable()
+    private void Start()
     {
         UIDocument = GetComponent<UIDocument>();
         root = UIDocument.rootVisualElement;
@@ -49,8 +44,9 @@ public class NotesUI : MonoBehaviour
         //RightPanel = background.Q("RightPanel");
 
         itemListController.InitializeItemList(background, NotesItemAsset, UnlockAll);
-        Hide();
-
+        if (!OpenOnStart)
+            Hide();
+        _character.GetInventory().itemGrabed += OnCharacterInventory_ItemGrabbed;
     }
     public void AddItem(NotesItem notesItem)
     {
@@ -58,19 +54,25 @@ public class NotesUI : MonoBehaviour
     }
     public void Toggle()
     {
-        if (root.style.visibility == Visibility.Hidden)
+        if (IsOpen())
         {
-            Show();
+            Hide(); 
         }
         else
-            Hide();
+            Show();
     }
-    private void Hide()
+
+    public bool IsOpen()
+    {
+        return root.style.visibility != Visibility.Hidden;
+    }
+
+    public void Hide()
     {
         root.style.visibility = Visibility.Hidden;
         root.style.display = DisplayStyle.None;
     }
-    private void Show()
+    public void Show()
     {
         root.style.visibility = Visibility.Visible;
         root.style.display = DisplayStyle.Flex;
