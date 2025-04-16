@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,6 @@ using UnityEngine;
 public class SignalTowerQuest : CQuest
 {
     public int targetActive = 4;
-    public bool QuestDone = false;
     private int _interacted = 0;
     
     public int interacted {
@@ -18,6 +18,8 @@ public class SignalTowerQuest : CQuest
             QuestGo();
         }
     }
+
+
     private void Awake()
     {
         ProgressString = "Сигнальный огонь: \n";

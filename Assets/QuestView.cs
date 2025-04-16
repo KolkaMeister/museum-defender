@@ -27,6 +27,10 @@ public class QuestView : MonoBehaviour
                 Debug.Log(Quest.GetComponent<CQuest>().ProgressString);
                 GameObject.Find("QuestViewText").GetComponent<TMP_Text>().text += Quest.GetComponent<CQuest>().ProgressString + "\n";
             }
+            if(Quest.GetComponent<CQuest>(). QuestDone)
+            {
+                GameObject.Find("QuestViewText").GetComponent<TMP_Text>().text = "Выполнено";
+            }
         }
     }
 

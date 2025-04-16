@@ -25,7 +25,7 @@ public class SignalTowerInteract : MonoBehaviour, IInteractable
         {
             try
             {
-                bool a = GameObject.Find("SignalTowerQuest").activeSelf;
+                bool a = GameObject.Find("SignalTowerQuestGO").activeSelf;
             }
             catch
             {
@@ -39,7 +39,7 @@ public class SignalTowerInteract : MonoBehaviour, IInteractable
                 soundGor.Play();
                 try
                 {
-                    GameObject.Find("SignalTowerQuest").GetComponent<SignalTowerQuest>().interacted += 1;
+                    GameObject.Find("SignalTowerQuestGO").GetComponent<SignalTowerQuest>().AddProgress(1);
                 }
                 catch
                 {
@@ -49,7 +49,7 @@ public class SignalTowerInteract : MonoBehaviour, IInteractable
             }
             else
             {
-                try { GameObject.Find("SignalTowerQuest").GetComponent<SignalTowerQuest>().interacted -= 1; } catch { Debug.LogWarning("Что-то не так"); }
+                try { GameObject.Find("SignalTowerQuestGO").GetComponent<SignalTowerQuest>().interacted -= 1; } catch { Debug.LogWarning("Что-то не так"); }
             }
         }
     }

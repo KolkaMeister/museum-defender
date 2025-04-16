@@ -39,5 +39,9 @@ namespace Dialogs
                 return;
             _dialogSys.Start(_tree);
         }
+        public void ChangeDialog(DialogTree tree)
+        {
+            _tree = tree;
+        }
     }
 }
