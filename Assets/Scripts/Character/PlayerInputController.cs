@@ -1,3 +1,5 @@
+using System;
+using System.Reflection;
 using UI;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -109,7 +111,10 @@ public class PlayerInputController : MonoBehaviour
         _character.AimPos = _camera.ScreenToWorldPoint(_mousePosition);
         if (_isAttackPressed)
             _character.Attack();
-        
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            _character.SetCurrentWeaponIndex_2();
+        }
     }
 
     private enum WeaponNumber

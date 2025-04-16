@@ -1,4 +1,5 @@
 using System;
+using System.Reflection;
 using UnityEngine;
 
 public class WeaponsInventory
@@ -44,5 +45,19 @@ public class WeaponsInventory
         int lastIndex = _index;
         _index = index;
         OnUseChanged?.Invoke(weapons[lastIndex], weapons[_index]);
+    }
+    public void ChangeIndex_2()
+    {
+        int lastIndex = _index;
+        if (_index == 1)
+        {
+            _index = _index - 1;
+            OnUseChanged?.Invoke(weapons[lastIndex], weapons[_index]);
+        }
+        else
+        {
+            _index = _index + 1;
+            OnUseChanged?.Invoke(weapons[lastIndex], weapons[_index]);
+        }
     }
 }

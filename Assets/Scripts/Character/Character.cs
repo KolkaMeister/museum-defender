@@ -162,6 +162,7 @@ public class Character : MonoBehaviour, ITakeDamage
     //////////Weapons Methods//////////
     public void TakeWeapon(Weapon wep) => _inventory.TakeWeapon(wep);
     public void SetCurrentWeaponIndex(int weaponIndex) => _inventory.SetCurrentWeaponIndex(weaponIndex);
+    public void SetCurrentWeaponIndex_2() => _inventory.SetCurrentWeaponIndex_2();
     public void ReloadWeapon() => _inventory.Reload();
 
     public void Attack()
