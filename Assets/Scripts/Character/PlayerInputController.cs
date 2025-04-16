@@ -90,8 +90,13 @@ public class PlayerInputController : MonoBehaviour
     {
         if (!context.performed)
             return;
-
-        WeaponNumber index = context.control == context.action.controls[0] 
+        _character.SetCurrentWeaponIndex_2();
+    }
+    public void SetWeapon(InputAction.CallbackContext context)
+    {
+        if (!context.performed)
+            return;
+        WeaponNumber index = context.control == context.action.controls[0]
             ? WeaponNumber.First : WeaponNumber.Second;
         _character.SetCurrentWeaponIndex((int)index);
     }
@@ -111,10 +116,6 @@ public class PlayerInputController : MonoBehaviour
         _character.AimPos = _camera.ScreenToWorldPoint(_mousePosition);
         if (_isAttackPressed)
             _character.Attack();
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            _character.SetCurrentWeaponIndex_2();
-        }
     }
 
     private enum WeaponNumber
