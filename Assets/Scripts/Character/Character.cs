@@ -229,7 +229,7 @@ public class Character : MonoBehaviour, ITakeDamage
         }
     }
 
-#if UNITY_EDITOR
+    #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         Handles.color = new Color(1, 1, 0, 0.1f);
@@ -240,7 +240,7 @@ public class Character : MonoBehaviour, ITakeDamage
     {
         _dashSpeed = _dashTime == 0 ? 0 : _dashDistance / _dashTime;
     }
-
+    #endif
     internal Inventory GetInventory()
     {
         return _inventory;
@@ -250,5 +250,5 @@ public class Character : MonoBehaviour, ITakeDamage
     {
         _inventory.AddNote(notesItem);
     }
-#endif
+
 }
