@@ -17,7 +17,10 @@ namespace Dialogs.States
 
         public void Enter()
         {
-            _node = _controller.GetNextNode();
+            var node = _controller.GetNextNode();
+            if(node == null) 
+                return;
+            _node = node;
             _box.Speech.SetText(_node.Text, true);
             _box.SpeakerName.SetText(_node.Name, true);
 

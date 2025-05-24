@@ -1,11 +1,14 @@
 using System;
 using System.Collections;
 using Dialogs.Sideline;
+using Newtonsoft.Json.Linq;
 using UI;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
+using UnityEngine.TextCore.Text;
 
 public class Character : MonoBehaviour, ITakeDamage
 {
@@ -68,8 +71,7 @@ public class Character : MonoBehaviour, ITakeDamage
         set
         {
             _aimPos = value;
-            CalculateScale(value);
-            _inventory.CalculateWeaponRotation(value);
+            
         }
     }
 
@@ -95,8 +97,9 @@ public class Character : MonoBehaviour, ITakeDamage
         TryGetComponent(out _ai);
         if (_dialogView)
             _dialogView.SetActive(false);
-    }
 
+        _animator.updateMode = AnimatorUpdateMode.AnimatePhysics;
+    }
     private void OnEnable()
     {
         _health.OnChanged += OnHealthChanged;
@@ -109,7 +112,15 @@ public class Character : MonoBehaviour, ITakeDamage
 
     public void Update()
     {
+        Debug.Log("char update");
         Velocity();
+        Aim();
+    }
+
+    private void Aim()
+    {
+        CalculateScale(_aimPos);
+        _inventory.CalculateWeaponRotation(_aimPos);
     }
 
     private void Velocity()
@@ -228,6 +239,16 @@ public class Character : MonoBehaviour, ITakeDamage
     private void OnValidate()
     {
         _dashSpeed = _dashTime == 0 ? 0 : _dashDistance / _dashTime;
+    }
+
+    internal Inventory GetInventory()
+    {
+        return _inventory;
+    }
+
+    internal void AddItem(NotesItem notesItem)
+    {
+        _inventory.AddNote(notesItem);
     }
 #endif
 }

@@ -76,6 +76,33 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ToggleNotes",
+                    "type": "Button",
+                    "id": "d133394f-ab46-4ae7-a485-d8a436d8ce28",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ToggleMap",
+                    "type": "Button",
+                    "id": "0e7387cc-22e5-4c78-97c9-f6484bfb4b6b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SetWeapon",
+                    "type": "Button",
+                    "id": "ea6369fa-ee25-4be8-80db-eb44b86bd652",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -158,19 +185,8 @@
                 },
                 {
                     "name": "",
-                    "id": "a1ca5849-d9d4-4df2-b1c6-5809109eeb13",
-                    "path": "<Keyboard>/1",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "SwitchWeapon",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "8324b272-d583-4f18-a822-8998c0f3dfbc",
-                    "path": "<Keyboard>/2",
+                    "id": "28b70b2a-3d02-4964-b4db-bb1c4f5c32f9",
+                    "path": "<Keyboard>/tab",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -219,6 +235,50 @@
                     "processors": "",
                     "groups": "",
                     "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "592e08fd-b192-4fd9-bc48-160588ce4260",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleNotes",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "821973e2-0be7-4993-96ae-7a0d1d5c457f",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleMap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e3f9b955-cd39-4959-9705-b5495addecd3",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SetWeapon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "26b7570f-c6ef-46a8-b510-c9187bddab71",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SetWeapon",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

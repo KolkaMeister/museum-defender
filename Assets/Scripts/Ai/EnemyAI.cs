@@ -191,8 +191,9 @@ public class EnemyAI : MonoBehaviour
         }
         else if ((DistToTarget <= stopDistance - pogr) && !stop)
         {
-            dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
-            Char.MoveDirection = new Vector2(-dir.x, -dir.y);
+            Char.MoveDirection = Vector2.zero;
+            //dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
+            //Char.MoveDirection = new Vector2(-dir.x, -dir.y);
         }
         else
         {

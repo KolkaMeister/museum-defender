@@ -4,6 +4,7 @@ using Dialogs.Nodes;
 using Dialogs.States;
 using JetBrains.Annotations;
 using UnityEngine.Events;
+using UnityEngine.UIElements;
 using Zenject;
 
 namespace Dialogs
@@ -31,8 +32,8 @@ namespace Dialogs
 
         public void Initialize()
         {
-            _box.Button.onClick.AddListener(OnClickedCallback);
-            
+            //_box.Button.onClick.AddListener(OnClickedCallback);
+            _box.ScreenClicked += OnClickedCallback;
             var list = _box.AnswerGroup.GetItems();
             for (var i = 0; i < list.Count; i++)
             {
@@ -44,8 +45,9 @@ namespace Dialogs
 
         public void Dispose()
         {
-            _box.Button.onClick.RemoveListener(OnClickedCallback);
-            
+            //_box.Button.onClick.RemoveListener(OnClickedCallback);
+            _box.ScreenClicked -= OnClickedCallback;
+
             var list = _box.AnswerGroup.GetItems();
             for (var i = 0; i < list.Count; i++)
             {
@@ -78,7 +80,7 @@ namespace Dialogs
             _machine.Update();
         }
 
-        private void OnClickedCallback()
+        public void OnClickedCallback()
         {
             if (_machine.GetCurrentState is TypePhraseState)
                 _machine.ChangeState<WaitDialogState>();

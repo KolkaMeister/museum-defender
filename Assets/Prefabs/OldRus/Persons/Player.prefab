@@ -296,6 +296,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 4453bbd7-1d39-4b50-ae12-6b310b00072f
     m_ActionName: Player/Dash[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4030189607167085552}
+        m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
+        m_MethodName: ToggleNotes
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d133394f-ab46-4ae7-a485-d8a436d8ce28
+    m_ActionName: Player/ToggleNotes[/Keyboard/c]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4030189607167085552}
+        m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
+        m_MethodName: ToggleMap
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0e7387cc-22e5-4c78-97c9-f6484bfb4b6b
+    m_ActionName: Player/ToggleMap[/Keyboard/m]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -314,6 +346,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _character: {fileID: 4030189607167085555}
+  _notesUI: {fileID: 0}
+  _mapCamera: {fileID: 0}
   _isAttackPressed: 0
 --- !u!114 &4030189607167085555
 MonoBehaviour:

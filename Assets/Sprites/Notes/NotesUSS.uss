@@ -1,0 +1,14 @@
+#ItemList .unity-scroller--vertical {
+    display: flex;
+    width: -46px;
+}
+
+.unity-scroller--vertical {
+    visibility: hidden;
+    display: none;
+}
+
+.unity-scroller--horizontal {
+    display: none;
+    visibility: hidden;
+}

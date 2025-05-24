@@ -1,9 +1,13 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TensionWeapon : RangeWeapon
 {
     [SerializeField] protected Transform _arrowHoldPoint;
     [SerializeField] protected Projectile _strungArrow;
+    [SerializeField] float ArrowDelay;
+    private bool isShooting = false;
 
     private void Start()
     {
@@ -14,14 +18,23 @@ public class TensionWeapon : RangeWeapon
     public override void Attack()
     {
         //Debug.Log("Attack");
+    
         if (!_strungArrow) return;
-
+        if (isShooting) return;
+        StartCoroutine(AttackingCoroutine());
+       
+    }
+    
+    private IEnumerator AttackingCoroutine()
+    {
+        isShooting = true;
+        _audioSource.Play();
+        yield return new WaitForSeconds(ArrowDelay);
         _strungArrow.Shot(_arrowHoldPoint.position - _holdPoint.position, _force, _attackLayer);
         _strungArrow = null;
         _currentAmmo--;
-        _audioSource.Play();
+        isShooting = false;
     }
-    
     public override void Reload(int count)
     {
         //Debug.Log("Reload");

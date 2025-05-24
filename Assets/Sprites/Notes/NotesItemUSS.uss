@@ -1,0 +1,14 @@
+.unity-list-view__item {
+}
+
+.unity-list-view__item:hover {
+    background-color: blue;
+}
+
+.unity-list-view__item--selected {
+    background-color: yellow;
+}
+
+.unity-list-view__item--selected:hover {
+    background-color: green;
+}
